@@ -354,8 +354,8 @@ call flexapi#class('BitmapData', 'Object', ['IBitmapDrawable'], [
   \ flexapi#method(0,'getPixel(', 'x:int, y:int)', 'uint'),
   \ flexapi#method(0,'getPixel32(', 'x:int, y:int)', 'uint'),
   \ flexapi#method(0,'getPixels(', 'rect:Rectangle)', 'ByteArray'),
-  \ flexapi#method(0,'getVector(', 'rect:Rectangle)', 'Vector.&lt;uint&gt;'),
-  \ flexapi#method(0,'histogram(', 'hRect:Rectangle = null)', 'Vector.&lt;Vector.&lt;Number&gt;&gt;'),
+  \ flexapi#method(0,'getVector(', 'rect:Rectangle)', 'Vector.<uint>'),
+  \ flexapi#method(0,'histogram(', 'hRect:Rectangle = null)', 'Vector.<Vector.<Number>'),
   \ flexapi#method(0,'hitTest(', 'firstPoint:Point, firstAlphaThreshold:uint, secondObject:Object, secondBitmapDataPoint:Point = null, secondAlphaThreshold:uint = 1)', 'Boolean'),
   \ flexapi#method(0,'lock(', ')', 'void'),
   \ flexapi#method(0,'merge(', 'sourceBitmapData:BitmapData, sourceRect:Rectangle, destPoint:Point, redMultiplier:uint, greenMultiplier:uint, blueMultiplier:uint, alphaMultiplier:uint)', 'void'),
@@ -367,7 +367,7 @@ call flexapi#class('BitmapData', 'Object', ['IBitmapDrawable'], [
   \ flexapi#method(0,'setPixel(', 'x:int, y:int, color:uint)', 'void'),
   \ flexapi#method(0,'setPixel32(', 'x:int, y:int, color:uint)', 'void'),
   \ flexapi#method(0,'setPixels(', 'rect:Rectangle, inputByteArray:ByteArray)', 'void'),
-  \ flexapi#method(0,'setVector(', 'rect:Rectangle, inputVector:Vector.&lt;uint&gt;)', 'void'),
+  \ flexapi#method(0,'setVector(', 'rect:Rectangle, inputVector:Vector.<uint>)', 'void'),
   \ flexapi#method(0,'threshold(', 'sourceBitmapData:BitmapData, sourceRect:Rectangle, destPoint:Point, operation:String, threshold:uint, color:uint = 0, mask:uint = 0xFFFFFFFF, copySource:Boolean = false)', 'uint'),
   \ flexapi#method(0,'unlock(', 'changeRect:Rectangle = null)', 'void'),
   \ ])
@@ -515,11 +515,11 @@ call flexapi#class('Graphics', 'Object', [], [
   \ flexapi#method(0,'curveTo(', 'controlX:Number, controlY:Number, anchorX:Number, anchorY:Number)', 'void'),
   \ flexapi#method(0,'drawCircle(', 'x:Number, y:Number, radius:Number)', 'void'),
   \ flexapi#method(0,'drawEllipse(', 'x:Number, y:Number, width:Number, height:Number)', 'void'),
-  \ flexapi#method(0,'drawGraphicsData(', 'graphicsData:Vector.&lt;IGraphicsData&gt;)', 'void'),
-  \ flexapi#method(0,'drawPath(', 'commands:Vector.&lt;int&gt;, data:Vector.&lt;Number&gt;, winding:String = "evenOdd")', 'void'),
+  \ flexapi#method(0,'drawGraphicsData(', 'graphicsData:Vector.<IGraphicsData>)', 'void'),
+  \ flexapi#method(0,'drawPath(', 'commands:Vector.<int>, data:Vector.<Number>, winding:String = "evenOdd")', 'void'),
   \ flexapi#method(0,'drawRect(', 'x:Number, y:Number, width:Number, height:Number)', 'void'),
   \ flexapi#method(0,'drawRoundRect(', 'x:Number, y:Number, width:Number, height:Number, ellipseWidth:Number, ellipseHeight:Number = NaN)', 'void'),
-  \ flexapi#method(0,'drawTriangles(', 'vertices:Vector.&lt;Number&gt;, indices:Vector.&lt;int&gt; = null, uvtData:Vector.&lt;Number&gt; = null, culling:String = "none")', 'void'),
+  \ flexapi#method(0,'drawTriangles(', 'vertices:Vector.<Number>, indices:Vector.<int> = null, uvtData:Vector.<Number> = null, culling:String = "none")', 'void'),
   \ flexapi#method(0,'endFill(', ')', 'void'),
   \ flexapi#method(0,'lineBitmapStyle(', 'bitmap:BitmapData, matrix:Matrix = null, repeat:Boolean = true, smooth:Boolean = false)', 'void'),
   \ flexapi#method(0,'lineGradientStyle(', 'type:String, colors:Array, alphas:Array, ratios:Array, matrix:Matrix = null, spreadMethod:String = "pad", interpolationMethod:String = "rgb", focalPointRatio:Number = 0)', 'void'),
@@ -558,10 +558,10 @@ call flexapi#class('GraphicsGradientFill', 'Object', ['IGraphicsFill', 'IGraphic
 
 call flexapi#namespace('flash.display')
 call flexapi#class('GraphicsPath', 'Object', ['IGraphicsPath', 'IGraphicsData'], [
-  \ flexapi#field(0, 'commands', 'Vector.&lt;int&gt;'),
-  \ flexapi#field(0, 'data', 'Vector.&lt;Number&gt;'),
+  \ flexapi#field(0, 'commands', 'Vector.<int>'),
+  \ flexapi#field(0, 'data', 'Vector.<Number>'),
   \ flexapi#field(0, 'winding', 'String'),
-  \ flexapi#method(0,'GraphicsPath(', 'commands:Vector.&lt;int&gt; = null, data:Vector.&lt;Number&gt; = null, winding:String = "evenOdd")', ''),
+  \ flexapi#method(0,'GraphicsPath(', 'commands:Vector.<int> = null, data:Vector.<Number> = null, winding:String = "evenOdd")', ''),
   \ flexapi#method(0,'curveTo(', 'controlX:Number, controlY:Number, anchorX:Number, anchorY:Number)', 'void'),
   \ flexapi#method(0,'lineTo(', 'x:Number, y:Number)', 'void'),
   \ flexapi#method(0,'moveTo(', 'x:Number, y:Number)', 'void'),
@@ -614,10 +614,10 @@ call flexapi#class('GraphicsStroke', 'Object', ['IGraphicsStroke', 'IGraphicsDat
 call flexapi#namespace('flash.display')
 call flexapi#class('GraphicsTrianglePath', 'Object', ['IGraphicsPath', 'IGraphicsData'], [
   \ flexapi#field(0, 'culling', 'String'),
-  \ flexapi#field(0, 'indices', 'Vector.&lt;int&gt;'),
-  \ flexapi#field(0, 'uvtData', 'Vector.&lt;Number&gt;'),
-  \ flexapi#field(0, 'vertices', 'Vector.&lt;Number&gt;'),
-  \ flexapi#method(0,'GraphicsTrianglePath(', 'vertices:Vector.&lt;Number&gt; = null, indices:Vector.&lt;int&gt; = null, uvtData:Vector.&lt;Number&gt; = null, culling:String = "none")', ''),
+  \ flexapi#field(0, 'indices', 'Vector.<int>'),
+  \ flexapi#field(0, 'uvtData', 'Vector.<Number>'),
+  \ flexapi#field(0, 'vertices', 'Vector.<Number>'),
+  \ flexapi#method(0,'GraphicsTrianglePath(', 'vertices:Vector.<Number> = null, indices:Vector.<int> = null, uvtData:Vector.<Number> = null, culling:String = "none")', ''),
   \ ])
 
 call flexapi#namespace('flash.display')
@@ -1630,8 +1630,8 @@ call flexapi#namespace('flash.events')
 call flexapi#class('ShaderEvent', 'Event', [], [
   \ flexapi#field(0, 'bitmapData', 'BitmapData'),
   \ flexapi#field(0, 'byteArray', 'ByteArray'),
-  \ flexapi#field(0, 'vector', 'Vector.&lt;Number&gt;'),
-  \ flexapi#method(0,'ShaderEvent(', 'type:String, bubbles:Boolean = false, cancelable:Boolean = false, bitmap:BitmapData = null, array:ByteArray = null, vector:Vector.&lt;Number&gt; = null)', ''),
+  \ flexapi#field(0, 'vector', 'Vector.<Number>'),
+  \ flexapi#method(0,'ShaderEvent(', 'type:String, bubbles:Boolean = false, cancelable:Boolean = false, bitmap:BitmapData = null, array:ByteArray = null, vector:Vector.<Number> = null)', ''),
   \ flexapi#method(0,'clone(', ')', 'Event '),
   \ flexapi#method(0,'toString(', ')', 'String '),
   \ flexapi#field(1, 'COMPLETE', 'String'),
@@ -1990,14 +1990,14 @@ call flexapi#namespace('flash.geom')
 call flexapi#class('Matrix3D', 'Object', [], [
   \ flexapi#field(0, 'determinant', 'Number '),
   \ flexapi#field(0, 'position', 'Vector3D'),
-  \ flexapi#field(0, 'rawData', 'Vector.&lt;Number&gt;'),
-  \ flexapi#method(0,'Matrix3D(', 'v:Vector.&lt;Number&gt; = null)', ''),
+  \ flexapi#field(0, 'rawData', 'Vector.<Number>'),
+  \ flexapi#method(0,'Matrix3D(', 'v:Vector.<Number> = null)', ''),
   \ flexapi#method(0,'append(', 'lhs:Matrix3D)', 'void'),
   \ flexapi#method(0,'appendRotation(', 'degrees:Number, axis:Vector3D, pivotPoint:Vector3D = null)', 'void'),
   \ flexapi#method(0,'appendScale(', 'xScale:Number, yScale:Number, zScale:Number)', 'void'),
   \ flexapi#method(0,'appendTranslation(', 'x:Number, y:Number, z:Number)', 'void'),
   \ flexapi#method(0,'clone(', ')', 'Matrix3D'),
-  \ flexapi#method(0,'decompose(', 'orientationStyle:String = "eulerAngles")', 'Vector.&lt;Vector3D&gt;'),
+  \ flexapi#method(0,'decompose(', 'orientationStyle:String = "eulerAngles")', 'Vector.<Vector3D>'),
   \ flexapi#method(0,'deltaTransformVector(', 'v:Vector3D)', 'Vector3D'),
   \ flexapi#method(0,'identity(', ')', 'void'),
   \ flexapi#method(1,'interpolate(', 'thisMat:Matrix3D, toMat:Matrix3D, percent:Number)', 'Matrix3D'),
@@ -2008,9 +2008,9 @@ call flexapi#class('Matrix3D', 'Object', [], [
   \ flexapi#method(0,'prependRotation(', 'degrees:Number, axis:Vector3D, pivotPoint:Vector3D = null)', 'void'),
   \ flexapi#method(0,'prependScale(', 'xScale:Number, yScale:Number, zScale:Number)', 'void'),
   \ flexapi#method(0,'prependTranslation(', 'x:Number, y:Number, z:Number)', 'void'),
-  \ flexapi#method(0,'recompose(', 'components:Vector.&lt;Vector3D&gt;, orientationStyle:String = "eulerAngles")', 'Boolean'),
+  \ flexapi#method(0,'recompose(', 'components:Vector.<Vector3D>, orientationStyle:String = "eulerAngles")', 'Boolean'),
   \ flexapi#method(0,'transformVector(', 'v:Vector3D)', 'Vector3D'),
-  \ flexapi#method(0,'transformVectors(', 'vin:Vector.&lt;Number&gt;, vout:Vector.&lt;Number&gt;)', 'void'),
+  \ flexapi#method(0,'transformVectors(', 'vin:Vector.<Number>, vout:Vector.<Number>)', 'void'),
   \ flexapi#method(0,'transpose(', ')', 'void'),
   \ ])
 
@@ -2095,7 +2095,7 @@ call flexapi#namespace('flash.geom')
 call flexapi#class('Utils3D', 'Object', [], [
   \ flexapi#method(1,'pointTowards(', 'percent:Number, mat:Matrix3D, pos:Vector3D, at:Vector3D = null, up:Vector3D = null)', 'Matrix3D'),
   \ flexapi#method(1,'projectVector(', 'm:Matrix3D, v:Vector3D)', 'Vector3D'),
-  \ flexapi#method(1,'projectVectors(', 'm:Matrix3D, verts:Vector.&lt;Number&gt;, projectedVerts:Vector.&lt;Number&gt;, uvts:Vector.&lt;Number&gt;)', 'void'),
+  \ flexapi#method(1,'projectVectors(', 'm:Matrix3D, verts:Vector.<Number>, projectedVerts:Vector.<Number>, uvts:Vector.<Number>)', 'void'),
   \ ])
 
 call flexapi#namespace('flash.geom')
@@ -3326,14 +3326,14 @@ call flexapi#class('GraphicElement', 'ContentElement', [], [
 call flexapi#namespace('flash.text.engine')
 call flexapi#class('GroupElement', 'ContentElement', [], [
   \ flexapi#field(0, 'elementCount', 'int '),
-  \ flexapi#method(0,'GroupElement(', 'elements:Vector.&lt;ContentElement&gt; = null, elementFormat:ElementFormat = null, eventMirror:EventDispatcher = null, textRotation:String = "rotate0")', ''),
+  \ flexapi#method(0,'GroupElement(', 'elements:Vector.<ContentElement> = null, elementFormat:ElementFormat = null, eventMirror:EventDispatcher = null, textRotation:String = "rotate0")', ''),
   \ flexapi#method(0,'getElementAt(', 'index:int)', 'ContentElement'),
   \ flexapi#method(0,'getElementAtCharIndex(', 'charIndex:int)', 'ContentElement'),
   \ flexapi#method(0,'getElementIndex(', 'element:ContentElement)', 'int'),
   \ flexapi#method(0,'groupElements(', 'beginIndex:int, endIndex:int)', 'GroupElement'),
   \ flexapi#method(0,'mergeTextElements(', 'beginIndex:int, endIndex:int)', 'flash.text.engine:TextElement'),
-  \ flexapi#method(0,'replaceElements(', 'beginIndex:int, endIndex:int, newElements:Vector.&lt;ContentElement&gt;)', 'Vector.&lt;ContentElement&gt;'),
-  \ flexapi#method(0,'setElements(', 'value:Vector.&lt;ContentElement&gt;)', 'void'),
+  \ flexapi#method(0,'replaceElements(', 'beginIndex:int, endIndex:int, newElements:Vector.<ContentElement>)', 'Vector.<ContentElement>'),
+  \ flexapi#method(0,'setElements(', 'value:Vector.<ContentElement>)', 'void'),
   \ flexapi#method(0,'splitTextElement(', 'elementIndex:int, splitIndex:int)', 'flash.text.engine:TextElement'),
   \ flexapi#method(0,'ungroupElements(', 'groupIndex:int)', 'void'),
   \ ])
@@ -3420,11 +3420,11 @@ call flexapi#class('TextBlock', 'Object', [], [
   \ flexapi#field(0, 'firstLine', 'flash.text.engine:TextLine '),
   \ flexapi#field(0, 'lastLine', 'flash.text.engine:TextLine '),
   \ flexapi#field(0, 'lineRotation', 'String'),
-  \ flexapi#field(0, 'tabStops', 'Vector.&lt;flash.text.engine:TabStop&gt;'),
+  \ flexapi#field(0, 'tabStops', 'Vector.<flash.text.engine:TabStop>'),
   \ flexapi#field(0, 'textJustifier', 'flash.text.engine:TextJustifier'),
   \ flexapi#field(0, 'textLineCreationResult', 'String '),
   \ flexapi#field(0, 'userData', '*'),
-  \ flexapi#method(0,'TextBlock(', 'content:ContentElement = null, tabStops:Vector.&lt;flash.text.engine:TabStop&gt; = null, textJustifier:flash.text.engine:TextJustifier = null, lineRotation:String = "rotate0", baselineZero:String = "roman", bidiLevel:int = 0, applyNonLinearFontScaling:Boolean = true, baselineFontDescription:FontDescription = null, baselineFontSize:Number = 12.0)', ''),
+  \ flexapi#method(0,'TextBlock(', 'content:ContentElement = null, tabStops:Vector.<flash.text.engine:TabStop> = null, textJustifier:flash.text.engine:TextJustifier = null, lineRotation:String = "rotate0", baselineZero:String = "roman", bidiLevel:int = 0, applyNonLinearFontScaling:Boolean = true, baselineFontDescription:FontDescription = null, baselineFontSize:Number = 12.0)', ''),
   \ flexapi#method(0,'createTextLine(', 'previousLine:flash.text.engine:TextLine = null, width:Number = 1000000, lineOffset:Number = 0.0, fitSomething:Boolean = false)', 'flash.text.engine:TextLine'),
   \ flexapi#method(0,'dump(', ')', 'String'),
   \ flexapi#method(0,'findNextAtomBoundary(', 'afterCharIndex:int)', 'int'),
@@ -3457,7 +3457,7 @@ call flexapi#class('TextLine', 'DisplayObjectContainer', [], [
   \ flexapi#field(0, 'atomCount', 'int '),
   \ flexapi#field(0, 'descent', 'Number '),
   \ flexapi#field(0, 'hasGraphicElement', 'Boolean '),
-  \ flexapi#field(0, 'mirrorRegions', 'Vector.&lt;flash.text.engine:TextLineMirrorRegion&gt; '),
+  \ flexapi#field(0, 'mirrorRegions', 'Vector.<flash.text.engine:TextLineMirrorRegion> '),
   \ flexapi#field(0, 'nextLine', 'flash.text.engine:TextLine '),
   \ flexapi#field(0, 'previousLine', 'flash.text.engine:TextLine '),
   \ flexapi#field(0, 'rawTextLength', 'int '),
@@ -3552,7 +3552,7 @@ call flexapi#class('CompositionAttributeRange', 'Object', [], [
   \ flexapi#method(0,'getTextBounds(', 'startIndex:int, endIndex:int)', 'Rectangle'),
   \ flexapi#method(0,'getTextInRange(', 'startIndex:int, endIndex:int)', 'String '),
   \ flexapi#method(0,'selectRange(', 'anchorIndex:int, activeIndex:int)', 'void '),
-  \ flexapi#method(0,'updateComposition(', 'text:String, attributes:Vector.&lt;CompositionAttributeRange&gt;, compositionStartIndex:int, compositionEndIndex:int)', 'void'),
+  \ flexapi#method(0,'updateComposition(', 'text:String, attributes:Vector.<CompositionAttributeRange>, compositionStartIndex:int, compositionEndIndex:int)', 'void'),
   \ ])
 
 call flexapi#namespace('flash.ui')
