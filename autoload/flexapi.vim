@@ -384,7 +384,14 @@ function! s:find_type(start_line, var)
     let l = rng[0]
     while l <= rng[1]
       let line = s:normalize_prop(getline(l))
+      let hit = 0
+      if l >= s && l <= a:start_line && line =~ '\<' . a:var . '\>\s*:\s*[a-zA-Z0-9_]\+'
+        let hit = 1
+      endif
       if line =~ '\<var\>\s\+\<' . a:var . '\>\s*:\s*[a-zA-Z0-9_]\+'
+        let hit = 1
+      endif
+      if hit == 1
         let start = stridx(line, ':') + 1
         let end   = matchend(line, ':\s*[a-zA-Z0-9_]\+')
         let class = line[ start : end-1 ]
