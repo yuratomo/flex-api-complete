@@ -336,8 +336,8 @@ function! s:class_member_completion(base, res, type)
       if !has_key(s:primitive_dict, item.name)
         call add(a:res, flexapi#member_to_compitem('new ' . item.name . '(', {}))
       endif
-      if empty(res)
-        call flexapi#class_completion(a:base, res)
+      if empty(a:res)
+        call flexapi#class_completion(a:base, a:res)
       endif
     else
       call s:attr_completion(item.name, a:base, a:res, 1)
@@ -490,10 +490,14 @@ function! flexapi#member_to_compitem(class, member)
       \ 'dup'  : 1,
       \}
   else
+    let static = ''
+    if a:member.static == 1
+      let static = 'static '
+    endif
     return {
       \ 'word' : a:member.name,
       \ 'abbr' : s:abbr(a:member.name),
-      \ 'menu' : '[' . a:class . '] ' . a:member.class . ' ' . a:member.name . a:member.detail,
+      \ 'menu' : '[' . a:class . '] ' . static . a:member.name . a:member.detail . ':' . a:member.class,
       \ 'kind' : a:member.kind,
       \ 'dup'  : 1,
       \}
@@ -522,12 +526,13 @@ function! s:func_to_compitem(func)
   if has_key(a:func, 'file') && a:func.file != ''
     let preinfo .= '[' . a:func.file . '] '
   endif
+  let retval = ''
   if has_key(a:func, 'retval') && a:func.retval != ''
-    let preinfo .= a:func.retval . ' '
+    let retval = ':' . a:func.retval
   endif
   return {
     \ 'word' : a:func.name, 
-    \ 'menu' : preinfo . a:func.name . a:func.signature,
+    \ 'menu' : preinfo . a:func.name . a:func.signature . retval,
     \ 'kind' : 'f',
     \}
 endfunction
@@ -636,7 +641,7 @@ function! flexapi#get(static, name, class)
     \ 'name'   : a:name,
     \ 'class'  : a:class,
     \ 'static' : a:static,
-    \ 'detail' : 'get',
+    \ 'detail' : '',
     \ }
 endfunction
 
@@ -647,33 +652,11 @@ function! flexapi#set(static, name, class)
     \ 'name'   : a:name,
     \ 'class'  : a:class,
     \ 'static' : a:static,
-    \ 'detail' : 'set',
+    \ 'detail' : '',
     \ }
 endfunction
 
 function! flexapi#const(static, name, class)
-  return {
-    \ 'type'   : s:TYPE_FIELD,
-    \ 'kind'   : 'v', 
-    \ 'name'   : a:name,
-    \ 'class'  : a:class,
-    \ 'static' : a:static,
-    \ 'detail' : 'set',
-    \ }
-endfunction
-
-function! flexapi#get(static, name, class)
-  return {
-    \ 'type'   : s:TYPE_FIELD,
-    \ 'kind'   : 'v', 
-    \ 'name'   : a:name,
-    \ 'class'  : a:class,
-    \ 'static' : a:static,
-    \ 'detail' : 'get',
-    \ }
-endfunction
-
-function! flexapi#set(static, name, class)
   return {
     \ 'type'   : s:TYPE_FIELD,
     \ 'kind'   : 'v', 
@@ -845,7 +828,10 @@ function! s:prevNextRef(adjust)
       let b:ref.index = len(b:ref.items) - 1
     endif
     let idx = b:ref.index + 1
-    let &l:statusline = '(' . idx . '/' . len(b:ref.items) . ') %#Function#' . s:toStatusLineString(b:ref.items[ b:ref.index ])
+    let def = s:toStatusLineString(b:ref.items[ b:ref.index ])
+    if def != ''
+      let &l:statusline = '(' . idx . '/' . len(b:ref.items) . ') %#Function#' . def
+    endif
   endif
   return ""
 endfunction
