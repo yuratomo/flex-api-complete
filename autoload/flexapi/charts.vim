@@ -193,7 +193,7 @@ call flexapi#class('Legend', 'UIComponent', ['IContainer'], [
   \ flexapi#get(0, 'dataProvider', 'Object'),
   \ ])
 
-call flexapi#class('= LegendItem;', '', [], [
+call flexapi#class('LegendRawChildrenList', '', [], [
   \ flexapi#get(0, 'autoLayout', 'Boolean'),
   \ flexapi#set(0, 'autoLayout', 'Boolean'),
   \ flexapi#get(0, 'borderMetrics', 'EdgeMetrics'),
@@ -690,16 +690,16 @@ call flexapi#interface('IAxis', 'IEventDispatcher', [], [
   \ flexapi#get(0, 'displayName', 'String'),
   \ flexapi#get(0, 'title', 'String'),
   \ flexapi#get(0, 'unitSize', 'Number'),
-  \ flexapi#method(0, 'invertTransform(', 'value:Number)', 'Object;'),
+  \ flexapi#method(0, 'invertTransform(', 'value:Number)', 'Object'),
   \ flexapi#method(0, 'formatForScreen(', 'value:Object)', 'String   '),
-  \ flexapi#method(0, 'getLabelEstimate(', ')', 'AxisLabelSet;'),
-  \ flexapi#method(0, 'preferDropLabels(', ')', 'Boolean;'),
-  \ flexapi#method(0, 'getLabels(', 'minimumAxisLength:Number)', 'AxisLabelSet;'),
-  \ flexapi#method(0, 'reduceLabels(', 'intervalStart:AxisLabel, intervalEnd:AxisLabel)', 'AxisLabelSet;'),
-  \ flexapi#method(0, 'registerDataTransform(', 'transform:DataTransform, dimensionName:String)', 'void;'),
-  \ flexapi#method(0, 'unregisterDataTransform(', 'transform:DataTransform)', 'void;'),
-  \ flexapi#method(0, 'dataChanged(', ')', 'void;'),
-  \ flexapi#method(0, 'update(', ')', 'void;'),
+  \ flexapi#method(0, 'getLabelEstimate(', ')', 'AxisLabelSet'),
+  \ flexapi#method(0, 'preferDropLabels(', ')', 'Boolean'),
+  \ flexapi#method(0, 'getLabels(', 'minimumAxisLength:Number)', 'AxisLabelSet'),
+  \ flexapi#method(0, 'reduceLabels(', 'intervalStart:AxisLabel, intervalEnd:AxisLabel)', 'AxisLabelSet'),
+  \ flexapi#method(0, 'registerDataTransform(', 'transform:DataTransform, dimensionName:String)', 'void'),
+  \ flexapi#method(0, 'unregisterDataTransform(', 'transform:DataTransform)', 'void'),
+  \ flexapi#method(0, 'dataChanged(', ')', 'void'),
+  \ flexapi#method(0, 'update(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')
@@ -714,8 +714,8 @@ call flexapi#interface('IAxisRenderer', 'IUIComponent', [], [
   \ flexapi#set(0, 'horizontal', 'Boolean'),
   \ flexapi#get(0, 'placement', 'String'),
   \ flexapi#set(0, 'placement', 'String'),
-  \ flexapi#method(0, 'adjustGutters(', 'workingGutters:Rectangle, adjustable:Object)', 'Rectangle;'),
-  \ flexapi#method(0, 'chartStateChanged(', 'oldState:uint,v:uint)', 'void;'),
+  \ flexapi#method(0, 'adjustGutters(', 'workingGutters:Rectangle, adjustable:Object)', 'Rectangle'),
+  \ flexapi#method(0, 'chartStateChanged(', 'oldState:uint,v:uint)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')
@@ -730,13 +730,13 @@ call flexapi#interface('IChartElement', 'IFlexDisplayObject', [], [
   \ flexapi#set(0, 'chartDataProvider', 'Object'),
   \ flexapi#set(0, 'dataTransform', 'DataTransform'),
   \ flexapi#get(0, 'labelContainer', 'Sprite'),
-  \ flexapi#method(0, 'mappingChanged(', ')', 'void;'),
-  \ flexapi#method(0, 'chartStateChanged(', 'oldState:uint,v:uint)', 'void;'),
+  \ flexapi#method(0, 'mappingChanged(', ')', 'void'),
+  \ flexapi#method(0, 'chartStateChanged(', 'oldState:uint,v:uint)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')
 call flexapi#interface('IChartElement2', 'IChartElement', [], [
-  \ flexapi#method(0, 'dataToLocal(', '... dataValues)', 'Point;'),
+  \ flexapi#method(0, 'dataToLocal(', '... dataValues)', 'Point'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')
@@ -770,12 +770,12 @@ call flexapi#interface('IStackable', '', [], [
   \ flexapi#get(0, 'stacker', 'StackedSeries'),
   \ flexapi#set(0, 'stacker', 'StackedSeries'),
   \ flexapi#set(0, 'stackTotals', 'Dictionary'),
-  \ flexapi#method(0, 'stack(', 'stackedXValueDictionary:Dictionary, previousElement:IStackable)', 'Number;'),
+  \ flexapi#method(0, 'stack(', 'stackedXValueDictionary:Dictionary, previousElement:IStackable)', 'Number'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')
 call flexapi#interface('IStackable2', 'IStackable', [], [
-  \ flexapi#method(0, 'stackAll(', 'stackedPosXValueDictionary:Dictionary, stackedNegXValueDictionary:Dictionary, previousElement:IStackable2)', 'Object;'),
+  \ flexapi#method(0, 'stackAll(', 'stackedPosXValueDictionary:Dictionary, stackedNegXValueDictionary:Dictionary, previousElement:IStackable2)', 'Object'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')

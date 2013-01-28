@@ -195,12 +195,12 @@ call flexapi#interface('IAutomationObject ', '', [], [
   \ flexapi#get(0, 'automationParent', 'DisplayObjectContainer'),
   \ flexapi#get(0, 'automationEnabled', 'Boolean'),
   \ flexapi#get(0, 'automationVisible', 'Boolean'),
-  \ flexapi#method(0, 'createAutomationIDPart(', 'child:IAutomationObject)', 'Object;'),
-  \ flexapi#method(0, 'createAutomationIDPartWithRequiredProperties(', 'child:IAutomationObject, properties:Array)', 'Object;'),
-  \ flexapi#method(0, 'resolveAutomationIDPart(', 'criteria:Object)', 'Array;'),
-  \ flexapi#method(0, 'getAutomationChildAt(', 'index:int)', 'IAutomationObject;'),
-  \ flexapi#method(0, 'getAutomationChildren(', ')', 'Array;'),
-  \ flexapi#method(0, 'replayAutomatableEvent(', 'event:Event)', 'Boolean;'),
+  \ flexapi#method(0, 'createAutomationIDPart(', 'child:IAutomationObject)', 'Object'),
+  \ flexapi#method(0, 'createAutomationIDPartWithRequiredProperties(', 'child:IAutomationObject, properties:Array)', 'Object'),
+  \ flexapi#method(0, 'resolveAutomationIDPart(', 'criteria:Object)', 'Array'),
+  \ flexapi#method(0, 'getAutomationChildAt(', 'index:int)', 'IAutomationObject'),
+  \ flexapi#method(0, 'getAutomationChildren(', ')', 'Array'),
+  \ flexapi#method(0, 'replayAutomatableEvent(', 'event:Event)', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.binding')
@@ -264,12 +264,12 @@ call flexapi#interface('IBindingClient', '', [], [
 
 call flexapi#namespace('mx.binding')
 call flexapi#interface('IWatcherSetupUtil', '', [], [
-  \ flexapi#method(0, 'setup(', 'target:Object, propertyGetter:Function, bindings:Array, watchers:Array)', 'void;'),
+  \ flexapi#method(0, 'setup(', 'target:Object, propertyGetter:Function, bindings:Array, watchers:Array)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.binding')
 call flexapi#interface('IWatcherSetupUtil2', '', [], [
-  \ flexapi#method(0, 'setup(', 'target:Object, propertyGetter:Function, staticPropertyGetter:Function, bindings:Array, watchers:Array)', 'void;'),
+  \ flexapi#method(0, 'setup(', 'target:Object, propertyGetter:Function, staticPropertyGetter:Function, bindings:Array, watchers:Array)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.binding')
@@ -425,26 +425,26 @@ call flexapi#interface('ICollectionView', 'IEventDispatcher', [], [
   \ flexapi#set(0, 'filterFunction', 'Function'),
   \ flexapi#get(0, 'sort', 'ISort'),
   \ flexapi#set(0, 'sort', 'ISort'),
-  \ flexapi#method(0, 'createCursor(', ')', 'IViewCursor;'),
-  \ flexapi#method(0, 'contains(', 'item:Object)', 'Boolean;'),
-  \ flexapi#method(0, 'disableAutoUpdate(', ')', 'void;'),
-  \ flexapi#method(0, 'enableAutoUpdate(', ')', 'void;'),
-  \ flexapi#method(0, 'itemUpdated(', 'item:Object, property:Object = null, oldValue:Object = null, newValue:Object = null)', 'void;'),
-  \ flexapi#method(0, 'refresh(', ')', 'Boolean;'),
+  \ flexapi#method(0, 'createCursor(', ')', 'IViewCursor'),
+  \ flexapi#method(0, 'contains(', 'item:Object)', 'Boolean'),
+  \ flexapi#method(0, 'disableAutoUpdate(', ')', 'void'),
+  \ flexapi#method(0, 'enableAutoUpdate(', ')', 'void'),
+  \ flexapi#method(0, 'itemUpdated(', 'item:Object, property:Object = null, oldValue:Object = null, newValue:Object = null)', 'void'),
+  \ flexapi#method(0, 'refresh(', ')', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.collections')
 call flexapi#interface('IList', 'IEventDispatcher', [], [
   \ flexapi#get(0, 'length', 'int'),
-  \ flexapi#method(0, 'addItem(', 'item:Object)', 'void;'),
-  \ flexapi#method(0, 'addItemAt(', 'item:Object, index:int)', 'void;'),
-  \ flexapi#method(0, 'getItemAt(', 'index:int, prefetch:int = 0)', 'Object;'),
-  \ flexapi#method(0, 'getItemIndex(', 'item:Object)', 'int;'),
-  \ flexapi#method(0, 'itemUpdated(', 'item:Object, property:Object = null, oldValue:Object = null, newValue:Object = null)', 'void;'),
-  \ flexapi#method(0, 'removeAll(', ')', 'void;'),
-  \ flexapi#method(0, 'removeItemAt(', 'index:int)', 'Object;'),
-  \ flexapi#method(0, 'setItemAt(', 'item:Object, index:int)', 'Object;'),
-  \ flexapi#method(0, 'toArray(', ')', 'Array;'),
+  \ flexapi#method(0, 'addItem(', 'item:Object)', 'void'),
+  \ flexapi#method(0, 'addItemAt(', 'item:Object, index:int)', 'void'),
+  \ flexapi#method(0, 'getItemAt(', 'index:int, prefetch:int = 0)', 'Object'),
+  \ flexapi#method(0, 'getItemIndex(', 'item:Object)', 'int'),
+  \ flexapi#method(0, 'itemUpdated(', 'item:Object, property:Object = null, oldValue:Object = null, newValue:Object = null)', 'void'),
+  \ flexapi#method(0, 'removeAll(', ')', 'void'),
+  \ flexapi#method(0, 'removeItemAt(', 'index:int)', 'Object'),
+  \ flexapi#method(0, 'setItemAt(', 'item:Object, index:int)', 'Object'),
+  \ flexapi#method(0, 'toArray(', ')', 'Array'),
   \ ])
 
 call flexapi#namespace('mx.collections')
@@ -455,10 +455,10 @@ call flexapi#interface('ISort', '', [], [
   \ flexapi#set(0, 'fields', 'Array'),
   \ flexapi#get(0, 'unique', 'Boolean'),
   \ flexapi#set(0, 'unique', 'Boolean'),
-  \ flexapi#method(0, 'findItem(', ' items:Array, values:Object, mode:String, returnInsertionIndex:Boolean = false, compareFunction:Function = null)', 'int;'),
-  \ flexapi#method(0, 'propertyAffectsSort(', 'property:String)', 'Boolean;'),
-  \ flexapi#method(0, 'reverse(', ')', 'void;'),
-  \ flexapi#method(0, 'sort(', 'items:Array)', 'void;'),
+  \ flexapi#method(0, 'findItem(', ' items:Array, values:Object, mode:String, returnInsertionIndex:Boolean = false, compareFunction:Function = null)', 'int'),
+  \ flexapi#method(0, 'propertyAffectsSort(', 'property:String)', 'Boolean'),
+  \ flexapi#method(0, 'reverse(', ')', 'void'),
+  \ flexapi#method(0, 'sort(', 'items:Array)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.collections')
@@ -473,8 +473,8 @@ call flexapi#interface('ISortField', '', [], [
   \ flexapi#get(0, 'numeric', 'Object'),
   \ flexapi#set(0, 'numeric', 'Object'),
   \ flexapi#get(0, 'usingCustomCompareFunction', 'Boolean'),
-  \ flexapi#method(0, 'initializeDefaultCompareFunction(', 'obj:Object)', 'void;'),
-  \ flexapi#method(0, 'reverse(', ')', 'void;'),
+  \ flexapi#method(0, 'initializeDefaultCompareFunction(', 'obj:Object)', 'void'),
+  \ flexapi#method(0, 'reverse(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.collections')
@@ -484,14 +484,14 @@ call flexapi#interface('IViewCursor', 'IEventDispatcher', [], [
   \ flexapi#get(0, 'bookmark', 'CursorBookmark'),
   \ flexapi#get(0, 'current', 'Object'),
   \ flexapi#get(0, 'view', 'ICollectionView'),
-  \ flexapi#method(0, 'findAny(', 'values:Object)', 'Boolean;'),
-  \ flexapi#method(0, 'findFirst(', 'values:Object)', 'Boolean;'),
-  \ flexapi#method(0, 'findLast(', 'values:Object)', 'Boolean;'),
-  \ flexapi#method(0, 'insert(', 'item:Object)', 'void;'),
-  \ flexapi#method(0, 'moveNext(', ')', 'Boolean;'),
-  \ flexapi#method(0, 'movePrevious(', ')', 'Boolean;'),
-  \ flexapi#method(0, 'remove(', ')', 'Object;'),
-  \ flexapi#method(0, 'seek(', 'bookmark:CursorBookmark, offset:int = 0, prefetch:int = 0)', 'void;'),
+  \ flexapi#method(0, 'findAny(', 'values:Object)', 'Boolean'),
+  \ flexapi#method(0, 'findFirst(', 'values:Object)', 'Boolean'),
+  \ flexapi#method(0, 'findLast(', 'values:Object)', 'Boolean'),
+  \ flexapi#method(0, 'insert(', 'item:Object)', 'void'),
+  \ flexapi#method(0, 'moveNext(', ')', 'Boolean'),
+  \ flexapi#method(0, 'movePrevious(', ')', 'Boolean'),
+  \ flexapi#method(0, 'remove(', ')', 'Object'),
+  \ flexapi#method(0, 'seek(', 'bookmark:CursorBookmark, offset:int = 0, prefetch:int = 0)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.collections')
@@ -920,8 +920,8 @@ call flexapi#class('ButtonLabelPlacement', '', [], [
 
 call flexapi#namespace('mx.controls')
 call flexapi#interface('IFlexContextMenu', '', [], [
-  \ flexapi#method(0, 'setContextMenu(', 'component:InteractiveObject)', 'void;'),
-  \ flexapi#method(0, 'unsetContextMenu(', 'component:InteractiveObject)', 'void;'),
+  \ flexapi#method(0, 'setContextMenu(', 'component:InteractiveObject)', 'void'),
+  \ flexapi#method(0, 'unsetContextMenu(', 'component:InteractiveObject)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1043,18 +1043,18 @@ call flexapi#interface('IListItemRenderer', 'IDataRenderer, IEventDispatcher,', 
 
 call flexapi#namespace('mx.controls.menuClasses')
 call flexapi#interface('IMenuDataDescriptor', '', [], [
-  \ flexapi#method(0, 'getChildren(', 'node:Object, model:Object = null)', 'ICollectionView;'),
-  \ flexapi#method(0, 'hasChildren(', 'node:Object, model:Object = null)', 'Boolean;'),
-  \ flexapi#method(0, 'getData(', 'node:Object, model:Object = null)', 'Object;'),
-  \ flexapi#method(0, 'isBranch(', 'node:Object, model:Object = null)', 'Boolean;'),
-  \ flexapi#method(0, 'getType(', 'node:Object)', 'String;'),
-  \ flexapi#method(0, 'addChildAt(', 'parent:Object, newChild:Object, index:int, model:Object = null)', 'Boolean;'),
-  \ flexapi#method(0, 'removeChildAt(', 'parent:Object, child:Object, index:int, model:Object = null)', 'Boolean;'),
-  \ flexapi#method(0, 'isEnabled(', 'node:Object)', 'Boolean;'),
-  \ flexapi#method(0, 'setEnabled(', 'node:Object, value:Boolean)', 'void;'),
-  \ flexapi#method(0, 'isToggled(', 'node:Object)', 'Boolean;'),
-  \ flexapi#method(0, 'setToggled(', 'node:Object, value:Boolean)', 'void;'),
-  \ flexapi#method(0, 'getGroupName(', 'node:Object)', 'String;'),
+  \ flexapi#method(0, 'getChildren(', 'node:Object, model:Object = null)', 'ICollectionView'),
+  \ flexapi#method(0, 'hasChildren(', 'node:Object, model:Object = null)', 'Boolean'),
+  \ flexapi#method(0, 'getData(', 'node:Object, model:Object = null)', 'Object'),
+  \ flexapi#method(0, 'isBranch(', 'node:Object, model:Object = null)', 'Boolean'),
+  \ flexapi#method(0, 'getType(', 'node:Object)', 'String'),
+  \ flexapi#method(0, 'addChildAt(', 'parent:Object, newChild:Object, index:int, model:Object = null)', 'Boolean'),
+  \ flexapi#method(0, 'removeChildAt(', 'parent:Object, child:Object, index:int, model:Object = null)', 'Boolean'),
+  \ flexapi#method(0, 'isEnabled(', 'node:Object)', 'Boolean'),
+  \ flexapi#method(0, 'setEnabled(', 'node:Object, value:Boolean)', 'void'),
+  \ flexapi#method(0, 'isToggled(', 'node:Object)', 'Boolean'),
+  \ flexapi#method(0, 'setToggled(', 'node:Object, value:Boolean)', 'void'),
+  \ flexapi#method(0, 'getGroupName(', 'node:Object)', 'String'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1460,16 +1460,16 @@ call flexapi#interface('IButton', 'IUIComponent', [], [
 call flexapi#namespace('mx.core')
 call flexapi#interface('IChildList', '', [], [
   \ flexapi#get(0, 'numChildren', 'int'),
-  \ flexapi#method(0, 'addChild(', 'child:DisplayObject)', 'DisplayObject;'),
-  \ flexapi#method(0, 'addChildAt(', 'child:DisplayObject, index:int)', 'DisplayObject;'),
-  \ flexapi#method(0, 'removeChild(', 'child:DisplayObject)', 'DisplayObject;'),
-  \ flexapi#method(0, 'removeChildAt(', 'index:int)', 'DisplayObject;'),
-  \ flexapi#method(0, 'getChildAt(', 'index:int)', 'DisplayObject;'),
-  \ flexapi#method(0, 'getChildByName(', 'name:String)', 'DisplayObject;'),
-  \ flexapi#method(0, 'getChildIndex(', 'child:DisplayObject)', 'int;'),
-  \ flexapi#method(0, 'setChildIndex(', 'child:DisplayObject, newIndex:int)', 'void;'),
-  \ flexapi#method(0, 'getObjectsUnderPoint(', 'point:Point)', 'Array;'),
-  \ flexapi#method(0, 'contains(', 'child:DisplayObject)', 'Boolean;'),
+  \ flexapi#method(0, 'addChild(', 'child:DisplayObject)', 'DisplayObject'),
+  \ flexapi#method(0, 'addChildAt(', 'child:DisplayObject, index:int)', 'DisplayObject'),
+  \ flexapi#method(0, 'removeChild(', 'child:DisplayObject)', 'DisplayObject'),
+  \ flexapi#method(0, 'removeChildAt(', 'index:int)', 'DisplayObject'),
+  \ flexapi#method(0, 'getChildAt(', 'index:int)', 'DisplayObject'),
+  \ flexapi#method(0, 'getChildByName(', 'name:String)', 'DisplayObject'),
+  \ flexapi#method(0, 'getChildIndex(', 'child:DisplayObject)', 'int'),
+  \ flexapi#method(0, 'setChildIndex(', 'child:DisplayObject, newIndex:int)', 'void'),
+  \ flexapi#method(0, 'getObjectsUnderPoint(', 'point:Point)', 'Array'),
+  \ flexapi#method(0, 'contains(', 'child:DisplayObject)', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1500,13 +1500,13 @@ call flexapi#namespace('mx.core')
 call flexapi#interface('IDeferredContentOwner', 'IUIComponent', [], [
   \ flexapi#get(0, 'creationPolicy', 'String'),
   \ flexapi#set(0, 'creationPolicy', 'String'),
-  \ flexapi#method(0, 'createDeferredContent(', ')', 'void;'),
+  \ flexapi#method(0, 'createDeferredContent(', ')', 'void'),
   \ flexapi#get(0, 'deferredContentCreated', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.core')
 call flexapi#interface('IDeferredInstance', '', [], [
-  \ flexapi#method(0, 'getInstance(', ')', 'Object;'),
+  \ flexapi#method(0, 'getInstance(', ')', 'Object'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1517,29 +1517,29 @@ call flexapi#interface('IDeferredInstantiationUIComponent', 'IUIComponent', [], 
   \ flexapi#set(0, 'descriptor', 'UIComponentDescriptor'),
   \ flexapi#get(0, 'id', 'String'),
   \ flexapi#set(0, 'id', 'String'),
-  \ flexapi#method(0, 'createReferenceOnParentDocument(', ' parentDocument:IFlexDisplayObject)', 'void;'),
-  \ flexapi#method(0, 'deleteReferenceOnParentDocument(', ' parentDocument:IFlexDisplayObject)', 'void;'),
-  \ flexapi#method(0, 'executeBindings(', 'recurse:Boolean = false)', 'void;'),
-  \ flexapi#method(0, 'registerEffects(', 'effects:Array)', 'void;'),
-  \ flexapi#method(0, 'addChild(', 'child:DisplayObject)', 'DisplayObject;'),
-  \ flexapi#method(0, 'addChildAt(', 'child:DisplayObject, index:int)', 'DisplayObject;'),
-  \ flexapi#method(0, 'removeChild(', 'child:DisplayObject)', 'DisplayObject;'),
-  \ flexapi#method(0, 'removeChildAt(', 'index:int)', 'DisplayObject;'),
-  \ flexapi#method(0, 'getChildIndex(', 'child:DisplayObject)', 'int;'),
-  \ flexapi#method(0, 'setChildIndex(', 'child:DisplayObject, index:int)', 'void;'),
-  \ flexapi#method(0, 'getChildAt(', 'index:int)', 'DisplayObject;'),
-  \ flexapi#method(0, 'getChildByName(', 'name:String)', 'DisplayObject;'),
+  \ flexapi#method(0, 'createReferenceOnParentDocument(', ' parentDocument:IFlexDisplayObject)', 'void'),
+  \ flexapi#method(0, 'deleteReferenceOnParentDocument(', ' parentDocument:IFlexDisplayObject)', 'void'),
+  \ flexapi#method(0, 'executeBindings(', 'recurse:Boolean = false)', 'void'),
+  \ flexapi#method(0, 'registerEffects(', 'effects:Array)', 'void'),
+  \ flexapi#method(0, 'addChild(', 'child:DisplayObject)', 'DisplayObject'),
+  \ flexapi#method(0, 'addChildAt(', 'child:DisplayObject, index:int)', 'DisplayObject'),
+  \ flexapi#method(0, 'removeChild(', 'child:DisplayObject)', 'DisplayObject'),
+  \ flexapi#method(0, 'removeChildAt(', 'index:int)', 'DisplayObject'),
+  \ flexapi#method(0, 'getChildIndex(', 'child:DisplayObject)', 'int'),
+  \ flexapi#method(0, 'setChildIndex(', 'child:DisplayObject, index:int)', 'void'),
+  \ flexapi#method(0, 'getChildAt(', 'index:int)', 'DisplayObject'),
+  \ flexapi#method(0, 'getChildByName(', 'name:String)', 'DisplayObject'),
   \ flexapi#get(0, 'numChildren', 'int'),
   \ flexapi#get(0, 'textSnapshot', 'TextSnapshot'),
-  \ flexapi#method(0, 'getObjectsUnderPoint(', 'point:Point)', 'Array;'),
-  \ flexapi#method(0, 'areInaccessibleObjectsUnderPoint(', 'point:Point)', 'Boolean;'),
+  \ flexapi#method(0, 'getObjectsUnderPoint(', 'point:Point)', 'Array'),
+  \ flexapi#method(0, 'areInaccessibleObjectsUnderPoint(', 'point:Point)', 'Boolean'),
   \ flexapi#get(0, 'tabChildren', 'Boolean'),
   \ flexapi#set(0, 'tabChildren', 'Boolean'),
   \ flexapi#get(0, 'mouseChildren', 'Boolean'),
   \ flexapi#set(0, 'mouseChildren', 'Boolean'),
-  \ flexapi#method(0, 'contains(', 'child:DisplayObject)', 'Boolean;'),
-  \ flexapi#method(0, 'swapChildrenAt(', 'index1:int, index2:int)', 'void;'),
-  \ flexapi#method(0, 'swapChildren(', 'child1:DisplayObject, child2:DisplayObject)', 'void;'),
+  \ flexapi#method(0, 'contains(', 'child:DisplayObject)', 'Boolean'),
+  \ flexapi#method(0, 'swapChildrenAt(', 'index1:int, index2:int)', 'void'),
+  \ flexapi#method(0, 'swapChildren(', 'child1:DisplayObject, child2:DisplayObject)', 'void'),
   \ flexapi#get(0, 'root', 'DisplayObject'),
   \ flexapi#get(0, 'stage', 'Stage'),
   \ flexapi#get(0, 'name', 'String'),
@@ -1579,23 +1579,23 @@ call flexapi#interface('IDeferredInstantiationUIComponent', 'IUIComponent', [], 
   \ flexapi#set(0, 'transform', 'Transform'),
   \ flexapi#get(0, 'scale9Grid', 'Rectangle'),
   \ flexapi#set(0, 'scale9Grid', 'Rectangle'),
-  \ flexapi#method(0, 'globalToLocal(', 'point:Point)', 'Point;'),
-  \ flexapi#method(0, 'localToGlobal(', 'point:Point)', 'Point;'),
-  \ flexapi#method(0, 'getBounds(', 'targetCoordinateSpace:DisplayObject)', 'Rectangle;'),
-  \ flexapi#method(0, 'getRect(', 'targetCoordinateSpace:DisplayObject)', 'Rectangle;'),
+  \ flexapi#method(0, 'globalToLocal(', 'point:Point)', 'Point'),
+  \ flexapi#method(0, 'localToGlobal(', 'point:Point)', 'Point'),
+  \ flexapi#method(0, 'getBounds(', 'targetCoordinateSpace:DisplayObject)', 'Rectangle'),
+  \ flexapi#method(0, 'getRect(', 'targetCoordinateSpace:DisplayObject)', 'Rectangle'),
   \ flexapi#get(0, 'loaderInfo', ': LoaderInfo'),
-  \ flexapi#method(0, 'hitTestObject(', 'obj:DisplayObject)', 'Boolean;'),
-  \ flexapi#method(0, 'hitTestPoint(', 'x:Number, y:Number, shapeFlag:Boolean=false)', 'Boolean;'),
+  \ flexapi#method(0, 'hitTestObject(', 'obj:DisplayObject)', 'Boolean'),
+  \ flexapi#method(0, 'hitTestPoint(', 'x:Number, y:Number, shapeFlag:Boolean=false)', 'Boolean'),
   \ flexapi#get(0, 'accessibilityProperties', ': AccessibilityProperties'),
   \ flexapi#set(0, 'accessibilityProperties', ' AccessibilityProperties '),
   \ ])
 
 call flexapi#namespace('mx.core')
 call flexapi#interface('IEmbeddedFontRegistry', '', [], [
-  \ flexapi#method(0, 'registerFont(', 'font:EmbeddedFont, moduleFactory:IFlexModuleFactory)', 'void;'),
-  \ flexapi#method(0, 'deregisterFont(', 'font:EmbeddedFont, moduleFactory:IFlexModuleFactory)', 'void;'),
-  \ flexapi#method(0, 'isFontRegistered(', 'font:EmbeddedFont, moduleFactory:IFlexModuleFactory)', 'Boolean;'),
-  \ flexapi#method(0, 'getFonts(', ')', 'Array;'),
+  \ flexapi#method(0, 'registerFont(', 'font:EmbeddedFont, moduleFactory:IFlexModuleFactory)', 'void'),
+  \ flexapi#method(0, 'deregisterFont(', 'font:EmbeddedFont, moduleFactory:IFlexModuleFactory)', 'void'),
+  \ flexapi#method(0, 'isFontRegistered(', 'font:EmbeddedFont, moduleFactory:IFlexModuleFactory)', 'Boolean'),
+  \ flexapi#method(0, 'getFonts(', ')', 'Array'),
   \ flexapi#method(0, 'getFontStyle(', 'bold:Boolean, italic:Boolean)', 'String'),
   \ ])
 
@@ -1611,8 +1611,8 @@ call flexapi#namespace('mx.core')
 call flexapi#interface('IFlexDisplayObject', 'IBitmapDrawable, IEventDispatcher', [], [
   \ flexapi#get(0, 'measuredHeight', 'Number'),
   \ flexapi#get(0, 'measuredWidth', 'Number'),
-  \ flexapi#method(0, 'move(', 'x:Number, y:Number)', 'void;'),
-  \ flexapi#method(0, 'setActualSize(', 'newWidth:Number, newHeight:Number)', 'void;'),
+  \ flexapi#method(0, 'move(', 'x:Number, y:Number)', 'void'),
+  \ flexapi#method(0, 'setActualSize(', 'newWidth:Number, newHeight:Number)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1628,13 +1628,13 @@ call flexapi#interface('IFlexModuleFactory', '', [], [
   \ flexapi#get(0, 'allowInsecureDomainsInNewRSLs', 'Boolean'),
   \ flexapi#set(0, 'allowInsecureDomainsInNewRSLs', 'Boolean'),
   \ flexapi#get(0, 'preloadedRSLs', 'Dictionary'),
-  \ flexapi#method(0, 'addPreloadedRSL(', 'loaderInfo:LoaderInfo, rsl:Vector.<RSLData>)', 'void;'),
-  \ flexapi#method(0, 'allowDomain(', '... domains)', 'void;'),
-  \ flexapi#method(0, 'allowInsecureDomain(', '... domains)', 'void;'),
-  \ flexapi#method(0, 'create(', '... parameters)', 'Object;'),
-  \ flexapi#method(0, 'getImplementation(', 'interfaceName:String)', 'Object;'),
-  \ flexapi#method(0, 'info(', ')', 'Object;'),
-  \ flexapi#method(0, 'registerImplementation(', 'interfaceName:String, impl:Object)', 'void;'),
+  \ flexapi#method(0, 'addPreloadedRSL(', 'loaderInfo:LoaderInfo, rsl:Vector.<RSLData>)', 'void'),
+  \ flexapi#method(0, 'allowDomain(', '... domains)', 'void'),
+  \ flexapi#method(0, 'allowInsecureDomain(', '... domains)', 'void'),
+  \ flexapi#method(0, 'create(', '... parameters)', 'Object'),
+  \ flexapi#method(0, 'getImplementation(', 'interfaceName:String)', 'Object'),
+  \ flexapi#method(0, 'info(', ')', 'Object'),
+  \ flexapi#method(0, 'registerImplementation(', 'interfaceName:String, impl:Object)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1664,17 +1664,17 @@ call flexapi#interface('IIMESupport', '', [], [
 
 call flexapi#namespace('mx.core')
 call flexapi#interface('IInvalidating', '', [], [
-  \ flexapi#method(0, 'invalidateProperties(', ')', 'void;'),
-  \ flexapi#method(0, 'invalidateSize(', ')', 'void;'),
-  \ flexapi#method(0, 'invalidateDisplayList(', ')', 'void;'),
-  \ flexapi#method(0, 'validateNow(', ')', 'void;'),
+  \ flexapi#method(0, 'invalidateProperties(', ')', 'void'),
+  \ flexapi#method(0, 'invalidateSize(', ')', 'void'),
+  \ flexapi#method(0, 'invalidateDisplayList(', ')', 'void'),
+  \ flexapi#method(0, 'validateNow(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
 call flexapi#interface('ILayoutDirectionElement', '', [], [
   \ flexapi#get(0, 'layoutDirection', 'String'),
   \ flexapi#set(0, 'layoutDirection', 'String'),
-  \ flexapi#method(0, 'invalidateLayoutDirection(', ')', 'void;'),
+  \ flexapi#method(0, 'invalidateLayoutDirection(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1700,31 +1700,31 @@ call flexapi#interface('ILayoutElement', 'IEventDispatcher', [], [
   \ flexapi#set(0, 'percentHeight', 'Number'),
   \ flexapi#get(0, 'includeInLayout', 'Boolean'),
   \ flexapi#set(0, 'includeInLayout', 'Boolean'),
-  \ flexapi#method(0, 'getPreferredBoundsWidth(', 'postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getPreferredBoundsHeight(', 'postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getMinBoundsWidth(', 'postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getMinBoundsHeight(', 'postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getMaxBoundsWidth(', 'postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getMaxBoundsHeight(', 'postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getBoundsXAtSize(', 'width:Number, height:Number, postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getBoundsYAtSize(', 'width:Number, height:Number, postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getLayoutBoundsWidth(', 'postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getLayoutBoundsHeight(', 'postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getLayoutBoundsX(', 'postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'getLayoutBoundsY(', 'postLayoutTransform:Boolean = true)', 'Number;'),
-  \ flexapi#method(0, 'setLayoutBoundsPosition(', 'x:Number, y:Number, postLayoutTransform:Boolean = true)', 'void;'),
-  \ flexapi#method(0, 'setLayoutBoundsSize(', 'width:Number, height:Number, postLayoutTransform:Boolean = true)', 'void;'),
-  \ flexapi#method(0, 'getLayoutMatrix(', ')', 'Matrix;'),
-  \ flexapi#method(0, 'setLayoutMatrix(', 'value:Matrix, invalidateLayout:Boolean)', 'void;'),
+  \ flexapi#method(0, 'getPreferredBoundsWidth(', 'postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getPreferredBoundsHeight(', 'postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getMinBoundsWidth(', 'postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getMinBoundsHeight(', 'postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getMaxBoundsWidth(', 'postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getMaxBoundsHeight(', 'postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getBoundsXAtSize(', 'width:Number, height:Number, postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getBoundsYAtSize(', 'width:Number, height:Number, postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getLayoutBoundsWidth(', 'postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getLayoutBoundsHeight(', 'postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getLayoutBoundsX(', 'postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'getLayoutBoundsY(', 'postLayoutTransform:Boolean = true)', 'Number'),
+  \ flexapi#method(0, 'setLayoutBoundsPosition(', 'x:Number, y:Number, postLayoutTransform:Boolean = true)', 'void'),
+  \ flexapi#method(0, 'setLayoutBoundsSize(', 'width:Number, height:Number, postLayoutTransform:Boolean = true)', 'void'),
+  \ flexapi#method(0, 'getLayoutMatrix(', ')', 'Matrix'),
+  \ flexapi#method(0, 'setLayoutMatrix(', 'value:Matrix, invalidateLayout:Boolean)', 'void'),
   \ flexapi#get(0, 'hasLayoutMatrix3D', 'Boolean'),
-  \ flexapi#method(0, 'getLayoutMatrix3D(', ')', 'Matrix3D;'),
-  \ flexapi#method(0, 'setLayoutMatrix3D(', 'value:Matrix3D, invalidateLayout:Boolean)', 'void;'),
-  \ flexapi#method(0, 'transformAround(', 'transformCenter:Vector3D, scale:Vector3D = null, rotation:Vector3D = null, translation:Vector3D = null, postLayoutScale:Vector3D = null, postLayoutRotation:Vector3D = null, postLayoutTranslation:Vector3D = null, invalidateLayout:Boolean = true)', 'void;    '),
+  \ flexapi#method(0, 'getLayoutMatrix3D(', ')', 'Matrix3D'),
+  \ flexapi#method(0, 'setLayoutMatrix3D(', 'value:Matrix3D, invalidateLayout:Boolean)', 'void'),
+  \ flexapi#method(0, 'transformAround(', 'transformCenter:Vector3D, scale:Vector3D = null, rotation:Vector3D = null, translation:Vector3D = null, postLayoutScale:Vector3D = null, postLayoutRotation:Vector3D = null, postLayoutTranslation:Vector3D = null, invalidateLayout:Boolean = true)', 'void    '),
   \ ])
 
 call flexapi#namespace('mx.core')
 call flexapi#interface('IMXMLObject', '', [], [
-  \ flexapi#method(0, 'initialized(', 'document:Object, id:String)', 'void;'),
+  \ flexapi#method(0, 'initialized(', 'document:Object, id:String)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1735,8 +1735,8 @@ call flexapi#interface('INavigatorContent', 'IDeferredContentOwner, IToolTipMana
 
 call flexapi#namespace('mx.core')
 call flexapi#interface('IProgrammaticSkin', '', [], [
-  \ flexapi#method(0, 'validateNow(', ')', 'void;'),
-  \ flexapi#method(0, 'validateDisplayList(', ')', 'void;'),
+  \ flexapi#method(0, 'validateNow(', ')', 'void'),
+  \ flexapi#method(0, 'validateDisplayList(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1753,7 +1753,7 @@ call flexapi#interface('IRectangularBorder', 'IBorder', [], [
   \ flexapi#get(0, 'backgroundImageBounds', 'Rectangle'),
   \ flexapi#set(0, 'backgroundImageBounds', 'Rectangle'),
   \ flexapi#get(0, 'hasBackgroundImage', 'Boolean'),
-  \ flexapi#method(0, 'layoutBackgroundImage(', ')', 'void;'),
+  \ flexapi#method(0, 'layoutBackgroundImage(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1769,8 +1769,8 @@ call flexapi#interface('IRepeater', '', [], [
   \ flexapi#set(0, 'recycleChildren', 'Boolean'),
   \ flexapi#get(0, 'startingIndex', 'int'),
   \ flexapi#set(0, 'startingIndex', 'int'),
-  \ flexapi#method(0, 'initializeRepeater(', 'container:IContainer, recurse:Boolean)', 'void;'),
-  \ flexapi#method(0, 'executeChildBindings(', ')', 'void;'),
+  \ flexapi#method(0, 'initializeRepeater(', 'container:IContainer, recurse:Boolean)', 'void'),
+  \ flexapi#method(0, 'executeChildBindings(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1782,17 +1782,17 @@ call flexapi#interface('IRepeaterClient', '', [], [
   \ flexapi#set(0, 'repeaterIndices', 'Array'),
   \ flexapi#get(0, 'repeaters', 'Array'),
   \ flexapi#set(0, 'repeaters', 'Array'),
-  \ flexapi#method(0, 'initializeRepeaterArrays(', 'parent:IRepeaterClient)', 'void;'),
+  \ flexapi#method(0, 'initializeRepeaterArrays(', 'parent:IRepeaterClient)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
 call flexapi#interface('ISWFBridgeGroup', 'IEventDispatcher', [], [
   \ flexapi#get(0, 'parentBridge', 'IEventDispatcher'),
   \ flexapi#set(0, 'parentBridge', 'IEventDispatcher'),
-  \ flexapi#method(0, 'addChildBridge(', 'bridge:IEventDispatcher, bridgeProvider:ISWFBridgeProvider)', 'void;'),
-  \ flexapi#method(0, 'removeChildBridge(', 'bridge:IEventDispatcher)', 'void;'),
-  \ flexapi#method(0, 'getChildBridgeProvider(', 'bridge:IEventDispatcher)', 'ISWFBridgeProvider;'),
-  \ flexapi#method(0, 'containsBridge(', 'bridge:IEventDispatcher)', 'Boolean;'),
+  \ flexapi#method(0, 'addChildBridge(', 'bridge:IEventDispatcher, bridgeProvider:ISWFBridgeProvider)', 'void'),
+  \ flexapi#method(0, 'removeChildBridge(', 'bridge:IEventDispatcher)', 'void'),
+  \ flexapi#method(0, 'getChildBridgeProvider(', 'bridge:IEventDispatcher)', 'ISWFBridgeProvider'),
+  \ flexapi#method(0, 'containsBridge(', 'bridge:IEventDispatcher)', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1806,7 +1806,7 @@ call flexapi#namespace('mx.core')
 call flexapi#interface('ISWFLoader', 'ISWFBridgeProvider', [], [
   \ flexapi#get(0, 'loadForCompatibility', 'Boolean'),
   \ flexapi#set(0, 'loadForCompatibility', 'Boolean'),
-  \ flexapi#method(0, 'getVisibleApplicationRect(', 'allApplications:Boolean=false)', 'Rectangle;'),
+  \ flexapi#method(0, 'getVisibleApplicationRect(', 'allApplications:Boolean=false)', 'Rectangle'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1816,8 +1816,8 @@ call flexapi#interface('ISelectableList', 'IList', [], [
   \ flexapi#get(0, 'graphics', 'Graphics'),
   \ flexapi#get(0, 'buttonMode', 'Boolean'),
   \ flexapi#set(0, 'buttonMode', 'Boolean'),
-  \ flexapi#method(0, 'startDrag(', 'lockCenter:Boolean = false, bounds:Rectangle = null)', 'void;'),
-  \ flexapi#method(0, 'stopDrag(', ')', 'void;'),
+  \ flexapi#method(0, 'startDrag(', 'lockCenter:Boolean = false, bounds:Rectangle = null)', 'void'),
+  \ flexapi#method(0, 'stopDrag(', ')', 'void'),
   \ flexapi#get(0, 'dropTarget', 'DisplayObject'),
   \ flexapi#get(0, 'hitArea', 'Sprite'),
   \ flexapi#set(0, 'hitArea', 'Sprite'),
@@ -1849,8 +1849,8 @@ call flexapi#interface('ISystemCursorClient', '', [], [
 
 call flexapi#namespace('mx.core')
 call flexapi#interface('ITextFieldFactory', '', [], [
-  \ flexapi#method(0, 'createTextField(', 'moduleFactory:IFlexModuleFactory)', 'TextField;'),
-  \ flexapi#method(0, 'createFTETextField(', 'moduleFactory:IFlexModuleFactory)', 'Object;'),
+  \ flexapi#method(0, 'createTextField(', 'moduleFactory:IFlexModuleFactory)', 'TextField'),
+  \ flexapi#method(0, 'createFTETextField(', 'moduleFactory:IFlexModuleFactory)', 'Object'),
   \ flexapi#get(0, 'alwaysShowSelection', 'Boolean'),
   \ flexapi#set(0, 'alwaysShowSelection', 'Boolean'),
   \ flexapi#get(0, 'antiAliasType', 'String'),
@@ -1915,23 +1915,23 @@ call flexapi#interface('ITextFieldFactory', '', [], [
   \ flexapi#set(0, 'type', 'String'),
   \ flexapi#get(0, 'wordWrap', 'Boolean'),
   \ flexapi#set(0, 'wordWrap', 'Boolean'),
-  \ flexapi#method(0, 'appendText(', 'newText:String)', 'void;'),
-  \ flexapi#method(0, 'getCharBoundaries(', 'charIndex:int)', 'Rectangle;'),
-  \ flexapi#method(0, 'getCharIndexAtPoint(', 'x:Number, y:Number)', 'int;'),
-  \ flexapi#method(0, 'getFirstCharInParagraph(', 'charIndex:int)', 'int;'),
-  \ flexapi#method(0, 'getLineIndexAtPoint(', 'x:Number, y:Number)', 'int;'),
-  \ flexapi#method(0, 'getLineIndexOfChar(', 'charIndex:int)', 'int;'),
-  \ flexapi#method(0, 'getLineLength(', 'lineIndex:int)', 'int;'),
-  \ flexapi#method(0, 'getLineMetrics(', 'lineIndex:int)', 'TextLineMetrics;'),
-  \ flexapi#method(0, 'getLineOffset(', 'lineIndex:int)', 'int;'),
-  \ flexapi#method(0, 'getLineText(', 'lineIndex:int)', 'String;'),
-  \ flexapi#method(0, 'getParagraphLength(', 'charIndex:int)', 'int;'),
-  \ flexapi#method(0, 'getTextFormat(', 'beginIndex:int=-1, endIndex:int=-1)', 'TextFormat;'),
-  \ flexapi#method(0, 'replaceSelectedText(', 'value:String)', 'void;'),
-  \ flexapi#method(0, 'replaceText(', 'beginIndex:int, endIndex:int, newText:String)', 'void;'),
-  \ flexapi#method(0, 'setSelection(', 'beginIndex:int, endIndex:int)', 'void;'),
-  \ flexapi#method(0, 'setTextFormat(', 'format:TextFormat, beginIndex:int=-1, endIndex:int=-1)', 'void;'),
-  \ flexapi#method(0, 'getImageReference(', 'id:String)', 'DisplayObject;'),
+  \ flexapi#method(0, 'appendText(', 'newText:String)', 'void'),
+  \ flexapi#method(0, 'getCharBoundaries(', 'charIndex:int)', 'Rectangle'),
+  \ flexapi#method(0, 'getCharIndexAtPoint(', 'x:Number, y:Number)', 'int'),
+  \ flexapi#method(0, 'getFirstCharInParagraph(', 'charIndex:int)', 'int'),
+  \ flexapi#method(0, 'getLineIndexAtPoint(', 'x:Number, y:Number)', 'int'),
+  \ flexapi#method(0, 'getLineIndexOfChar(', 'charIndex:int)', 'int'),
+  \ flexapi#method(0, 'getLineLength(', 'lineIndex:int)', 'int'),
+  \ flexapi#method(0, 'getLineMetrics(', 'lineIndex:int)', 'TextLineMetrics'),
+  \ flexapi#method(0, 'getLineOffset(', 'lineIndex:int)', 'int'),
+  \ flexapi#method(0, 'getLineText(', 'lineIndex:int)', 'String'),
+  \ flexapi#method(0, 'getParagraphLength(', 'charIndex:int)', 'int'),
+  \ flexapi#method(0, 'getTextFormat(', 'beginIndex:int=-1, endIndex:int=-1)', 'TextFormat'),
+  \ flexapi#method(0, 'replaceSelectedText(', 'value:String)', 'void'),
+  \ flexapi#method(0, 'replaceText(', 'beginIndex:int, endIndex:int, newText:String)', 'void'),
+  \ flexapi#method(0, 'setSelection(', 'beginIndex:int, endIndex:int)', 'void'),
+  \ flexapi#method(0, 'setTextFormat(', 'format:TextFormat, beginIndex:int=-1, endIndex:int=-1)', 'void'),
+  \ flexapi#method(0, 'getImageReference(', 'id:String)', 'DisplayObject'),
   \ flexapi#get(0, 'useRichTextClipboard', 'Boolean'),
   \ flexapi#set(0, 'useRichTextClipboard', 'Boolean'),
   \ ])
@@ -1958,8 +1958,8 @@ call flexapi#interface('ITextInput', '', [], [
   \ flexapi#set(0, 'selectable', 'Boolean'),
   \ flexapi#get(0, 'text', 'String'),
   \ flexapi#set(0, 'text', 'String'),
-  \ flexapi#method(0, 'showBorderAndBackground(', 'visible:Boolean)', 'void;'),
-  \ flexapi#method(0, 'selectRange(', 'anchorPosition:int, activePosition:int)', 'void;'),
+  \ flexapi#method(0, 'showBorderAndBackground(', 'visible:Boolean)', 'void'),
+  \ flexapi#method(0, 'selectRange(', 'anchorPosition:int, activePosition:int)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1975,7 +1975,7 @@ call flexapi#interface('IToolTip', 'IUIComponent', [], [
 
 call flexapi#namespace('mx.core')
 call flexapi#interface('ITransientDeferredInstance', 'IDeferredInstance', [], [
-  \ flexapi#method(0, 'reset(', ')', 'void;'),
+  \ flexapi#method(0, 'reset(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -2017,12 +2017,12 @@ call flexapi#interface('IUIComponent', 'IFlexDisplayObject', [], [
   \ flexapi#set(0, 'systemManager', 'ISystemManager'),
   \ flexapi#get(0, 'tweeningProperties', 'Array'),
   \ flexapi#set(0, 'tweeningProperties', 'Array'),
-  \ flexapi#method(0, 'initialize(', ')', 'void;'),
-  \ flexapi#method(0, 'parentChanged(', 'p:DisplayObjectContainer)', 'void;'),
-  \ flexapi#method(0, 'getExplicitOrMeasuredWidth(', ')', 'Number;'),
-  \ flexapi#method(0, 'getExplicitOrMeasuredHeight(', ')', 'Number;'),
-  \ flexapi#method(0, 'setVisible(', 'value:Boolean, noEvent:Boolean = false)', 'void;'),
-  \ flexapi#method(0, 'owns(', 'displayObject:DisplayObject)', 'Boolean;'),
+  \ flexapi#method(0, 'initialize(', ')', 'void'),
+  \ flexapi#method(0, 'parentChanged(', 'p:DisplayObjectContainer)', 'void'),
+  \ flexapi#method(0, 'getExplicitOrMeasuredWidth(', ')', 'Number'),
+  \ flexapi#method(0, 'getExplicitOrMeasuredHeight(', ')', 'Number'),
+  \ flexapi#method(0, 'setVisible(', 'value:Boolean, noEvent:Boolean = false)', 'void'),
+  \ flexapi#method(0, 'owns(', 'displayObject:DisplayObject)', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -2043,9 +2043,9 @@ call flexapi#interface('IUITextField', 'IIMESupport,', [], [
   \ flexapi#set(0, 'nonInheritingStyles', 'Object'),
   \ flexapi#get(0, 'nonZeroTextHeight', 'Number'),
   \ flexapi#method(0, 'getUITextFormat(', ')', 'UITextFormat'),
-  \ flexapi#method(0, 'setColor(', 'color:uint)', 'void;'),
-  \ flexapi#method(0, 'setFocus(', ')', 'void;'),
-  \ flexapi#method(0, 'truncateToFit(', 'truncationIndicator:String = null)', 'Boolean;'),
+  \ flexapi#method(0, 'setColor(', 'color:uint)', 'void'),
+  \ flexapi#method(0, 'setFocus(', ')', 'void'),
+  \ flexapi#method(0, 'truncateToFit(', 'truncationIndicator:String = null)', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -2078,15 +2078,15 @@ call flexapi#namespace('mx.core')
 call flexapi#interface('IVisualElementContainer', '', [], [
   \ flexapi#get(0, 'numElements', 'int'),
   \ flexapi#method(0, 'getElementAt(', 'index:int)', 'IVisualElement'),
-  \ flexapi#method(0, 'addElement(', 'element:IVisualElement)', 'IVisualElement;'),
-  \ flexapi#method(0, 'addElementAt(', 'element:IVisualElement, index:int)', 'IVisualElement;'),
-  \ flexapi#method(0, 'removeElement(', 'element:IVisualElement)', 'IVisualElement;'),
-  \ flexapi#method(0, 'removeElementAt(', 'index:int)', 'IVisualElement;'),
-  \ flexapi#method(0, 'removeAllElements(', ')', 'void;'),
-  \ flexapi#method(0, 'getElementIndex(', 'element:IVisualElement)', 'int;'),
-  \ flexapi#method(0, 'setElementIndex(', 'element:IVisualElement, index:int)', 'void;'),
-  \ flexapi#method(0, 'swapElements(', 'element1:IVisualElement, element2:IVisualElement)', 'void;'),
-  \ flexapi#method(0, 'swapElementsAt(', 'index1:int, index2:int)', 'void;'),
+  \ flexapi#method(0, 'addElement(', 'element:IVisualElement)', 'IVisualElement'),
+  \ flexapi#method(0, 'addElementAt(', 'element:IVisualElement, index:int)', 'IVisualElement'),
+  \ flexapi#method(0, 'removeElement(', 'element:IVisualElement)', 'IVisualElement'),
+  \ flexapi#method(0, 'removeElementAt(', 'index:int)', 'IVisualElement'),
+  \ flexapi#method(0, 'removeAllElements(', ')', 'void'),
+  \ flexapi#method(0, 'getElementIndex(', 'element:IVisualElement)', 'int'),
+  \ flexapi#method(0, 'setElementIndex(', 'element:IVisualElement, index:int)', 'void'),
+  \ flexapi#method(0, 'swapElements(', 'element1:IVisualElement, element2:IVisualElement)', 'void'),
+  \ flexapi#method(0, 'swapElementsAt(', 'index1:int, index2:int)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -2934,17 +2934,17 @@ call flexapi#interface('IEffect', 'IAbstractEffect', [], [
   \ flexapi#set(0, 'triggerEvent', 'Event'),
   \ flexapi#get(0, 'playheadTime', 'Number'),
   \ flexapi#set(0, 'playheadTime', 'Number'),
-  \ flexapi#method(0, 'createInstance(', 'target:Object = null)', 'IEffectInstance;'),
-  \ flexapi#method(0, 'deleteInstance(', 'instance:IEffectInstance)', 'void;'),
+  \ flexapi#method(0, 'createInstance(', 'target:Object = null)', 'IEffectInstance'),
+  \ flexapi#method(0, 'deleteInstance(', 'instance:IEffectInstance)', 'void'),
   \ flexapi#method(0, 'play(', 'targets:Array = null, playReversedFromEnd', 'Boolean = false):'),
-  \ flexapi#method(0, 'pause(', ')', 'void;'),
-  \ flexapi#method(0, 'stop(', ')', 'void;'),
-  \ flexapi#method(0, 'resume(', ')', 'void;'),
-  \ flexapi#method(0, 'reverse(', ')', 'void;'),
-  \ flexapi#method(0, 'end(', 'effectInstance:IEffectInstance = null)', 'void;'),
-  \ flexapi#method(0, 'captureStartValues(', ')', 'void;'),
-  \ flexapi#method(0, 'captureMoreStartValues(', 'targets:Array)', 'void;'),
-  \ flexapi#method(0, 'captureEndValues(', ')', 'void;'),
+  \ flexapi#method(0, 'pause(', ')', 'void'),
+  \ flexapi#method(0, 'stop(', ')', 'void'),
+  \ flexapi#method(0, 'resume(', ')', 'void'),
+  \ flexapi#method(0, 'reverse(', ')', 'void'),
+  \ flexapi#method(0, 'end(', 'effectInstance:IEffectInstance = null)', 'void'),
+  \ flexapi#method(0, 'captureStartValues(', ')', 'void'),
+  \ flexapi#method(0, 'captureMoreStartValues(', 'targets:Array)', 'void'),
+  \ flexapi#method(0, 'captureEndValues(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -2974,24 +2974,24 @@ call flexapi#interface('IEffectInstance', '', [], [
   \ flexapi#set(0, 'target', 'Object'),
   \ flexapi#get(0, 'triggerEvent', 'Event'),
   \ flexapi#set(0, 'triggerEvent', 'Event'),
-  \ flexapi#method(0, 'initEffect(', 'event:Event)', 'void;'),
-  \ flexapi#method(0, 'startEffect(', ')', 'void;'),
-  \ flexapi#method(0, 'play(', ')', 'void;'),
-  \ flexapi#method(0, 'pause(', ')', 'void;'),
-  \ flexapi#method(0, 'stop(', ')', 'void;'),
-  \ flexapi#method(0, 'resume(', ')', 'void;'),
-  \ flexapi#method(0, 'reverse(', ')', 'void;'),
-  \ flexapi#method(0, 'end(', ')', 'void;'),
-  \ flexapi#method(0, 'finishEffect(', ')', 'void;'),
-  \ flexapi#method(0, 'finishRepeat(', ')', 'void;'),
+  \ flexapi#method(0, 'initEffect(', 'event:Event)', 'void'),
+  \ flexapi#method(0, 'startEffect(', ')', 'void'),
+  \ flexapi#method(0, 'play(', ')', 'void'),
+  \ flexapi#method(0, 'pause(', ')', 'void'),
+  \ flexapi#method(0, 'stop(', ')', 'void'),
+  \ flexapi#method(0, 'resume(', ')', 'void'),
+  \ flexapi#method(0, 'reverse(', ')', 'void'),
+  \ flexapi#method(0, 'end(', ')', 'void'),
+  \ flexapi#method(0, 'finishEffect(', ')', 'void'),
+  \ flexapi#method(0, 'finishRepeat(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.effects')
 call flexapi#interface('IEffectTargetHost', '', [], [
-  \ flexapi#method(0, 'unconstrainRenderer(', 'item:Object)', 'void;'),
-  \ flexapi#method(0, 'removeDataEffectItem(', 'target:Object)', 'void;'),
-  \ flexapi#method(0, 'addDataEffectItem(', 'target:Object)', 'void;'),
-  \ flexapi#method(0, 'getRendererSemanticValue(', 'target:Object,semanticProperty:String)', 'Object;'),
+  \ flexapi#method(0, 'unconstrainRenderer(', 'item:Object)', 'void'),
+  \ flexapi#method(0, 'removeDataEffectItem(', 'target:Object)', 'void'),
+  \ flexapi#method(0, 'addDataEffectItem(', 'target:Object)', 'void'),
+  \ flexapi#method(0, 'getRendererSemanticValue(', 'target:Object,semanticProperty:String)', 'Object'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -3897,7 +3897,7 @@ call flexapi#class('BaseFilter', 'EventDispatcher', [], [
 
 call flexapi#namespace('mx.filters')
 call flexapi#interface('IBitmapFilter', '', [], [
-  \ flexapi#method(0, 'clone(', ')', 'BitmapFilter;'),
+  \ flexapi#method(0, 'clone(', ')', 'BitmapFilter'),
   \ ])
 
 call flexapi#namespace('mx.formatters')
@@ -3952,7 +3952,7 @@ call flexapi#class('Formatter', '', ['IFormatter '], [
 
 call flexapi#namespace('mx.formatters')
 call flexapi#interface('IFormatter', '', [], [
-  \ flexapi#method(0, 'format(', 'value:Object)', 'String;'),
+  \ flexapi#method(0, 'format(', 'value:Object)', 'String'),
   \ ])
 
 call flexapi#namespace('mx.formatters')
@@ -4238,8 +4238,8 @@ call flexapi#class('GradientStroke', 'GradientBase', ['IStroke '], [
 
 call flexapi#namespace('mx.graphics')
 call flexapi#interface('IFill', '', [], [
-  \ flexapi#method(0, 'begin(', 'target:Graphics, targetBounds:Rectangle, targetOrigin:Point)', 'void;'),
-  \ flexapi#method(0, 'end(', 'target:Graphics)', 'void;'),
+  \ flexapi#method(0, 'begin(', 'target:Graphics, targetBounds:Rectangle, targetOrigin:Point)', 'void'),
+  \ flexapi#method(0, 'end(', 'target:Graphics)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.graphics')
@@ -4249,8 +4249,8 @@ call flexapi#interface('IStroke', '', [], [
   \ flexapi#get(0, 'scaleMode', 'String'),
   \ flexapi#get(0, 'miterLimit', 'Number'),
   \ flexapi#get(0, 'joints', 'String'),
-  \ flexapi#method(0, 'apply(', 'graphics:Graphics, targetBounds:Rectangle, targetOrigin:Point)', 'void;'),
-  \ flexapi#method(0, 'createGraphicsStroke(', 'targetBounds:Rectangle, targetOrigin:Point)', 'GraphicsStroke; '),
+  \ flexapi#method(0, 'apply(', 'graphics:Graphics, targetBounds:Rectangle, targetOrigin:Point)', 'void'),
+  \ flexapi#method(0, 'createGraphicsStroke(', 'targetBounds:Rectangle, targetOrigin:Point)', 'GraphicsStroke '),
   \ ])
 
 call flexapi#namespace('mx.graphics')
@@ -4441,8 +4441,8 @@ call flexapi#class('Stroke', 'SolidColorStroke ', [], [
 call flexapi#namespace('mx.graphics.codec')
 call flexapi#interface('IImageEncoder', '', [], [
   \ flexapi#get(0, 'contentType', 'String'),
-  \ flexapi#method(0, 'encode(', 'bitmapData:BitmapData)', 'ByteArray;'),
-  \ flexapi#method(0, 'encodeByteArray(', 'byteArray:ByteArray, width:int, height:int, transparent:Boolean = true)', 'ByteArray;'),
+  \ flexapi#method(0, 'encode(', 'bitmapData:BitmapData)', 'ByteArray'),
+  \ flexapi#method(0, 'encodeByteArray(', 'byteArray:ByteArray, width:int, height:int, transparent:Boolean = true)', 'ByteArray'),
   \ ])
 
 call flexapi#namespace('mx.graphics.codec')
@@ -4481,12 +4481,12 @@ call flexapi#class('AbstractTarget', '', ['ILoggingTarget, IMXMLObject'], [
 call flexapi#namespace('mx.logging')
 call flexapi#interface('ILogger', 'IEventDispatcher', [], [
   \ flexapi#get(0, 'category', 'String'),
-  \ flexapi#method(0, 'log(', 'level:int, message:String, ... rest)', 'void;'),
-  \ flexapi#method(0, 'debug(', 'message:String, ... rest)', 'void;'),
-  \ flexapi#method(0, 'error(', 'message:String, ... rest)', 'void;'),
-  \ flexapi#method(0, 'fatal(', 'message:String, ... rest)', 'void;'),
-  \ flexapi#method(0, 'info(', 'message:String, ... rest)', 'void;'),
-  \ flexapi#method(0, 'warn(', 'message:String, ... rest)', 'void;'),
+  \ flexapi#method(0, 'log(', 'level:int, message:String, ... rest)', 'void'),
+  \ flexapi#method(0, 'debug(', 'message:String, ... rest)', 'void'),
+  \ flexapi#method(0, 'error(', 'message:String, ... rest)', 'void'),
+  \ flexapi#method(0, 'fatal(', 'message:String, ... rest)', 'void'),
+  \ flexapi#method(0, 'info(', 'message:String, ... rest)', 'void'),
+  \ flexapi#method(0, 'warn(', 'message:String, ... rest)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.logging')
@@ -4495,8 +4495,8 @@ call flexapi#interface('ILoggingTarget ', '', [], [
   \ flexapi#set(0, 'filters', 'Array'),
   \ flexapi#get(0, 'level', 'int'),
   \ flexapi#set(0, 'level', 'int'),
-  \ flexapi#method(0, 'addLogger(', 'logger:ILogger)', 'void;'),
-  \ flexapi#method(0, 'removeLogger(', 'logger:ILogger)', 'void;'),
+  \ flexapi#method(0, 'addLogger(', 'logger:ILogger)', 'void'),
+  \ flexapi#method(0, 'removeLogger(', 'logger:ILogger)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.logging')
@@ -4727,10 +4727,10 @@ call flexapi#namespace('mx.managers')
 call flexapi#interface('IActiveWindowManager', '', [], [
   \ flexapi#get(0, 'numModalWindows', 'int'),
   \ flexapi#set(0, 'numModalWindows', 'int'),
-  \ flexapi#method(0, 'addFocusManager(', 'f:IFocusManagerContainer)', 'void;'),
-  \ flexapi#method(0, 'removeFocusManager(', 'f:IFocusManagerContainer)', 'void;'),
-  \ flexapi#method(0, 'activate(', 'f:Object)', 'void;'),
-  \ flexapi#method(0, 'deactivate(', 'f:Object)', 'void;'),
+  \ flexapi#method(0, 'addFocusManager(', 'f:IFocusManagerContainer)', 'void'),
+  \ flexapi#method(0, 'removeFocusManager(', 'f:IFocusManagerContainer)', 'void'),
+  \ flexapi#method(0, 'activate(', 'f:Object)', 'void'),
+  \ flexapi#method(0, 'deactivate(', 'f:Object)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4739,10 +4739,10 @@ call flexapi#interface('IBrowserManager', 'IEventDispatcher', [], [
   \ flexapi#get(0, 'fragment', 'String'),
   \ flexapi#get(0, 'title', 'String'),
   \ flexapi#get(0, 'url', 'String'),
-  \ flexapi#method(0, 'setFragment(', 'value:String)', 'void;'),
-  \ flexapi#method(0, 'setTitle(', 'value:String)', 'void;'),
-  \ flexapi#method(0, 'init(', 'value:String = null, title:String = null)', 'void;'),
-  \ flexapi#method(0, 'initForHistoryManager(', ')', 'void;'),
+  \ flexapi#method(0, 'setFragment(', 'value:String)', 'void'),
+  \ flexapi#method(0, 'setTitle(', 'value:String)', 'void'),
+  \ flexapi#method(0, 'init(', 'value:String = null, title:String = null)', 'void'),
+  \ flexapi#method(0, 'initForHistoryManager(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4753,24 +4753,24 @@ call flexapi#interface('ICursorManager', '', [], [
   \ flexapi#set(0, 'currentCursorXOffset', 'Number'),
   \ flexapi#get(0, 'currentCursorYOffset', 'Number'),
   \ flexapi#set(0, 'currentCursorYOffset', 'Number'),
-  \ flexapi#method(0, 'showCursor(', ')', 'void;'),
-  \ flexapi#method(0, 'hideCursor(', ')', 'void;'),
-  \ flexapi#method(0, 'setCursor(', 'cursorClass:Class, priority:int = 2, xOffset:Number = 0, yOffset:Number = 0)', 'int;'),
-  \ flexapi#method(0, 'removeCursor(', 'cursorID:int)', 'void;'),
-  \ flexapi#method(0, 'removeAllCursors(', ')', 'void;'),
-  \ flexapi#method(0, 'setBusyCursor(', ')', 'void;'),
-  \ flexapi#method(0, 'removeBusyCursor(', ')', 'void; '),
-  \ flexapi#method(0, 'registerToUseBusyCursor(', 'source:Object)', 'void;'),
-  \ flexapi#method(0, 'unRegisterToUseBusyCursor(', 'source:Object)', 'void;'),
+  \ flexapi#method(0, 'showCursor(', ')', 'void'),
+  \ flexapi#method(0, 'hideCursor(', ')', 'void'),
+  \ flexapi#method(0, 'setCursor(', 'cursorClass:Class, priority:int = 2, xOffset:Number = 0, yOffset:Number = 0)', 'int'),
+  \ flexapi#method(0, 'removeCursor(', 'cursorID:int)', 'void'),
+  \ flexapi#method(0, 'removeAllCursors(', ')', 'void'),
+  \ flexapi#method(0, 'setBusyCursor(', ')', 'void'),
+  \ flexapi#method(0, 'removeBusyCursor(', ')', 'void '),
+  \ flexapi#method(0, 'registerToUseBusyCursor(', 'source:Object)', 'void'),
+  \ flexapi#method(0, 'unRegisterToUseBusyCursor(', 'source:Object)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
 call flexapi#interface('IDragManager', '', [], [
   \ flexapi#get(0, 'isDragging', 'Boolean'),
-  \ flexapi#method(0, 'acceptDragDrop(', 'target:IUIComponent)', 'void;'),
-  \ flexapi#method(0, 'showFeedback(', 'feedback:String)', 'void;'),
-  \ flexapi#method(0, 'getFeedback(', ')', 'String;'),
-  \ flexapi#method(0, 'endDrag(', ')', 'void;'),
+  \ flexapi#method(0, 'acceptDragDrop(', 'target:IUIComponent)', 'void'),
+  \ flexapi#method(0, 'showFeedback(', 'feedback:String)', 'void'),
+  \ flexapi#method(0, 'getFeedback(', ')', 'String'),
+  \ flexapi#method(0, 'endDrag(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4784,20 +4784,20 @@ call flexapi#interface('IFocusManager', 'IEventDispatcher', [], [
   \ flexapi#get(0, 'nextTabIndex', 'int'),
   \ flexapi#get(0, 'showFocusIndicator', 'Boolean'),
   \ flexapi#set(0, 'showFocusIndicator', 'Boolean'),
-  \ flexapi#method(0, 'getFocus(', ')', 'IFocusManagerComponent;'),
-  \ flexapi#method(0, 'setFocus(', 'o:IFocusManagerComponent)', 'void;'),
-  \ flexapi#method(0, 'showFocus(', ')', 'void;'),
-  \ flexapi#method(0, 'hideFocus(', ')', 'void;'),
-  \ flexapi#method(0, 'activate(', ')', 'void;'),
-  \ flexapi#method(0, 'deactivate(', ')', 'void;'),
-  \ flexapi#method(0, 'findFocusManagerComponent(', 'o:InteractiveObject)', 'IFocusManagerComponent;'),
-  \ flexapi#method(0, 'getNextFocusManagerComponent(', ' backward:Boolean = false)', 'IFocusManagerComponent;'),
+  \ flexapi#method(0, 'getFocus(', ')', 'IFocusManagerComponent'),
+  \ flexapi#method(0, 'setFocus(', 'o:IFocusManagerComponent)', 'void'),
+  \ flexapi#method(0, 'showFocus(', ')', 'void'),
+  \ flexapi#method(0, 'hideFocus(', ')', 'void'),
+  \ flexapi#method(0, 'activate(', ')', 'void'),
+  \ flexapi#method(0, 'deactivate(', ')', 'void'),
+  \ flexapi#method(0, 'findFocusManagerComponent(', 'o:InteractiveObject)', 'IFocusManagerComponent'),
+  \ flexapi#method(0, 'getNextFocusManagerComponent(', ' backward:Boolean = false)', 'IFocusManagerComponent'),
   \ ])
 
 call flexapi#namespace('mx.managers')
 call flexapi#interface('IFocusManagerComplexComponent', 'IFocusManagerComponent', [], [
   \ flexapi#get(0, 'hasFocusableContent', 'Boolean'),
-  \ flexapi#method(0, 'assignFocus(', 'direction:String)', 'void;'),
+  \ flexapi#method(0, 'assignFocus(', 'direction:String)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4810,8 +4810,8 @@ call flexapi#interface('IFocusManagerComponent', '', [], [
   \ flexapi#get(0, 'tabFocusEnabled', 'Boolean'),
   \ flexapi#get(0, 'tabIndex', 'int'),
   \ flexapi#set(0, 'tabIndex', 'int'),
-  \ flexapi#method(0, 'setFocus(', ')', 'void;'),
-  \ flexapi#method(0, 'drawFocus(', 'isFocused:Boolean)', 'void;'),
+  \ flexapi#method(0, 'setFocus(', ')', 'void'),
+  \ flexapi#method(0, 'drawFocus(', 'isFocused:Boolean)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4821,7 +4821,7 @@ call flexapi#interface('IFocusManagerContainer', 'IEventDispatcher ', [], [
   \ flexapi#get(0, 'defaultButton', 'IFlexDisplayObject'),
   \ flexapi#set(0, 'defaultButton', 'IFlexDisplayObject'),
   \ flexapi#get(0, 'systemManager', 'ISystemManager'),
-  \ flexapi#method(0, 'contains(', 'child:DisplayObject)', 'Boolean;'),
+  \ flexapi#method(0, 'contains(', 'child:DisplayObject)', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4834,28 +4834,28 @@ call flexapi#interface('IFocusManagerGroup', '', [], [
 
 call flexapi#namespace('mx.managers')
 call flexapi#interface('IHistoryManager', '', [], [
-  \ flexapi#method(0, 'register(', 'obj:IHistoryManagerClient)', 'void;'),
-  \ flexapi#method(0, 'unregister(', 'obj:IHistoryManagerClient)', 'void;'),
-  \ flexapi#method(0, 'save(', ')', 'void;'),
+  \ flexapi#method(0, 'register(', 'obj:IHistoryManagerClient)', 'void'),
+  \ flexapi#method(0, 'unregister(', 'obj:IHistoryManagerClient)', 'void'),
+  \ flexapi#method(0, 'save(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
 call flexapi#interface('IHistoryManagerClient', '', [], [
-  \ flexapi#method(0, 'saveState(', ')', 'Object;'),
-  \ flexapi#method(0, 'loadState(', 'state:Object)', 'void;'),
-  \ flexapi#method(0, 'toString(', ')', 'String;'),
+  \ flexapi#method(0, 'saveState(', ')', 'Object'),
+  \ flexapi#method(0, 'loadState(', 'state:Object)', 'void'),
+  \ flexapi#method(0, 'toString(', ')', 'String'),
   \ ])
 
 call flexapi#namespace('mx.managers')
 call flexapi#interface('ILayoutManager', 'IEventDispatcher', [], [
   \ flexapi#get(0, 'usePhasedInstantiation', 'Boolean'),
   \ flexapi#set(0, 'usePhasedInstantiation', 'Boolean'),
-  \ flexapi#method(0, 'invalidateProperties(', 'obj:ILayoutManagerClient )', 'void;'),
-  \ flexapi#method(0, 'invalidateSize(', 'obj:ILayoutManagerClient )', 'void;'),
-  \ flexapi#method(0, 'invalidateDisplayList(', 'obj:ILayoutManagerClient )', 'void;'),
-  \ flexapi#method(0, 'validateNow(', ')', 'void;'),
-  \ flexapi#method(0, 'validateClient(', 'target:ILayoutManagerClient, skipDisplayList:Boolean = false)', 'void;'),
-  \ flexapi#method(0, 'isInvalid(', ')', 'Boolean;'),
+  \ flexapi#method(0, 'invalidateProperties(', 'obj:ILayoutManagerClient )', 'void'),
+  \ flexapi#method(0, 'invalidateSize(', 'obj:ILayoutManagerClient )', 'void'),
+  \ flexapi#method(0, 'invalidateDisplayList(', 'obj:ILayoutManagerClient )', 'void'),
+  \ flexapi#method(0, 'validateNow(', ')', 'void'),
+  \ flexapi#method(0, 'validateClient(', 'target:ILayoutManagerClient, skipDisplayList:Boolean = false)', 'void'),
+  \ flexapi#method(0, 'isInvalid(', ')', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4868,32 +4868,32 @@ call flexapi#interface('ILayoutManagerClient', 'IEventDispatcher', [], [
   \ flexapi#set(0, 'processedDescriptors', 'Boolean'),
   \ flexapi#get(0, 'updateCompletePendingFlag', 'Boolean'),
   \ flexapi#set(0, 'updateCompletePendingFlag', 'Boolean'),
-  \ flexapi#method(0, 'validateProperties(', ')', 'void;'),
-  \ flexapi#method(0, 'validateSize(', 'recursive:Boolean = false)', 'void;'),
-  \ flexapi#method(0, 'validateDisplayList(', ')', 'void;'),
+  \ flexapi#method(0, 'validateProperties(', ')', 'void'),
+  \ flexapi#method(0, 'validateSize(', 'recursive:Boolean = false)', 'void'),
+  \ flexapi#method(0, 'validateDisplayList(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
 call flexapi#interface('IMarshalSystemManager', '', [], [
   \ flexapi#get(0, 'swfBridgeGroup', 'ISWFBridgeGroup'),
   \ flexapi#set(0, 'swfBridgeGroup', 'ISWFBridgeGroup'),
-  \ flexapi#method(0, 'addChildBridge(', 'bridge:IEventDispatcher, owner:DisplayObject)', 'void;'),
-  \ flexapi#method(0, 'removeChildBridge(', 'bridge:IEventDispatcher)', 'void;'),
+  \ flexapi#method(0, 'addChildBridge(', 'bridge:IEventDispatcher, owner:DisplayObject)', 'void'),
+  \ flexapi#method(0, 'removeChildBridge(', 'bridge:IEventDispatcher)', 'void'),
   \ flexapi#method(0, 'dispatchEventFromSWFBridges(', 'event:Event, skip:IEventDispatcher = null, trackClones:Boolean = false, toOtherSystemManagers:Boolean = false)', 'void'),
-  \ flexapi#method(0, 'useSWFBridge(', ')', 'Boolean;'),
-  \ flexapi#method(0, 'addChildToSandboxRoot(', 'layer:String, child:DisplayObject)', 'void;'),
-  \ flexapi#method(0, 'removeChildFromSandboxRoot(', 'layer:String, child:DisplayObject)', 'void;'),
-  \ flexapi#method(0, 'isDisplayObjectInABridgedApplication(', ' displayObject:DisplayObject)', 'Boolean;'),
+  \ flexapi#method(0, 'useSWFBridge(', ')', 'Boolean'),
+  \ flexapi#method(0, 'addChildToSandboxRoot(', 'layer:String, child:DisplayObject)', 'void'),
+  \ flexapi#method(0, 'removeChildFromSandboxRoot(', 'layer:String, child:DisplayObject)', 'void'),
+  \ flexapi#method(0, 'isDisplayObjectInABridgedApplication(', ' displayObject:DisplayObject)', 'Boolean'),
   \ flexapi#method(0, 'dispatchActivatedWindowEvent(', 'window:DisplayObject)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
 call flexapi#interface('IPopUpManager', '', [], [
-  \ flexapi#method(0, 'createPopUp(', 'parent:DisplayObject, className:Class, modal:Boolean = false, childList:String = null, moduleFactory:IFlexModuleFactory = null)', 'IFlexDisplayObject;'),
-  \ flexapi#method(0, 'addPopUp(', 'window:IFlexDisplayObject, parent:DisplayObject, modal:Boolean = false, childList:String = null, moduleFactory:IFlexModuleFactory = null)', 'void;'),
-  \ flexapi#method(0, 'centerPopUp(', 'popUp:IFlexDisplayObject)', 'void;'),
-  \ flexapi#method(0, 'removePopUp(', 'popUp:IFlexDisplayObject)', 'void;'),
-  \ flexapi#method(0, 'bringToFront(', 'popUp:IFlexDisplayObject)', 'void;'),
+  \ flexapi#method(0, 'createPopUp(', 'parent:DisplayObject, className:Class, modal:Boolean = false, childList:String = null, moduleFactory:IFlexModuleFactory = null)', 'IFlexDisplayObject'),
+  \ flexapi#method(0, 'addPopUp(', 'window:IFlexDisplayObject, parent:DisplayObject, modal:Boolean = false, childList:String = null, moduleFactory:IFlexModuleFactory = null)', 'void'),
+  \ flexapi#method(0, 'centerPopUp(', 'popUp:IFlexDisplayObject)', 'void'),
+  \ flexapi#method(0, 'removePopUp(', 'popUp:IFlexDisplayObject)', 'void'),
+  \ flexapi#method(0, 'bringToFront(', 'popUp:IFlexDisplayObject)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4914,24 +4914,24 @@ call flexapi#interface('ISystemManager', 'IEventDispatcher, IChildList, IFlexMod
   \ flexapi#get(0, 'stage', 'Stage'),
   \ flexapi#get(0, 'toolTipChildren', 'IChildList'),
   \ flexapi#get(0, 'topLevelSystemManager', 'ISystemManager'),
-  \ flexapi#method(0, 'getDefinitionByName(', 'name:String)', 'Object;'),
-  \ flexapi#method(0, 'isTopLevel(', ')', 'Boolean;'),
-  \ flexapi#method(0, 'isFontFaceEmbedded(', 'tf:TextFormat)', 'Boolean;'),
-  \ flexapi#method(0, 'isTopLevelRoot(', ')', 'Boolean;'),
-  \ flexapi#method(0, 'getTopLevelRoot(', ')', 'DisplayObject;'),
-  \ flexapi#method(0, 'getSandboxRoot(', ')', 'DisplayObject;'),
-  \ flexapi#method(0, 'getVisibleApplicationRect(', 'bounds:Rectangle = null, skipToSandboxRoot:Boolean = false)', 'Rectangle;'),
-  \ flexapi#method(0, 'deployMouseShields(', 'deploy:Boolean)', 'void;'),
-  \ flexapi#method(0, 'invalidateParentSizeAndDisplayList(', ')', 'void;'),
+  \ flexapi#method(0, 'getDefinitionByName(', 'name:String)', 'Object'),
+  \ flexapi#method(0, 'isTopLevel(', ')', 'Boolean'),
+  \ flexapi#method(0, 'isFontFaceEmbedded(', 'tf:TextFormat)', 'Boolean'),
+  \ flexapi#method(0, 'isTopLevelRoot(', ')', 'Boolean'),
+  \ flexapi#method(0, 'getTopLevelRoot(', ')', 'DisplayObject'),
+  \ flexapi#method(0, 'getSandboxRoot(', ')', 'DisplayObject'),
+  \ flexapi#method(0, 'getVisibleApplicationRect(', 'bounds:Rectangle = null, skipToSandboxRoot:Boolean = false)', 'Rectangle'),
+  \ flexapi#method(0, 'deployMouseShields(', 'deploy:Boolean)', 'void'),
+  \ flexapi#method(0, 'invalidateParentSizeAndDisplayList(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
 call flexapi#interface('ISystemManagerChildManager', '', [], [
-  \ flexapi#method(0, 'addingChild(', 'child:DisplayObject)', 'void;'),
-  \ flexapi#method(0, 'childAdded(', 'child:DisplayObject)', 'void;'),
-  \ flexapi#method(0, 'childRemoved(', 'child:DisplayObject)', 'void;'),
-  \ flexapi#method(0, 'removingChild(', 'child:DisplayObject)', 'void;'),
-  \ flexapi#method(0, 'initializeTopLevelWindow(', 'width:Number, height:Number)', 'void;'),
+  \ flexapi#method(0, 'addingChild(', 'child:DisplayObject)', 'void'),
+  \ flexapi#method(0, 'childAdded(', 'child:DisplayObject)', 'void'),
+  \ flexapi#method(0, 'childRemoved(', 'child:DisplayObject)', 'void'),
+  \ flexapi#method(0, 'removingChild(', 'child:DisplayObject)', 'void'),
+  \ flexapi#method(0, 'initializeTopLevelWindow(', 'width:Number, height:Number)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4954,11 +4954,11 @@ call flexapi#interface('IToolTipManager', '', [], [
   \ flexapi#set(0, 'showEffect', 'Effect'),
   \ flexapi#get(0, 'toolTipClass', 'Class'),
   \ flexapi#set(0, 'toolTipClass', 'Class'),
-  \ flexapi#method(0, 'registerToolTip(', 'target:DisplayObject, oldToolTip:String, newToolTip:String)', 'void;'),
-  \ flexapi#method(0, 'registerErrorString(', 'target:DisplayObject, oldErrorString:String, newErrorString:String)', 'void;'),
-  \ flexapi#method(0, 'sizeTip(', 'toolTip:IToolTip)', 'void;'),
-  \ flexapi#method(0, 'createToolTip(', 'text:String, x:Number, y:Number, errorTipBorderStyle:String = null, context:IUIComponent = null)', 'IToolTip;'),
-  \ flexapi#method(0, 'destroyToolTip(', 'toolTip:IToolTip)', 'void;'),
+  \ flexapi#method(0, 'registerToolTip(', 'target:DisplayObject, oldToolTip:String, newToolTip:String)', 'void'),
+  \ flexapi#method(0, 'registerErrorString(', 'target:DisplayObject, oldErrorString:String, newErrorString:String)', 'void'),
+  \ flexapi#method(0, 'sizeTip(', 'toolTip:IToolTip)', 'void'),
+  \ flexapi#method(0, 'createToolTip(', 'text:String, x:Number, y:Number, errorTipBorderStyle:String = null, context:IUIComponent = null)', 'IToolTip'),
+  \ flexapi#method(0, 'destroyToolTip(', 'toolTip:IToolTip)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4981,11 +4981,11 @@ call flexapi#interface('IToolTipManager2', '', [], [
   \ flexapi#set(0, 'showEffect', 'IAbstractEffect'),
   \ flexapi#get(0, 'toolTipClass', 'Class'),
   \ flexapi#set(0, 'toolTipClass', 'Class'),
-  \ flexapi#method(0, 'registerToolTip(', 'target:DisplayObject, oldToolTip:String, newToolTip:String)', 'void;'),
-  \ flexapi#method(0, 'registerErrorString(', 'target:DisplayObject, oldErrorString:String, newErrorString:String)', 'void;'),
-  \ flexapi#method(0, 'sizeTip(', 'toolTip:IToolTip)', 'void;'),
-  \ flexapi#method(0, 'createToolTip(', 'text:String, x:Number, y:Number, errorTipBorderStyle:String = null, context:IUIComponent = null)', 'IToolTip;'),
-  \ flexapi#method(0, 'destroyToolTip(', 'toolTip:IToolTip)', 'void;'),
+  \ flexapi#method(0, 'registerToolTip(', 'target:DisplayObject, oldToolTip:String, newToolTip:String)', 'void'),
+  \ flexapi#method(0, 'registerErrorString(', 'target:DisplayObject, oldErrorString:String, newErrorString:String)', 'void'),
+  \ flexapi#method(0, 'sizeTip(', 'toolTip:IToolTip)', 'void'),
+  \ flexapi#method(0, 'createToolTip(', 'text:String, x:Number, y:Number, errorTipBorderStyle:String = null, context:IUIComponent = null)', 'IToolTip'),
+  \ flexapi#method(0, 'destroyToolTip(', 'toolTip:IToolTip)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -5499,10 +5499,10 @@ call flexapi#interface('IModuleInfo', 'IEventDispatcher', [], [
   \ flexapi#get(0, 'ready', 'Boolean'),
   \ flexapi#get(0, 'setup', 'Boolean'),
   \ flexapi#get(0, 'url', 'String'),
-  \ flexapi#method(0, 'load(', 'applicationDomain:ApplicationDomain = null, securityDomain:SecurityDomain = null, bytes:ByteArray = null, moduleFactory:IFlexModuleFactory = null)', 'void;'),
-  \ flexapi#method(0, 'release(', ')', 'void;'),
-  \ flexapi#method(0, 'unload(', ')', 'void;'),
-  \ flexapi#method(0, 'publish(', 'factory:IFlexModuleFactory)', 'void;'),
+  \ flexapi#method(0, 'load(', 'applicationDomain:ApplicationDomain = null, securityDomain:SecurityDomain = null, bytes:ByteArray = null, moduleFactory:IFlexModuleFactory = null)', 'void'),
+  \ flexapi#method(0, 'release(', ')', 'void'),
+  \ flexapi#method(0, 'unload(', ')', 'void'),
+  \ flexapi#method(0, 'publish(', 'factory:IFlexModuleFactory)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.modules')
@@ -5603,7 +5603,7 @@ call flexapi#interface('IPreloaderDisplay', 'IEventDispatcher', [], [
   \ flexapi#set(0, 'stageHeight', 'Number'),
   \ flexapi#get(0, 'stageWidth', 'Number'),
   \ flexapi#set(0, 'stageWidth', 'Number'),
-  \ flexapi#method(0, 'initialize(', ')', 'void;'),
+  \ flexapi#method(0, 'initialize(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.preloaders')
@@ -5667,20 +5667,20 @@ call flexapi#interface('IResourceBundle', '', [], [
 call flexapi#namespace('mx.resources')
 call flexapi#interface('IResourceManager', 'IEventDispatcher', [], [
   \ flexapi#method(0, 'loadResourceModule(', 'url:String, update:Boolean = true, applicationDomain:ApplicationDomain = null, securityDomain', 'SecurityDomain = null):'),
-  \ flexapi#method(0, 'unloadResourceModule(', 'url:String, update:Boolean = true)', 'void;'),
-  \ flexapi#method(0, 'addResourceBundle(', 'resourceBundle:IResourceBundle, useWeakReference:Boolean = false)', 'void;'),
-  \ flexapi#method(0, 'removeResourceBundle(', 'locale:String, bundleName:String)', 'void;'),
-  \ flexapi#method(0, 'removeResourceBundlesForLocale(', 'locale:String)', 'void;'),
-  \ flexapi#method(0, 'update(', ')', 'void;'),
-  \ flexapi#method(0, 'getResourceBundle(', 'locale:String, bundleName:String)', 'IResourceBundle;'),
-  \ flexapi#method(0, 'findResourceBundleWithResource(', ' bundleName:String, resourceName:String)', 'IResourceBundle;'),
-  \ flexapi#method(0, 'getString(', 'bundleName:String, resourceName:String, parameters:Array = null, locale:String = null)', 'String;'),
-  \ flexapi#method(0, 'getNumber(', 'bundleName:String, resourceName:String, locale:String = null)', 'Number;'),
-  \ flexapi#method(0, 'getInt(', 'bundleName:String, resourceName:String, locale:String = null)', 'int;'),
-  \ flexapi#method(0, 'getUint(', 'bundleName:String, resourceName:String, locale:String = null)', 'uint;'),
-  \ flexapi#method(0, 'getBoolean(', 'bundleName:String, resourceName:String, locale:String = null)', 'Boolean;'),
-  \ flexapi#method(0, 'getClass(', 'bundleName:String, resourceName:String, locale:String = null)', 'Class;'),
-  \ flexapi#method(0, 'initializeLocaleChain(', 'compiledLocales:Array)', 'void; '),
+  \ flexapi#method(0, 'unloadResourceModule(', 'url:String, update:Boolean = true)', 'void'),
+  \ flexapi#method(0, 'addResourceBundle(', 'resourceBundle:IResourceBundle, useWeakReference:Boolean = false)', 'void'),
+  \ flexapi#method(0, 'removeResourceBundle(', 'locale:String, bundleName:String)', 'void'),
+  \ flexapi#method(0, 'removeResourceBundlesForLocale(', 'locale:String)', 'void'),
+  \ flexapi#method(0, 'update(', ')', 'void'),
+  \ flexapi#method(0, 'getResourceBundle(', 'locale:String, bundleName:String)', 'IResourceBundle'),
+  \ flexapi#method(0, 'findResourceBundleWithResource(', ' bundleName:String, resourceName:String)', 'IResourceBundle'),
+  \ flexapi#method(0, 'getString(', 'bundleName:String, resourceName:String, parameters:Array = null, locale:String = null)', 'String'),
+  \ flexapi#method(0, 'getNumber(', 'bundleName:String, resourceName:String, locale:String = null)', 'Number'),
+  \ flexapi#method(0, 'getInt(', 'bundleName:String, resourceName:String, locale:String = null)', 'int'),
+  \ flexapi#method(0, 'getUint(', 'bundleName:String, resourceName:String, locale:String = null)', 'uint'),
+  \ flexapi#method(0, 'getBoolean(', 'bundleName:String, resourceName:String, locale:String = null)', 'Boolean'),
+  \ flexapi#method(0, 'getClass(', 'bundleName:String, resourceName:String, locale:String = null)', 'Class'),
+  \ flexapi#method(0, 'initializeLocaleChain(', 'compiledLocales:Array)', 'void '),
   \ ])
 
 call flexapi#namespace('mx.resources')
@@ -5763,8 +5763,8 @@ call flexapi#class('ResourceManagerImpl', 'EventDispatcher', ['IResourceManager'
 
 call flexapi#namespace('mx.rpc')
 call flexapi#interface('IResponder', '', [], [
-  \ flexapi#method(0, 'result(', 'data:Object)', 'void;'),
-  \ flexapi#method(0, 'fault(', 'info:Object)', 'void;'),
+  \ flexapi#method(0, 'result(', 'data:Object)', 'void'),
+  \ flexapi#method(0, 'fault(', 'info:Object)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.skins')
@@ -5907,8 +5907,8 @@ call flexapi#class('AddItems', 'OverrideBase ', [], [
 call flexapi#namespace('mx.states')
 call flexapi#interface('IOverride', '', [], [
   \ flexapi#method(0, 'initialize(', ')', 'void'),
-  \ flexapi#method(0, 'apply(', 'parent:UIComponent)', 'void;'),
-  \ flexapi#method(0, 'remove(', 'parent:UIComponent)', 'void;'),
+  \ flexapi#method(0, 'apply(', 'parent:UIComponent)', 'void'),
+  \ flexapi#method(0, 'remove(', 'parent:UIComponent)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.states')
@@ -6081,16 +6081,16 @@ call flexapi#interface('IAdvancedStyleClient', 'IStyleClient', [], [
   \ flexapi#get(0, 'styleParent', 'IAdvancedStyleClient'),
   \ flexapi#set(0, 'styleParent', 'IAdvancedStyleClient'),
   \ flexapi#method(0, 'stylesInitialized(', ')', 'void'),
-  \ flexapi#method(0, 'matchesCSSState(', 'cssState:String)', 'Boolean;'),
-  \ flexapi#method(0, 'matchesCSSType(', 'cssType:String)', 'Boolean;'),
-  \ flexapi#method(0, 'hasCSSState(', ')', 'Boolean;'),
+  \ flexapi#method(0, 'matchesCSSState(', 'cssState:String)', 'Boolean'),
+  \ flexapi#method(0, 'matchesCSSType(', 'cssType:String)', 'Boolean'),
+  \ flexapi#method(0, 'hasCSSState(', ')', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.styles')
 call flexapi#interface('ISimpleStyleClient', '', [], [
   \ flexapi#get(0, 'styleName', 'Object'),
   \ flexapi#set(0, 'styleName', 'Object'),
-  \ flexapi#method(0, 'styleChanged(', 'styleProp:String)', 'void;'),
+  \ flexapi#method(0, 'styleChanged(', 'styleProp:String)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.styles')
@@ -6102,9 +6102,9 @@ call flexapi#interface('IStyleClient', 'ISimpleStyleClient', [], [
   \ flexapi#set(0, 'nonInheritingStyles', 'Object'),
   \ flexapi#get(0, 'styleDeclaration', 'CSSStyleDeclaration'),
   \ flexapi#set(0, 'styleDeclaration', 'CSSStyleDeclaration'),
-  \ flexapi#method(0, 'clearStyle(', 'styleProp:String)', 'void;'),
-  \ flexapi#method(0, 'notifyStyleChangeInChildren(', 'styleProp:String, recursive:Boolean)', 'void;'),
-  \ flexapi#method(0, 'regenerateStyleCache(', 'recursive:Boolean)', 'void;'),
+  \ flexapi#method(0, 'clearStyle(', 'styleProp:String)', 'void'),
+  \ flexapi#method(0, 'notifyStyleChangeInChildren(', 'styleProp:String, recursive:Boolean)', 'void'),
+  \ flexapi#method(0, 'regenerateStyleCache(', 'recursive:Boolean)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.styles')
@@ -6115,25 +6115,25 @@ call flexapi#interface('IStyleManager', '', [], [
   \ flexapi#set(0, 'stylesRoot', 'Object'),
   \ flexapi#get(0, 'typeSelectorCache', 'Object'),
   \ flexapi#set(0, 'typeSelectorCache', 'Object'),
-  \ flexapi#method(0, 'getStyleDeclaration(', 'selector:String)', 'CSSStyleDeclaration;'),
-  \ flexapi#method(0, 'setStyleDeclaration(', 'selector:String, styleDeclaration:CSSStyleDeclaration, update:Boolean)', 'void;'),
-  \ flexapi#method(0, 'clearStyleDeclaration(', 'selector:String, update:Boolean)', 'void;'),
-  \ flexapi#method(0, 'registerInheritingStyle(', 'styleName:String)', 'void;'),
-  \ flexapi#method(0, 'isInheritingStyle(', 'styleName:String)', 'Boolean;'),
-  \ flexapi#method(0, 'isInheritingTextFormatStyle(', 'styleName:String)', 'Boolean;'),
-  \ flexapi#method(0, 'registerSizeInvalidatingStyle(', 'styleName:String)', 'void;'),
-  \ flexapi#method(0, 'isSizeInvalidatingStyle(', 'styleName:String)', 'Boolean;'),
-  \ flexapi#method(0, 'registerParentSizeInvalidatingStyle(', 'styleName:String)', 'void;'),
-  \ flexapi#method(0, 'isParentSizeInvalidatingStyle(', 'styleName:String)', 'Boolean;'),
-  \ flexapi#method(0, 'registerParentDisplayListInvalidatingStyle(', 'styleName:String)', 'void;'),
-  \ flexapi#method(0, 'isParentDisplayListInvalidatingStyle(', 'styleName:String)', 'Boolean;'),
-  \ flexapi#method(0, 'registerColorName(', 'colorName:String, colorValue:uint)', 'void;'),
-  \ flexapi#method(0, 'isColorName(', 'colorName:String)', 'Boolean;'),
-  \ flexapi#method(0, 'getColorName(', 'colorName:Object)', 'uint;'),
-  \ flexapi#method(0, 'loadStyleDeclarations(', ' url:String, update:Boolean = true, trustContent:Boolean = false, applicationDomain:ApplicationDomain = null, securityDomain:SecurityDomain = null)', 'IEventDispatcher;'),
-  \ flexapi#method(0, 'unloadStyleDeclarations(', ' url:String, update:Boolean = true)', 'void;'),
-  \ flexapi#method(0, 'initProtoChainRoots(', ')', 'void;'),
-  \ flexapi#method(0, 'styleDeclarationsChanged(', ')', 'void;'),
+  \ flexapi#method(0, 'getStyleDeclaration(', 'selector:String)', 'CSSStyleDeclaration'),
+  \ flexapi#method(0, 'setStyleDeclaration(', 'selector:String, styleDeclaration:CSSStyleDeclaration, update:Boolean)', 'void'),
+  \ flexapi#method(0, 'clearStyleDeclaration(', 'selector:String, update:Boolean)', 'void'),
+  \ flexapi#method(0, 'registerInheritingStyle(', 'styleName:String)', 'void'),
+  \ flexapi#method(0, 'isInheritingStyle(', 'styleName:String)', 'Boolean'),
+  \ flexapi#method(0, 'isInheritingTextFormatStyle(', 'styleName:String)', 'Boolean'),
+  \ flexapi#method(0, 'registerSizeInvalidatingStyle(', 'styleName:String)', 'void'),
+  \ flexapi#method(0, 'isSizeInvalidatingStyle(', 'styleName:String)', 'Boolean'),
+  \ flexapi#method(0, 'registerParentSizeInvalidatingStyle(', 'styleName:String)', 'void'),
+  \ flexapi#method(0, 'isParentSizeInvalidatingStyle(', 'styleName:String)', 'Boolean'),
+  \ flexapi#method(0, 'registerParentDisplayListInvalidatingStyle(', 'styleName:String)', 'void'),
+  \ flexapi#method(0, 'isParentDisplayListInvalidatingStyle(', 'styleName:String)', 'Boolean'),
+  \ flexapi#method(0, 'registerColorName(', 'colorName:String, colorValue:uint)', 'void'),
+  \ flexapi#method(0, 'isColorName(', 'colorName:String)', 'Boolean'),
+  \ flexapi#method(0, 'getColorName(', 'colorName:Object)', 'uint'),
+  \ flexapi#method(0, 'loadStyleDeclarations(', ' url:String, update:Boolean = true, trustContent:Boolean = false, applicationDomain:ApplicationDomain = null, securityDomain:SecurityDomain = null)', 'IEventDispatcher'),
+  \ flexapi#method(0, 'unloadStyleDeclarations(', ' url:String, update:Boolean = true)', 'void'),
+  \ flexapi#method(0, 'initProtoChainRoots(', ')', 'void'),
+  \ flexapi#method(0, 'styleDeclarationsChanged(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.styles')
@@ -6144,18 +6144,18 @@ call flexapi#interface('IStyleManager2', 'IStyleManager', [], [
   \ flexapi#get(0, 'selectors', 'Array'),
   \ flexapi#get(0, 'typeHierarchyCache', 'Object'),
   \ flexapi#set(0, 'typeHierarchyCache', 'Object'),
-  \ flexapi#method(0, 'getStyleDeclarations(', 'subject:String)', 'Object;'),
-  \ flexapi#method(0, 'getMergedStyleDeclaration(', 'selector:String)', 'CSSStyleDeclaration;    '),
-  \ flexapi#method(0, 'hasPseudoCondition(', 'value:String)', 'Boolean;'),
-  \ flexapi#method(0, 'hasAdvancedSelectors(', ')', 'Boolean;'),
-  \ flexapi#method(0, 'loadStyleDeclarations2(', ' url:String, update:Boolean = true, applicationDomain:ApplicationDomain = null, securityDomain:SecurityDomain = null)', 'IEventDispatcher;'),
-  \ flexapi#method(0, 'acceptMediaList(', 'value:String)', 'Boolean;'),
+  \ flexapi#method(0, 'getStyleDeclarations(', 'subject:String)', 'Object'),
+  \ flexapi#method(0, 'getMergedStyleDeclaration(', 'selector:String)', 'CSSStyleDeclaration    '),
+  \ flexapi#method(0, 'hasPseudoCondition(', 'value:String)', 'Boolean'),
+  \ flexapi#method(0, 'hasAdvancedSelectors(', ')', 'Boolean'),
+  \ flexapi#method(0, 'loadStyleDeclarations2(', ' url:String, update:Boolean = true, applicationDomain:ApplicationDomain = null, securityDomain:SecurityDomain = null)', 'IEventDispatcher'),
+  \ flexapi#method(0, 'acceptMediaList(', 'value:String)', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.styles')
 call flexapi#interface('IStyleModule', '', [], [
-  \ flexapi#method(0, 'setStyleDeclarations(', 'styleManager:IStyleManager2)', 'void;'),
-  \ flexapi#method(0, 'unload(', ')', 'void;'),
+  \ flexapi#method(0, 'setStyleDeclarations(', 'styleManager:IStyleManager2)', 'void'),
+  \ flexapi#method(0, 'unload(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.styles')
@@ -6375,7 +6375,7 @@ call flexapi#class('HSBColor', '', [], [
 
 call flexapi#namespace('mx.utils')
 call flexapi#interface('IXMLNotifiable', '', [], [
-  \ flexapi#method(0, 'xmlNotification(', 'currentTarget:Object, type:String, target:Object, value:Object, detail:Object)', 'void;'),
+  \ flexapi#method(0, 'xmlNotification(', 'currentTarget:Object, type:String, target:Object, value:Object, detail:Object)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.utils')
@@ -6728,7 +6728,7 @@ call flexapi#interface('IValidatorListener', '', [], [
   \ flexapi#set(0, 'errorString', 'String'),
   \ flexapi#get(0, 'validationSubField', 'String'),
   \ flexapi#set(0, 'validationSubField', 'String'),
-  \ flexapi#method(0, 'validationResultHandler(', 'event:ValidationResultEvent)', 'void;'),
+  \ flexapi#method(0, 'validationResultHandler(', 'event:ValidationResultEvent)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.validators')

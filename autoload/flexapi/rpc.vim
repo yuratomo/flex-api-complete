@@ -816,12 +816,12 @@ call flexapi#interface('IMessage ', '', [], [
   \ flexapi#set(0, 'timestamp', 'Number'),
   \ flexapi#get(0, 'timeToLive', 'Number'),
   \ flexapi#set(0, 'timeToLive', 'Number'),
-  \ flexapi#method(0, 'toString(', ')', 'String;'),
+  \ flexapi#method(0, 'toString(', ')', 'String'),
   \ ])
 
 call flexapi#namespace('mx.messaging.messages')
 call flexapi#interface('ISmallMessage', 'IMessage', [], [
-  \ flexapi#method(0, 'getSmallMessage(', ')', 'IMessage;'),
+  \ flexapi#method(0, 'getSmallMessage(', ')', 'IMessage'),
   \ ])
 
 call flexapi#namespace('mx.messaging.messages')
@@ -1027,8 +1027,8 @@ call flexapi#class('Fault', 'Error', [], [
 
 call flexapi#namespace('mx.rpc')
 call flexapi#interface('IResponder', '', [], [
-  \ flexapi#method(0, 'result(', 'data:Object)', 'void;'),
-  \ flexapi#method(0, 'fault(', 'info:Object)', 'void;'),
+  \ flexapi#method(0, 'result(', 'data:Object)', 'void'),
+  \ flexapi#method(0, 'fault(', 'info:Object)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.rpc')
@@ -1396,7 +1396,7 @@ call flexapi#interface('ISOAPDecoder', 'IXMLDecoder', [], [
   \ flexapi#set(0, 'multiplePartsFormat', 'String'),
   \ flexapi#get(0, 'wsdlOperation', 'WSDLOperation'),
   \ flexapi#set(0, 'wsdlOperation', 'WSDLOperation'),
-  \ flexapi#method(0, 'decodeResponse(', 'response:*)', 'SOAPResult;'),
+  \ flexapi#method(0, 'decodeResponse(', 'response:*)', 'SOAPResult'),
   \ ])
 
 call flexapi#namespace('mx.rpc.soap')
@@ -1405,7 +1405,7 @@ call flexapi#interface('ISOAPEncoder', 'IXMLEncoder', [], [
   \ flexapi#set(0, 'ignoreWhitespace', 'Boolean'),
   \ flexapi#get(0, 'wsdlOperation', 'WSDLOperation'),
   \ flexapi#set(0, 'wsdlOperation', 'WSDLOperation'),
-  \ flexapi#method(0, 'encodeRequest(', 'args:* = null, headers:Array = null)', 'XML;'),
+  \ flexapi#method(0, 'encodeRequest(', 'args:* = null, headers:Array = null)', 'XML'),
   \ ])
 
 call flexapi#namespace('mx.rpc.soap')
@@ -1632,8 +1632,8 @@ call flexapi#class('DataSetType', '', ['ICustomSOAPType'], [
 
 call flexapi#namespace('mx.rpc.soap.types')
 call flexapi#interface('ICustomSOAPType', '', [], [
-  \ flexapi#method(0, 'encode(', 'encoder:SOAPEncoder, parent:XML, name:QName, value:*, restriction:XML = null)', 'void;'),
-  \ flexapi#method(0, 'decode(', 'decoder:SOAPDecoder, parent:*, name:*, value:*, restriction:XML = null)', 'void;'),
+  \ flexapi#method(0, 'encode(', 'encoder:SOAPEncoder, parent:XML, name:QName, value:*, restriction:XML = null)', 'void'),
+  \ flexapi#method(0, 'decode(', 'decoder:SOAPDecoder, parent:*, name:*, value:*, restriction:XML = null)', 'void'),
   \ ])
 
 call flexapi#namespace('mx.rpc.soap.types')
@@ -1881,14 +1881,14 @@ call flexapi#interface('IXMLDecoder', '', [], [
   \ flexapi#set(0, 'recordXSIType', 'Boolean'),
   \ flexapi#get(0, 'typeRegistry', 'SchemaTypeRegistry'),
   \ flexapi#set(0, 'typeRegistry', 'SchemaTypeRegistry'),
-  \ flexapi#method(0, 'decode(', 'xml:*, name:QName = null, type:QName = null, definition:XML = null)', '*;'),
-  \ flexapi#method(0, 'reset(', ')', 'void;'),
+  \ flexapi#method(0, 'decode(', 'xml:*, name:QName = null, type:QName = null, definition:XML = null)', '*'),
+  \ flexapi#method(0, 'reset(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.rpc.xml')
 call flexapi#interface('IXMLEncoder', '', [], [
-  \ flexapi#method(0, 'encode(', 'value:*, name:QName = null, type:QName = null, definition:XML = null)', 'XMLList;'),
-  \ flexapi#method(0, 'reset(', ')', 'void;'),
+  \ flexapi#method(0, 'encode(', 'value:*, name:QName = null, type:QName = null, definition:XML = null)', 'XMLList'),
+  \ flexapi#method(0, 'reset(', ')', 'void'),
   \ flexapi#get(0, 'xmlSpecialCharsFilter', 'Function'),
   \ flexapi#set(0, 'xmlSpecialCharsFilter', 'Function'),
   \ flexapi#get(0, 'strictNillability', 'Boolean'),
@@ -2378,7 +2378,7 @@ call flexapi#class('URLUtil', '', [], [
   \ flexapi#method(1, 'hasUnresolvableTokens(', ')', 'Boolean'),
   \ flexapi#const(1, 'SERVER_NAME_TOKEN', 'String'),
   \ flexapi#const(1, 'SERVER_PORT_TOKEN', 'String'),
-  \ flexapi#method(1, 'objectToString(', 'object:Object, separator:String=";", encodeURL:Boolean = true)', 'String'),
-  \ flexapi#method(1, 'stringToObject(', 'string:String, separator:String = ";", decodeURL:Boolean = true)', 'Object'),
+  \ flexapi#method(1, 'objectToString(', 'object:Object, separator:String="", encodeURL:Boolean = true)', 'String'),
+  \ flexapi#method(1, 'stringToObject(', 'string:String, separator:String = "", decodeURL:Boolean = true)', 'Object'),
   \ ])
 

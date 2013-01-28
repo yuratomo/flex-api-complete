@@ -2216,18 +2216,18 @@ call flexapi#class('HierarchicalViewCursor', 'EventDispatcher', [], [
 
 call flexapi#namespace('mx.controls.treeClasses')
 call flexapi#interface('ITreeDataDescriptor', '', [], [
-  \ flexapi#method(0, 'getChildren(', 'node:Object, model:Object = null)', 'ICollectionView;'),
-  \ flexapi#method(0, 'hasChildren(', 'node:Object, model:Object = null)', 'Boolean;'),
-  \ flexapi#method(0, 'isBranch(', 'node:Object, model:Object = null)', 'Boolean;'),
-  \ flexapi#method(0, 'getData(', 'node:Object, model:Object = null)', 'Object;'),
-  \ flexapi#method(0, 'addChildAt(', 'parent:Object, newChild:Object, index:int, model:Object = null)', 'Boolean;'),
-  \ flexapi#method(0, 'removeChildAt(', 'parent:Object, child:Object, index:int, model:Object = null)', 'Boolean;'),
+  \ flexapi#method(0, 'getChildren(', 'node:Object, model:Object = null)', 'ICollectionView'),
+  \ flexapi#method(0, 'hasChildren(', 'node:Object, model:Object = null)', 'Boolean'),
+  \ flexapi#method(0, 'isBranch(', 'node:Object, model:Object = null)', 'Boolean'),
+  \ flexapi#method(0, 'getData(', 'node:Object, model:Object = null)', 'Object'),
+  \ flexapi#method(0, 'addChildAt(', 'parent:Object, newChild:Object, index:int, model:Object = null)', 'Boolean'),
+  \ flexapi#method(0, 'removeChildAt(', 'parent:Object, child:Object, index:int, model:Object = null)', 'Boolean'),
   \ ])
 call flexapi#namespace('mx.controls.treeClasses')
 call flexapi#interface('ITreeDataDescriptor2', 'ITreeDataDescriptor', [], [
-  \ flexapi#method(0, 'getHierarchicalCollectionAdaptor(', 'hierarchicalData:ICollectionView, uidFunction:Function, openItems:Object, model:Object = null)', 'ICollectionView;'),
-  \ flexapi#method(0, 'getNodeDepth(', 'node:Object, iterator:IViewCursor, model:Object = null)', 'int;'),
-  \ flexapi#method(0, 'getParent(', 'node:Object, collection:ICollectionView, model:Object = null)', 'Object;'),
+  \ flexapi#method(0, 'getHierarchicalCollectionAdaptor(', 'hierarchicalData:ICollectionView, uidFunction:Function, openItems:Object, model:Object = null)', 'ICollectionView'),
+  \ flexapi#method(0, 'getNodeDepth(', 'node:Object, iterator:IViewCursor, model:Object = null)', 'int'),
+  \ flexapi#method(0, 'getParent(', 'node:Object, collection:ICollectionView, model:Object = null)', 'Object'),
   \ ])
 call flexapi#namespace('mx.controls.treeClasses')
 call flexapi#class('TreeItemRenderer', 'UIComponent', [], [
@@ -2276,11 +2276,11 @@ call flexapi#interface('INCManager ', '', [], [
   \ flexapi#set(0, 'timeout', 'uint'),
   \ flexapi#get(0, 'videoPlayer', 'VideoPlayer'),
   \ flexapi#set(0, 'videoPlayer', 'VideoPlayer'),
-  \ flexapi#method(0, 'connectToURL(', 'url:String)', 'Boolean;'),
-  \ flexapi#method(0, 'connectAgain(', ')', 'Boolean;'),
-  \ flexapi#method(0, 'reconnect(', ')', 'void;'),
-  \ flexapi#method(0, 'close(', ')', 'void;'),
-  \ flexapi#method(0, 'isRTMP(', ')', 'Boolean;'),
+  \ flexapi#method(0, 'connectToURL(', 'url:String)', 'Boolean'),
+  \ flexapi#method(0, 'connectAgain(', ')', 'Boolean'),
+  \ flexapi#method(0, 'reconnect(', ')', 'void'),
+  \ flexapi#method(0, 'close(', ')', 'void'),
+  \ flexapi#method(0, 'isRTMP(', ')', 'Boolean'),
   \ ])
 
 call flexapi#namespace('mx.controls.videoClasses')

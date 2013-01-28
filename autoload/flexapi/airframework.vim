@@ -366,10 +366,10 @@ call flexapi#interface('IWindow', '', [], [
   \ flexapi#get(0, 'transparent', 'Boolean'),
   \ flexapi#get(0, 'type', 'String'),
   \ flexapi#get(0, 'visible', 'Boolean'),
-  \ flexapi#method(0, 'close(', ')', 'void;'),
+  \ flexapi#method(0, 'close(', ')', 'void'),
   \ flexapi#method(0, 'maximize(', ')', 'void'),
-  \ flexapi#method(0, 'minimize(', ')', 'void;'),
-  \ flexapi#method(0, 'restore(', ')', 'void;'),
+  \ flexapi#method(0, 'minimize(', ')', 'void'),
+  \ flexapi#method(0, 'restore(', ')', 'void'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -546,7 +546,7 @@ call flexapi#class('WindowedApplication', 'Application', ['IWindow'], [
   \ flexapi#method(0, 'orderToBack(', ')', 'Boolean'),
   \ flexapi#method(0, 'orderToFront(', ')', 'Boolean'),
   \ flexapi#method(0, '(', 'e:FlexNativeWindowBoundsEvent)', 'void'),
-  \ flexapi#method(0, '(', ')', 'void { win.close(); };'),
+  \ flexapi#method(0, '(', ')', 'void { win.close() }'),
   \ ])
 
 call flexapi#namespace('mx.events')

@@ -201,18 +201,18 @@ call flexapi#class('URIError', 'Object', [], [
 
 call flexapi#class('Vector', 'Object', [], [
   \ flexapi#field(0, 'length', 'uint'),
-  \ flexapi#method(0, 'concat(', '... args)', 'Vector.&lt;T&gt;'),
+  \ flexapi#method(0, 'concat(', '... args)', 'Vector.<T>'),
   \ flexapi#method(0, 'every(', 'callback:Function, thisObject:Object = null)', 'Boolean'),
-  \ flexapi#method(0, 'filter(', 'callback:Function, thisObject:Object = null)', 'Vector.&lt;T&gt;'),
+  \ flexapi#method(0, 'filter(', 'callback:Function, thisObject:Object = null)', 'Vector.<T>'),
   \ flexapi#method(0, 'forEach(', 'callback:Function, thisObject:Object = null)', 'void'),
   \ flexapi#method(0, 'lastIndexOf(', 'searchElement:T, fromIndex:int = 0x7fffffff)', 'int'),
-  \ flexapi#method(0, 'map(', 'callback:Function, thisObject:Object = null)', 'Vector.&lt;T&gt;'),
+  \ flexapi#method(0, 'map(', 'callback:Function, thisObject:Object = null)', 'Vector.<T>'),
   \ flexapi#method(0, 'pop(', ')', 'T'),
-  \ flexapi#method(0, 'reverse(', ')', 'Vector.&lt;T&gt;'),
-  \ flexapi#method(0, 'slice(', 'startIndex:int = 0, endIndex:int = 16777215)', 'Vector.&lt;T&gt;'),
+  \ flexapi#method(0, 'reverse(', ')', 'Vector.<T>'),
+  \ flexapi#method(0, 'slice(', 'startIndex:int = 0, endIndex:int = 16777215)', 'Vector.<T>'),
   \ flexapi#method(0, 'some(', 'callback:Function, thisObject:Object = null)', 'Boolean'),
-  \ flexapi#method(0, 'sort(', 'compareFunction:Function)', 'Vector.&lt;T&gt;'),
-  \ flexapi#method(0, 'splice(', 'startIndex:int, deleteCount:uint, ... items)', 'Vector.&lt;T&gt;'),
+  \ flexapi#method(0, 'sort(', 'compareFunction:Function)', 'Vector.<T>'),
+  \ flexapi#method(0, 'splice(', 'startIndex:int, deleteCount:uint, ... items)', 'Vector.<T>'),
   \ flexapi#method(0, 'unshift(', '... args)', 'uint'),
   \ ])
 
@@ -294,4 +294,26 @@ call flexapi#class('uint', 'Object', [], [
   \ flexapi#method(0, 'toFixed(', 'fractionDigits:uint)', 'String'),
   \ flexapi#field(1, 'MIN_VALUE', 'uint = 0'),
   \ ])
+
+call flexapi#function('Array(', '... args)', 'Array', 'global')
+call flexapi#function('Boolean(', 'expression:Object)', 'Boolean', 'global')
+call flexapi#function('decodeURI(', 'uri:String)', 'String', 'global')
+call flexapi#function('decodeURIComponent(', 'uri:String)', 'String', 'global')
+call flexapi#function('encodeURI(', 'uri:String)', 'String', 'global')
+call flexapi#function('encodeURIComponent(', 'uri:String)', 'String', 'global')
+call flexapi#function('escape(', 'str:String)', 'String', 'global')
+call flexapi#function('int(', 'value:Number)', 'int', 'global')
+call flexapi#function('isFinite(', 'num:Number)', 'Boolean', 'global')
+call flexapi#function('isNaN(', 'num:Number)', 'Boolean', 'global')
+call flexapi#function('isXMLName(', 'str:String)', 'Boolean', 'global')
+call flexapi#function('Number(', 'expression:Object)', 'Number', 'global')
+call flexapi#function('Object(', 'value:Object)', 'Object', 'global')
+call flexapi#function('parseFloat(', 'str:String)', 'Number', 'global')
+call flexapi#function('parseInt(', 'str:String, radix:uint = 0)', 'Number', 'global')
+call flexapi#function('String(', 'expression:Object)', 'String', 'global')
+call flexapi#function('trace(', '... arguments)', 'void', 'global')
+call flexapi#function('uint(', 'value:Number)', 'uint', 'global')
+call flexapi#function('unescape(', 'str:String)', 'String', 'global')
+call flexapi#function('Vector(', 'sourceArray:Object)', 'Vector.<T>', 'global')
+call flexapi#function('XML(', 'expression:Object)', 'XML', 'global')
 

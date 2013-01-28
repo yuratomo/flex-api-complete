@@ -1,4 +1,4 @@
-let [ s:TYPE_NAMESPACE, s:TYPE_CLASS, s:TYPE_ENUM , s:TYPE_METHOD, s:TYPE_FIELD, s:MODE_NEW_CLASS ] = range(6)
+let [ s:TYPE_FUNCTION, s:TYPE_NAMESPACE, s:TYPE_CLASS, s:TYPE_ENUM , s:TYPE_METHOD, s:TYPE_FIELD, s:MODE_NEW_CLASS ] = range(7)
 let [ s:MODE_NAMESPACE, s:MODE_CLASS, s:MODE_MEMBER, s:MODE_ENUM, s:MODE_NEW_CLASS, s:MODE_EQUAL, s:MODE_STATIC ] = range(7)
 let [ s:ROOT_IS_CLASS, s:ROOT_IS_VAR ] = range(2)
 
@@ -161,6 +161,7 @@ function! flexapi#complete(findstart, base)
       call s:ns_completion(a:base, res)
 
     elseif s:complete_mode == s:MODE_CLASS
+      call flexapi#function_completion(a:base, res)
       call flexapi#class_completion(a:base, res)
 
     elseif s:complete_mode == s:MODE_NEW_CLASS
@@ -208,6 +209,13 @@ function! flexapi#complete(findstart, base)
   endif
 endfunction
 
+function! flexapi#function_completion(base, res)
+  for fun in s:function
+    if fun.name =~ '^' . a:base
+      call add(a:res, s:func_to_compitem(fun))
+    endif
+  endfor
+endfunction
 
 function! s:ns_completion(base, res)
   for ns in s:namespace
@@ -509,6 +517,21 @@ function! s:class_to_compitem(member)
     \}
 endfunction
 
+function! s:func_to_compitem(func)
+  let preinfo = ''
+  if has_key(a:func, 'file') && a:func.file != ''
+    let preinfo .= '[' . a:func.file . '] '
+  endif
+  if has_key(a:func, 'retval') && a:func.retval != ''
+    let preinfo .= a:func.retval . ' '
+  endif
+  return {
+    \ 'word' : a:func.name, 
+    \ 'menu' : preinfo . a:func.name . a:func.signature,
+    \ 'kind' : 'f',
+    \}
+endfunction
+
 let s:class = {}
 function! flexapi#class(name, extend, implements, members)
   let s:class[ a:name ] = {
@@ -524,6 +547,19 @@ function! flexapi#class(name, extend, implements, members)
 endfunction
 function! flexapi#interface(name, extend, implements, members)
   call flexapi#class(a:name, a:extend, a:implements, a:members)
+endfunction
+
+let s:function = []
+function! flexapi#function(name, signature, retval, file)
+  call add(s:function, 
+    \ {
+    \ 'type'      : s:TYPE_FUNCTION,
+    \ 'kind'      : 'f',
+    \ 'name'      : a:name,
+    \ 'file'      : a:file,
+    \ 'retval'    : a:retval,
+    \ 'signature' : a:signature
+    \ })
 endfunction
 
 function! flexapi#namespace(name, detail)
@@ -851,20 +887,25 @@ function! s:ref(word, lnum, col)
     endif
     let res = []
     if len(s:parts) == 1
-      if !flexapi#isClassExist(s:parts[0])
-        return [ "" ]
-      endif
-"     call flexapi#getSuperClassList(s:parts[0], res)
-"     call insert(res, s:parts[0], 0)
-"     return [ join(res, ' -> ') ]
-      let item = flexapi#getClass(s:parts[0])
-      let menus = []
-      for member in item.members
-       if member.name =~ '^' . s:parts[0]
-          call add(menus, 
-            \ '[' . s:parts[0] . '] ' . member.name . member.detail)
+      if complete_mode == s:MODE_CLASS
+        call flexapi#function_completion(s:parts[0], res)
+        let menus = []
+        for member in res
+          call add(menus, member.menu)
+        endfor
+      else
+        if !flexapi#isClassExist(s:parts[0])
+          return [ "" ]
         endif
-      endfor
+        let item = flexapi#getClass(s:parts[0])
+        let menus = []
+        for member in item.members
+         if member.name =~ '^' . s:parts[0]
+            call add(menus, 
+              \ '[' . s:parts[0] . '] ' . member.name . member.detail)
+          endif
+        endfor
+      endif
       return menus
     else
       call add(s:parts, '')
