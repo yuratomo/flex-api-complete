@@ -82,6 +82,8 @@ call flexapi#class('FileSystemComboBox', 'ComboBox', [], [
   \ flexapi#set(0, 'indent', 'int'),
   \ flexapi#get(0, 'showIcons', 'Boolean'),
   \ flexapi#set(0, 'showIcons', 'Boolean'),
+  \ flexapi#style(1, 'direction', 'String'),
+  \ flexapi#style(1, 'disabledColor', 'uint Color'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -132,6 +134,8 @@ call flexapi#class('FileSystemDataGrid', 'DataGrid', [], [
   \ flexapi#method(0, 'resetHistory(', 'dir:File)', 'void'),
   \ flexapi#method(0, 'CustomDataGridColumn(', 'columnName:String = null)', ''),
   \ flexapi#method(0, 'itemToDataTip(', 'data:Object)', 'String'),
+  \ flexapi#style(1, 'disabledColor', 'uint Color'),
+  \ flexapi#style(0, 'focusAlpha', 'Number'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -187,6 +191,8 @@ call flexapi#class('FileSystemList', 'List', [], [
   \ flexapi#method(0, 'refresh(', ')', 'void'),
   \ flexapi#method(0, 'clear(', ')', 'void'),
   \ flexapi#method(0, 'resetHistory(', 'dir:File)', 'void'),
+  \ flexapi#style(1, 'disabledColor', 'uint Color'),
+  \ flexapi#style(0, 'focusAlpha', 'Number'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -328,6 +334,10 @@ call flexapi#class('HTML', 'ScrollControlBase', [], [
   \ flexapi#method(0, 'historyForward(', ')', 'void'),
   \ flexapi#method(0, 'historyGo(', 'steps:int)', 'void'),
   \ flexapi#method(0, 'reload(', ')', 'void'),
+  \ flexapi#style(0, 'paddingLeft', 'Number Length'),
+  \ flexapi#style(0, 'paddingRight', 'Number Length'),
+  \ flexapi#style(0, 'paddingTop', 'Number Length'),
+  \ flexapi#style(0, 'right', 'String'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -445,6 +455,24 @@ call flexapi#class('Window', 'LayoutContainer', ['IWindow'], [
   \ flexapi#method(0, 'orderInFrontOf(', 'window:IWindow)', 'Boolean'),
   \ flexapi#method(0, 'orderToBack(', ')', 'Boolean'),
   \ flexapi#method(0, 'orderToFront(', ')', 'Boolean'),
+  \ flexapi#style(1, 'buttonPadding', 'Number'),
+  \ flexapi#style(0, 'closeButtonSkin', 'Class'),
+  \ flexapi#style(1, 'color', 'uint Color'),
+  \ flexapi#style(0, 'gripperStyleName', 'String'),
+  \ flexapi#style(0, 'headerHeight', 'Number Length'),
+  \ flexapi#style(0, 'horizontalAlign', 'String'),
+  \ flexapi#style(0, 'minimizeButtonSkin', 'Class'),
+  \ flexapi#style(0, 'paddingBottom', 'Number Length'),
+  \ flexapi#style(0, 'right', 'String'),
+  \ flexapi#style(1, 'statusBarBackgroundColor', 'uint Color'),
+  \ flexapi#style(1, 'statusBarBackgroundSkin', 'Class'),
+  \ flexapi#style(1, 'statusTextStyleName', 'String'),
+  \ flexapi#style(1, 'textAlign', 'String'),
+  \ flexapi#style(1, 'titleBarBackgroundSkin', 'Class'),
+  \ flexapi#style(1, 'titleBarButtonPadding', 'Number'),
+  \ flexapi#style(1, 'titleBarColors', 'Array Color'),
+  \ flexapi#style(1, 'titleTextStyleName', 'String'),
+  \ flexapi#style(0, 'top', 'String'),
   \ ])
 
 call flexapi#namespace('mx.core.windowClasses')
@@ -547,6 +575,24 @@ call flexapi#class('WindowedApplication', 'Application', ['IWindow'], [
   \ flexapi#method(0, 'orderToFront(', ')', 'Boolean'),
   \ flexapi#method(0, '(', 'e:FlexNativeWindowBoundsEvent)', 'void'),
   \ flexapi#method(0, '(', ')', 'void { win.close() }'),
+  \ flexapi#style(1, 'buttonPadding', 'Number'),
+  \ flexapi#style(0, 'closeButtonSkin', 'Class'),
+  \ flexapi#style(1, 'color', 'uint Color'),
+  \ flexapi#style(0, 'gripperStyleName', 'String'),
+  \ flexapi#style(0, 'headerHeight', 'Number Length'),
+  \ flexapi#style(0, 'horizontalAlign', 'String'),
+  \ flexapi#style(0, 'minimizeButtonSkin', 'Class'),
+  \ flexapi#style(1, 'modalTransparency', 'Number'),
+  \ flexapi#style(0, 'right', 'String'),
+  \ flexapi#style(1, 'statusBarBackgroundColor', 'uint Color'),
+  \ flexapi#style(1, 'statusBarBackgroundSkin', 'Class'),
+  \ flexapi#style(1, 'statusTextStyleName', 'String'),
+  \ flexapi#style(1, 'textAlign', 'String'),
+  \ flexapi#style(1, 'titleBarBackgroundSkin', 'Class'),
+  \ flexapi#style(1, 'titleBarButtonPadding', 'Number'),
+  \ flexapi#style(1, 'titleBarColors', 'Array Color'),
+  \ flexapi#style(1, 'titleTextStyleName', 'String'),
+  \ flexapi#style(0, 'top', 'String'),
   \ ])
 
 call flexapi#namespace('mx.events')

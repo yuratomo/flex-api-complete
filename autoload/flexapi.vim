@@ -494,10 +494,14 @@ function! flexapi#member_to_compitem(class, member)
     if a:member.static == 1
       let static = 'static '
     endif
+    let ftype = ''
+    if has_key(a:member, 'ftype')
+      let ftype = '<' . a:member.ftype . '> '
+    endif
     return {
       \ 'word' : a:member.name,
       \ 'abbr' : s:abbr(a:member.name),
-      \ 'menu' : '[' . a:class . '] ' . static . a:member.name . a:member.detail . ':' . a:member.class,
+      \ 'menu' : '[' . a:class . '] ' . ftype . static . a:member.name . a:member.detail . ':' . a:member.class,
       \ 'kind' : a:member.kind,
       \ 'dup'  : 1,
       \}
@@ -642,6 +646,7 @@ function! flexapi#get(static, name, class)
     \ 'class'  : a:class,
     \ 'static' : a:static,
     \ 'detail' : '',
+    \ 'ftype'  : 'get',
     \ }
 endfunction
 
@@ -653,6 +658,7 @@ function! flexapi#set(static, name, class)
     \ 'class'  : a:class,
     \ 'static' : a:static,
     \ 'detail' : '',
+    \ 'ftype'  : 'set',
     \ }
 endfunction
 
@@ -663,7 +669,20 @@ function! flexapi#const(static, name, class)
     \ 'name'   : a:name,
     \ 'class'  : a:class,
     \ 'static' : a:static,
-    \ 'detail' : 'set',
+    \ 'detail' : '',
+    \ 'ftype'  : 'const',
+    \ }
+endfunction
+
+function! flexapi#style(inherit, name, class)
+  return {
+    \ 'type'   : s:TYPE_FIELD,
+    \ 'kind'   : 'v', 
+    \ 'name'   : a:name,
+    \ 'class'  : a:class,
+    \ 'static' : 0,
+    \ 'detail' : '',
+    \ 'ftype'  : 'style',
     \ }
 endfunction
 
