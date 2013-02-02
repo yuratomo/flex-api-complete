@@ -234,6 +234,8 @@ call flexapi#class('Accordion', 'Container', ['IHistoryManagerClient, IFocusMana
   \ flexapi#style(0, 'right', 'String'),
   \ flexapi#style(1, 'textSelectedColor', 'uint Color'),
   \ flexapi#style(0, 'top', 'String'),
+  \ flexapi#event('change', 'IndexChangedEvent'),
+  \ flexapi#event('childRemove', 'ChildExistenceChangedEvent'),
   \ ])
 
 call flexapi#namespace('mx.containers')
@@ -260,6 +262,7 @@ call flexapi#class('Box', 'Container', [], [
   \ flexapi#style(0, 'right', 'String'),
   \ flexapi#style(0, 'verticalCenter', 'String'),
   \ flexapi#style(0, 'verticalScrollBarStyleName', 'String'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.containers')
@@ -313,6 +316,7 @@ call flexapi#class('DividedBox', 'Box', [], [
   \ flexapi#style(1, 'errorColor', 'uint Color'),
   \ flexapi#style(0, 'horizontalGap', 'Number Length'),
   \ flexapi#style(0, 'verticalGap', 'Number Length'),
+  \ flexapi#event('dividerDrag', 'DividerEvent'),
   \ ])
 
 call flexapi#namespace('mx.containers')
@@ -445,6 +449,7 @@ call flexapi#namespace('mx.containers')
 call flexapi#class('HDividedBox', 'DividedBox', [], [
   \ flexapi#method(0, 'HDividedBox(', ')', ''),
   \ flexapi#set(0, 'direction', 'String'),
+  \ flexapi#event('dividerPress', 'DividerEvent'),
   \ ])
 
 call flexapi#namespace('mx.containers')
@@ -554,6 +559,7 @@ call flexapi#class('TitleWindow', 'Panel', [], [
   \ flexapi#style(0, 'closeButtonSkin', 'Class'),
   \ flexapi#style(0, 'closeButtonUpSkin', 'Class'),
   \ flexapi#style(1, 'color', 'uint Color'),
+  \ flexapi#event('close', 'CloseEvent'),
   \ ])
 
 call flexapi#namespace('mx.containers')
@@ -566,6 +572,7 @@ call flexapi#namespace('mx.containers')
 call flexapi#class('VDividedBox', 'DividedBox', [], [
   \ flexapi#method(0, 'VDividedBox(', ')', ''),
   \ flexapi#set(0, 'direction', 'String'),
+  \ flexapi#event('dividerRelease', 'DividerEvent'),
   \ ])
 
 call flexapi#namespace('mx.containers')
@@ -604,6 +611,7 @@ call flexapi#class('ViewStack', 'Container', ['IHistoryManagerClient, ISelectabl
   \ flexapi#style(1, 'kerning', 'Boolean'),
   \ flexapi#style(0, 'paddingLeft', 'Number Length'),
   \ flexapi#style(0, 'right', 'String'),
+  \ flexapi#event('change', 'IndexChangedEvent'),
   \ ])
 
 call flexapi#namespace('mx.containers.accordionClasses')
@@ -613,6 +621,7 @@ call flexapi#class('AccordionHeader', 'Button', ['IDataRenderer'], [
   \ flexapi#set(0, 'data', 'Object'),
   \ flexapi#set(0, 'selected', 'Boolean'),
   \ flexapi#method(0, 'drawFocus(', 'isFocused:Boolean)', 'void'),
+  \ flexapi#event('buttonDown', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.containers.dividedBoxClasses')
@@ -836,6 +845,9 @@ call flexapi#class('Button', 'UIComponent', [], [
   \ flexapi#style(0, 'fillColors', 'Array Color'),
   \ flexapi#style(0, 'highlightAlphas', 'Array'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('buttonDown', 'FlexEvent'),
+  \ flexapi#event('change', 'Event'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -854,6 +866,7 @@ call flexapi#class('ButtonBar', 'NavBar', ['IFocusManagerComponent'], [
   \ flexapi#style(1, 'kerning', 'Boolean'),
   \ flexapi#style(0, 'left', 'String'),
   \ flexapi#style(0, 'verticalCenter', 'String'),
+  \ flexapi#event('itemClick', 'ItemClickEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -903,6 +916,7 @@ call flexapi#class('CheckBox', 'Button', ['IToggleButton'], [
   \ flexapi#set(0, 'toggle', 'Boolean'),
   \ flexapi#style(0, 'fillAlphas', 'Array'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -959,6 +973,12 @@ call flexapi#class('ColorPicker', 'ComboBase', [], [
   \ flexapi#style(1, 'iconColor', 'uint Color'),
   \ flexapi#style(0, 'swatchBorderColor', 'uint Color'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('change', 'ColorPickerEvent'),
+  \ flexapi#event('close', 'DropdownEvent'),
+  \ flexapi#event('enter', 'ColorPickerEvent'),
+  \ flexapi#event('itemRollOut', 'ColorPickerEvent'),
+  \ flexapi#event('itemRollOver', 'ColorPickerEvent'),
+  \ flexapi#event('open', 'DropdownEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1080,6 +1100,15 @@ call flexapi#class('ComboBox', 'ComboBase', [], [
   \ flexapi#style(0, 'highlightAlphas', 'Array'),
   \ flexapi#style(1, 'iconColor', 'uint Color'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('change', 'ListEvent'),
+  \ flexapi#event('close', 'DropdownEvent'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
+  \ flexapi#event('enter', 'FlexEvent'),
+  \ flexapi#event('itemRollOut', 'ListEvent'),
+  \ flexapi#event('itemRollOver', 'ListEvent'),
+  \ flexapi#event('open', 'DropdownEvent'),
+  \ flexapi#event('scroll', 'ScrollEvent'),
+  \ flexapi#event('itemDoubleClick', 'ListEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1167,6 +1196,11 @@ call flexapi#class('DataGrid', 'DataGridBase', ['IIMESupport'], [
   \ flexapi#style(1, 'dropShadowColor', 'uint Color'),
   \ flexapi#style(1, 'iconColor', 'uint Color'),
   \ flexapi#style(0, 'shadowDirection', 'String'),
+  \ flexapi#event('columnStretch', 'DataGridEvent'),
+  \ flexapi#event('headerShift', 'IndexChangedEvent'),
+  \ flexapi#event('itemEditBeginning', 'DataGridEvent'),
+  \ flexapi#event('itemEditorCreate', 'DataGridEvent'),
+  \ flexapi#event('itemFocusOut', 'DataGridEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1280,6 +1314,7 @@ call flexapi#class('DateChooser', 'UIComponent', ['IFocusManagerComponent, IFont
   \ flexapi#style(0, 'highlightAlphas', 'Array'),
   \ flexapi#style(1, 'iconColor', 'uint Color'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('change', 'CalendarLayoutChangeEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1366,6 +1401,11 @@ call flexapi#class('DateField', 'ComboBase', [], [
   \ flexapi#style(1, 'disabledIconColor', 'uint Color'),
   \ flexapi#style(1, 'iconColor', 'uint Color'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('scroll', 'DateChooserEvent'),
+  \ flexapi#event('change', 'CalendarLayoutChangeEvent'),
+  \ flexapi#event('close', 'DropdownEvent'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
+  \ flexapi#event('open', 'DropdownEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1388,12 +1428,14 @@ call flexapi#class('HScrollBar', 'ScrollBar', [], [
   \ flexapi#get(0, 'minHeight', 'Number'),
   \ flexapi#style(0, 'repeatInterval', 'Number Time'),
   \ flexapi#style(0, 'right', 'String'),
+  \ flexapi#event('scroll', 'ScrollEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
 call flexapi#class('HSlider', 'Slider', [], [
   \ flexapi#method(0, 'HSlider(', ')', ''),
   \ flexapi#style(0, 'dataTipPrecision', 'int'),
+  \ flexapi#event('thumbDrag', 'SliderEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1410,6 +1452,7 @@ call flexapi#class('Image', 'SWFLoader', [], [
   \ flexapi#get(0, 'listData', 'BaseListData'),
   \ flexapi#set(0, 'listData', 'BaseListData'),
   \ flexapi#method(0, 'invalidateSize(', ')', 'void'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1463,6 +1506,7 @@ call flexapi#class('Label', 'UIComponent', [], [
   \ flexapi#style(0, 'textFieldClass', 'Class'),
   \ flexapi#style(1, 'textIndent', 'Number Length'),
   \ flexapi#style(0, 'top', 'String'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1528,6 +1572,8 @@ call flexapi#class('List', 'ListBase', ['IIMESupport'], [
   \ flexapi#method(0, 'createItemEditor(', 'colIndex:int, rowIndex:int)', 'void'),
   \ flexapi#method(0, 'destroyItemEditor(', ')', 'void'),
   \ flexapi#method(0, 'isItemEditable(', 'data:Object)', 'Boolean'),
+  \ flexapi#event('itemEditBeginning', 'ListEvent'),
+  \ flexapi#event('itemFocusOut', 'ListEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1574,6 +1620,9 @@ call flexapi#class('Menu', 'List', ['IFocusManagerContainer'], [
   \ flexapi#style(1, 'textRollOverColor', 'uint Color'),
   \ flexapi#style(1, 'textSelectedColor', 'uint Color'),
   \ flexapi#style(0, 'top', 'String'),
+  \ flexapi#event('itemEditEnd', 'DataGridEvent'),
+  \ flexapi#event('change', 'MenuEvent'),
+  \ flexapi#event('menuShow', 'MenuEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1639,6 +1688,9 @@ call flexapi#class('MenuBar', 'UIComponent', ['IFocusManagerComponent'], [
   \ flexapi#style(0, 'fillColors', 'Array Color'),
   \ flexapi#style(0, 'highlightAlphas', 'Array'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('itemClick', 'MenuEvent'),
+  \ flexapi#event('change', 'MenuEvent'),
+  \ flexapi#event('itemRollOver', 'MenuEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1751,6 +1803,8 @@ call flexapi#class('NumericStepper', 'UIComponent', [], [
   \ flexapi#style(0, 'shadowDirection', 'String'),
   \ flexapi#style(0, 'shadowDistance', 'Number Length'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('change', 'NumericStepperEvent'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1782,6 +1836,7 @@ call flexapi#class('PopUpButton', 'Button ', [], [
   \ flexapi#style(1, 'textAlign', 'String'),
   \ flexapi#style(0, 'fillAlphas', 'Array'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('close', 'DropdownEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1805,6 +1860,8 @@ call flexapi#class('PopUpMenuButton', 'PopUpButton', [], [
   \ flexapi#set(0, 'showRoot', 'Boolean'),
   \ flexapi#method(0, 'styleChanged(', 'styleProp:String)', 'void'),
   \ flexapi#style(0, 'repeatDelay', 'Number Time'),
+  \ flexapi#event('open', 'DropdownEvent'),
+  \ flexapi#event('itemClick', 'ItemClickEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1867,6 +1924,10 @@ call flexapi#class('ProgressBar', 'UIComponent', ['IFontContextComponent'], [
   \ flexapi#style(0, 'borderColor', 'uint Color'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
   \ flexapi#style(0, 'trackColors', 'Array Color'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('hide', 'FlexEvent'),
+  \ flexapi#event('progress', 'ProgressEvent'),
+  \ flexapi#event('show', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1914,6 +1975,7 @@ call flexapi#class('TabBar', 'ToggleButtonBar', [], [
   \ flexapi#style(0, 'tabWidth', 'Number Length'),
   \ flexapi#style(1, 'textAlign', 'String'),
   \ flexapi#style(0, 'verticalCenter', 'String'),
+  \ flexapi#event('itemClick', 'ItemClickEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1932,12 +1994,14 @@ call flexapi#class('VScrollBar', 'ScrollBar', [], [
   \ flexapi#get(0, 'minHeight', 'Number'),
   \ flexapi#style(0, 'repeatInterval', 'Number Time'),
   \ flexapi#style(0, 'right', 'String'),
+  \ flexapi#event('scroll', 'ScrollEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
 call flexapi#class('VSlider', 'Slider', [], [
   \ flexapi#method(0, 'VSlider(', ')', ''),
   \ flexapi#style(0, 'dataTipPrecision', 'int'),
+  \ flexapi#event('thumbPress', 'SliderEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -2007,6 +2071,15 @@ call flexapi#class('VideoDisplay', 'UIComponent', [], [
   \ flexapi#style(0, 'shadowDirection', 'String'),
   \ flexapi#style(0, 'shadowDistance', 'Number Length'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('close', 'VideoEvent'),
+  \ flexapi#event('complete', 'VideoEvent'),
+  \ flexapi#event('cuePoint', 'CuePointEvent'),
+  \ flexapi#event('metadataReceived', 'MetadataEvent'),
+  \ flexapi#event('playheadUpdate', 'VideoEvent'),
+  \ flexapi#event('progress', 'ProgressEvent'),
+  \ flexapi#event('ready', 'VideoEvent'),
+  \ flexapi#event('rewind', 'VideoEvent'),
+  \ flexapi#event('stateChange', 'VideoEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls.alertClasses')
@@ -2330,6 +2403,7 @@ call flexapi#class('ListBase', 'ScrollControlBase', [], [
   \ flexapi#style(0, 'top', 'String'),
   \ flexapi#style(0, 'verticalAlign', 'String'),
   \ flexapi#style(0, 'verticalCenter', 'String'),
+  \ flexapi#event('change', 'Event'),
   \ ])
 
 call flexapi#namespace('mx.controls.listClasses')
@@ -2419,6 +2493,7 @@ call flexapi#class('ListItemRenderer', 'UIComponent', [], [
   \ flexapi#set(0, 'listData', 'BaseListData'),
   \ flexapi#style(1, 'disabledColor', 'uint Color'),
   \ flexapi#style(1, 'errorColor', 'uint Color'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls.listClasses')
@@ -2469,6 +2544,7 @@ call flexapi#class('TileListItemRenderer', 'UIComponent', [], [
   \ flexapi#set(0, 'listData', 'BaseListData'),
   \ flexapi#style(1, 'disabledColor', 'uint Color'),
   \ flexapi#style(1, 'errorColor', 'uint Color'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls.menuClasses')
@@ -2524,6 +2600,9 @@ call flexapi#class('MenuBarItem', 'UIComponent', ['IMenuBarItemRenderer, IFontCo
   \ flexapi#style(0, 'textFieldClass', 'Class'),
   \ flexapi#style(1, 'textIndent', 'Number Length'),
   \ flexapi#style(0, 'top', 'String'),
+  \ flexapi#event('itemRollOut', 'MenuEvent'),
+  \ flexapi#event('itemClick', 'ListEvent'),
+  \ flexapi#event('menuHide', 'MenuEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls.menuClasses')
@@ -2544,6 +2623,8 @@ call flexapi#class('MenuItemRenderer', 'UIComponent', [], [
   \ flexapi#get(0, 'measuredBranchIconWidth', 'Number'),
   \ flexapi#style(1, 'disabledColor', 'uint Color'),
   \ flexapi#style(1, 'errorColor', 'uint Color'),
+  \ flexapi#event('itemRollOver', 'ListEvent'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls.menuClasses')
@@ -2685,6 +2766,8 @@ call flexapi#class('Slider', 'UIComponent', [], [
   \ flexapi#style(0, 'focusColor', 'Array'),
   \ flexapi#style(0, 'fillColors', 'Array Color'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('change', 'SliderEvent'),
+  \ flexapi#event('thumbRelease', 'SliderEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls.sliderClasses')
@@ -2700,6 +2783,7 @@ call flexapi#class('SliderDirection', '', [], [
 call flexapi#namespace('mx.controls.sliderClasses')
 call flexapi#class('SliderLabel', 'Label', [], [
   \ flexapi#method(0, 'SliderLabel(', ')', ''),
+  \ flexapi#event('link', 'TextEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls.sliderClasses')
@@ -2786,6 +2870,9 @@ call flexapi#class('TextArea', 'ScrollControlBase', [], [
   \ flexapi#style(0, 'paddingRight', 'Number Length'),
   \ flexapi#style(0, 'paddingTop', 'Number Length'),
   \ flexapi#style(0, 'right', 'String'),
+  \ flexapi#event('change', 'Event'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
+  \ flexapi#event('link', 'TextEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls.textClasses')
@@ -2924,6 +3011,10 @@ call flexapi#class('TextInput', 'UIComponent', ['ITextInput'], [
   \ flexapi#style(0, 'shadowDirection', 'String'),
   \ flexapi#style(0, 'shadowDistance', 'Number Length'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('change', 'Event'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
+  \ flexapi#event('enter', 'FlexEvent'),
+  \ flexapi#event('textInput', 'TextEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -2993,6 +3084,11 @@ call flexapi#class('Tree', 'List', ['IIMESupport'], [
   \ flexapi#style(1, 'textAlign', 'String'),
   \ flexapi#style(1, 'textSelectedColor', 'uint Color'),
   \ flexapi#style(0, 'top', 'String'),
+  \ flexapi#event('itemEditBegin', 'DataGridEvent'),
+  \ flexapi#event('itemFocusIn', 'DataGridEvent'),
+  \ flexapi#event('itemClose', 'TreeEvent'),
+  \ flexapi#event('itemOpen', 'TreeEvent'),
+  \ flexapi#event('itemOpening', 'TreeEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls.treeClasses')
@@ -3089,6 +3185,7 @@ call flexapi#class('TreeItemRenderer', 'UIComponent', [], [
   \ flexapi#set(0, 'listData', 'BaseListData'),
   \ flexapi#style(1, 'disabledColor', 'uint Color'),
   \ flexapi#style(1, 'errorColor', 'uint Color'),
+  \ flexapi#event('dataChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls.treeClasses')
@@ -3325,6 +3422,8 @@ call flexapi#class('Application', 'LayoutContainer', [], [
   \ flexapi#style(0, 'right', 'String'),
   \ flexapi#style(0, 'backgroundGradientColors', 'Array Color'),
   \ flexapi#style(0, 'backgroundImage', 'Object File'),
+  \ flexapi#event('applicationComplete', 'FlexEvent'),
+  \ flexapi#event('error', 'ErrorEvent'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -3477,6 +3576,7 @@ call flexapi#class('Container', 'UIComponent', [], [
   \ flexapi#style(0, 'shadowDirection', 'String'),
   \ flexapi#style(0, 'shadowDistance', 'Number Length'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('childAdd', 'ChildExistenceChangedEvent'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -3515,6 +3615,7 @@ call flexapi#class('LayoutContainer', 'Container', ['IConstraintLayout'], [
   \ flexapi#style(0, 'right', 'String'),
   \ flexapi#style(0, 'verticalCenter', 'String'),
   \ flexapi#style(0, 'verticalScrollBarStyleName', 'String'),
+  \ flexapi#event('childIndexChange', 'IndexChangedEvent'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -3609,6 +3710,7 @@ call flexapi#class('ScrollControlBase', 'UIComponent', [], [
   \ flexapi#style(0, 'shadowDirection', 'String'),
   \ flexapi#style(0, 'shadowDistance', 'Number Length'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('scroll', 'ScrollEvent'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -3944,6 +4046,7 @@ call flexapi#class('MenuEvent', 'ListEvent', [], [
   \ flexapi#field(0, 'menu', 'Menu'),
   \ flexapi#field(0, 'menuBar', 'MenuBar'),
   \ flexapi#method(0, 'clone(', ')', 'Event'),
+  \ flexapi#event('menuShow', 'MenuEvent'),
   \ ])
 
 call flexapi#namespace('mx.events')
@@ -4076,6 +4179,13 @@ call flexapi#class('ModuleLoader', 'VBox', [], [
   \ flexapi#method(0, 'createComponentsFromDescriptors(', ' recurse:Boolean = true)', 'void'),
   \ flexapi#method(0, 'loadModule(', 'url:String = null, bytes:ByteArray = null)', 'void'),
   \ flexapi#method(0, 'unloadModule(', ')', 'void'),
+  \ flexapi#event('error', 'ModuleEvent'),
+  \ flexapi#event('loading', 'Event'),
+  \ flexapi#event('progress', 'ModuleEvent'),
+  \ flexapi#event('ready', 'ModuleEvent'),
+  \ flexapi#event('setup', 'ModuleEvent'),
+  \ flexapi#event('unload', 'ModuleEvent'),
+  \ flexapi#event('urlChanged', 'Event'),
   \ ])
 
 call flexapi#namespace('mx.printing')
@@ -4091,6 +4201,7 @@ call flexapi#class('PrintDataGrid', 'DataGrid', [], [
   \ flexapi#get(0, 'validNextPage', 'Boolean'),
   \ flexapi#method(0, 'setActualSize(', 'w:Number, h:Number)', 'void'),
   \ flexapi#method(0, 'nextPage(', ')', 'void'),
+  \ flexapi#event('headerRelease', 'DataGridEvent'),
   \ ])
 
 call flexapi#namespace('mx.skins.halo')

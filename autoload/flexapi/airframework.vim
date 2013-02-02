@@ -84,6 +84,7 @@ call flexapi#class('FileSystemComboBox', 'ComboBox', [], [
   \ flexapi#set(0, 'showIcons', 'Boolean'),
   \ flexapi#style(1, 'direction', 'String'),
   \ flexapi#style(1, 'disabledColor', 'uint Color'),
+  \ flexapi#event('directoryChange', 'FileEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -136,6 +137,9 @@ call flexapi#class('FileSystemDataGrid', 'DataGrid', [], [
   \ flexapi#method(0, 'itemToDataTip(', 'data:Object)', 'String'),
   \ flexapi#style(1, 'disabledColor', 'uint Color'),
   \ flexapi#style(0, 'focusAlpha', 'Number'),
+  \ flexapi#event('directoryChange', 'FileEvent'),
+  \ flexapi#event('directoryChanging', 'FileEvent'),
+  \ flexapi#event('fileChoose', 'FileEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -151,6 +155,7 @@ call flexapi#class('FileSystemHistoryButton', 'PopUpButton', [], [
   \ flexapi#method(0, 'FileSystemHistoryButton(', ')', ''),
   \ flexapi#get(0, 'dataProvider', 'Object'),
   \ flexapi#set(0, 'dataProvider', 'Object'),
+  \ flexapi#event('itemClick', 'MenuEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -193,6 +198,9 @@ call flexapi#class('FileSystemList', 'List', [], [
   \ flexapi#method(0, 'resetHistory(', 'dir:File)', 'void'),
   \ flexapi#style(1, 'disabledColor', 'uint Color'),
   \ flexapi#style(0, 'focusAlpha', 'Number'),
+  \ flexapi#event('directoryChange', 'FileEvent'),
+  \ flexapi#event('directoryChanging', 'FileEvent'),
+  \ flexapi#event('fileChoose', 'FileEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -228,6 +236,10 @@ call flexapi#class('FileSystemTree', 'Tree', [], [
   \ flexapi#method(0, 'clear(', ')', 'void'),
   \ flexapi#method(0, 'openSubdirectory(', 'nativePath:String)', 'void'),
   \ flexapi#method(0, 'closeSubdirectory(', 'nativePath:String)', 'void'),
+  \ flexapi#event('directoryChange', 'FileEvent'),
+  \ flexapi#event('directoryClosing', 'FileEvent'),
+  \ flexapi#event('directoryOpening', 'FileEvent'),
+  \ flexapi#event('fileChoose', 'FileEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -293,6 +305,7 @@ call flexapi#class('FlexNativeMenu', 'EventDispatcher', [], [
   \ flexapi#method(0, 'getAutomationChildAt(', 'index:int)', 'IAutomationObject'),
   \ flexapi#method(0, 'getAutomationChildren(', ')', 'Array'),
   \ flexapi#method(0, 'replayAutomatableEvent(', 'event:Event)', 'Boolean'),
+  \ flexapi#event('itemClick', 'FlexNativeMenuEvent'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -338,6 +351,11 @@ call flexapi#class('HTML', 'ScrollControlBase', [], [
   \ flexapi#style(0, 'paddingRight', 'Number Length'),
   \ flexapi#style(0, 'paddingTop', 'Number Length'),
   \ flexapi#style(0, 'right', 'String'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('htmlDOMInitialize', 'Event'),
+  \ flexapi#event('htmlRender', 'Event'),
+  \ flexapi#event('locationChange', 'Event'),
+  \ flexapi#event('uncaughtScriptException', 'HTMLUncaughtScriptExceptionEvent'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -473,6 +491,21 @@ call flexapi#class('Window', 'LayoutContainer', ['IWindow'], [
   \ flexapi#style(1, 'titleBarColors', 'Array Color'),
   \ flexapi#style(1, 'titleTextStyleName', 'String'),
   \ flexapi#style(0, 'top', 'String'),
+  \ flexapi#event('menuShow', 'FlexNativeMenuEvent'),
+  \ flexapi#event('applicationActivate', 'AIREvent'),
+  \ flexapi#event('applicationDeactivate', 'AIREvent'),
+  \ flexapi#event('close', 'Event'),
+  \ flexapi#event('closing', 'Event'),
+  \ flexapi#event('displayStateChange', 'NativeWindowDisplayStateEvent'),
+  \ flexapi#event('displayStateChanging', 'NativeWindowDisplayStateEvent'),
+  \ flexapi#event('moving', 'NativeWindowBoundsEvent'),
+  \ flexapi#event('networkChange', 'Event'),
+  \ flexapi#event('resizing', 'NativeWindowBoundsEvent'),
+  \ flexapi#event('windowActivate', 'AIREvent'),
+  \ flexapi#event('windowComplete', 'AIREvent'),
+  \ flexapi#event('windowDeactivate', 'AIREvent'),
+  \ flexapi#event('windowMove', 'FlexNativeWindowBoundsEvent'),
+  \ flexapi#event('windowResize', 'FlexNativeWindowBoundsEvent'),
   \ ])
 
 call flexapi#namespace('mx.core.windowClasses')
@@ -593,6 +626,21 @@ call flexapi#class('WindowedApplication', 'Application', ['IWindow'], [
   \ flexapi#style(1, 'titleBarColors', 'Array Color'),
   \ flexapi#style(1, 'titleTextStyleName', 'String'),
   \ flexapi#style(0, 'top', 'String'),
+  \ flexapi#event('applicationActivate', 'AIREvent'),
+  \ flexapi#event('applicationDeactivate', 'AIREvent'),
+  \ flexapi#event('close', 'Event'),
+  \ flexapi#event('closing', 'Event'),
+  \ flexapi#event('displayStateChange', 'NativeWindowDisplayStateEvent'),
+  \ flexapi#event('displayStateChanging', 'NativeWindowDisplayStateEvent'),
+  \ flexapi#event('invoke', 'InvokeEvent'),
+  \ flexapi#event('moving', 'NativeWindowBoundsEvent'),
+  \ flexapi#event('networkChange', 'Event'),
+  \ flexapi#event('resizing', 'NativeWindowBoundsEvent'),
+  \ flexapi#event('windowActivate', 'AIREvent'),
+  \ flexapi#event('windowComplete', 'AIREvent'),
+  \ flexapi#event('windowDeactivate', 'AIREvent'),
+  \ flexapi#event('windowMove', 'FlexNativeWindowBoundsEvent'),
+  \ flexapi#event('windowResize', 'FlexNativeWindowBoundsEvent'),
   \ ])
 
 call flexapi#namespace('mx.events')

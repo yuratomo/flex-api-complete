@@ -1,3 +1,7 @@
+" File: autoload/flexapi.vim
+" Last Modified: 2013.02.02
+" Version: 1.0.0
+" Author: yuratomo
 let [ s:TYPE_FUNCTION, s:TYPE_NAMESPACE, s:TYPE_CLASS, s:TYPE_ENUM , s:TYPE_METHOD, s:TYPE_FIELD, s:MODE_NEW_CLASS ] = range(7)
 let [ s:MODE_NAMESPACE, s:MODE_CLASS, s:MODE_MEMBER, s:MODE_ENUM, s:MODE_NEW_CLASS, s:MODE_EQUAL, s:MODE_STATIC ] = range(7)
 let [ s:ROOT_IS_CLASS, s:ROOT_IS_VAR ] = range(2)
@@ -492,7 +496,7 @@ function! flexapi#member_to_compitem(class, member)
   else
     let static = ''
     if a:member.static == 1
-      let static = 'static '
+      let static = '<static> '
     endif
     let ftype = ''
     if has_key(a:member, 'ftype')
@@ -520,7 +524,7 @@ function! s:class_to_compitem(member)
   return {
     \ 'word' : a:member.name,
     \ 'abbr' : s:abbr(a:member.name),
-    \ 'menu' : ':' . a:member.extend,
+    \ 'menu' : '[class] extends ' . a:member.extend,
     \ 'kind' : a:member.kind,
     \}
 endfunction
@@ -683,6 +687,18 @@ function! flexapi#style(inherit, name, class)
     \ 'static' : 0,
     \ 'detail' : '',
     \ 'ftype'  : 'style',
+    \ }
+endfunction
+
+function! flexapi#event(name, class)
+  return {
+    \ 'type'   : s:TYPE_FIELD,
+    \ 'kind'   : 'v', 
+    \ 'name'   : a:name,
+    \ 'class'  : a:class,
+    \ 'static' : '0',
+    \ 'detail' : '',
+    \ 'ftype'  : 'event',
     \ }
 endfunction
 

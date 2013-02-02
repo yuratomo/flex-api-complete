@@ -379,6 +379,7 @@ call flexapi#class('ArrayList', 'EventDispatcher', [], [
   \ flexapi#method(0, 'readExternal(', 'input:IDataInput)', 'void'),
   \ flexapi#method(0, 'writeExternal(', 'output:IDataOutput)', 'void'),
   \ flexapi#method(0, 'toString(', ')', 'String'),
+  \ flexapi#event('collectionChange', 'CollectionEvent'),
   \ ])
 
 call flexapi#namespace('mx.collections')
@@ -406,6 +407,7 @@ call flexapi#class('AsyncListView', 'OnDemandEventDispatcher', ['IList'], [
   \ flexapi#method(0, 'ListItemResponder(', 'asyncListView:AsyncListView, index:int, item:Object)', ''),
   \ flexapi#method(0, 'result(', 'info:Object)', 'void'),
   \ flexapi#method(0, 'fault(', 'info:Object)', 'void'),
+  \ flexapi#event('collectionChange', 'CollectionEvent'),
   \ ])
 
 call flexapi#namespace('mx.collections')
@@ -431,6 +433,7 @@ call flexapi#interface('ICollectionView', 'IEventDispatcher', [], [
   \ flexapi#method(0, 'enableAutoUpdate(', ')', 'void'),
   \ flexapi#method(0, 'itemUpdated(', 'item:Object, property:Object = null, oldValue:Object = null, newValue:Object = null)', 'void'),
   \ flexapi#method(0, 'refresh(', ')', 'Boolean'),
+  \ flexapi#event('collectionChange', 'CollectionEvent'),
   \ ])
 
 call flexapi#namespace('mx.collections')
@@ -445,6 +448,7 @@ call flexapi#interface('IList', 'IEventDispatcher', [], [
   \ flexapi#method(0, 'removeItemAt(', 'index:int)', 'Object'),
   \ flexapi#method(0, 'setItemAt(', 'item:Object, index:int)', 'Object'),
   \ flexapi#method(0, 'toArray(', ')', 'Array'),
+  \ flexapi#event('collectionChange', 'CollectionEvent'),
   \ ])
 
 call flexapi#namespace('mx.collections')
@@ -492,6 +496,7 @@ call flexapi#interface('IViewCursor', 'IEventDispatcher', [], [
   \ flexapi#method(0, 'movePrevious(', ')', 'Boolean'),
   \ flexapi#method(0, 'remove(', ')', 'Object'),
   \ flexapi#method(0, 'seek(', 'bookmark:CursorBookmark, offset:int = 0, prefetch:int = 0)', 'void'),
+  \ flexapi#event('cursorUpdate', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.collections')
@@ -558,6 +563,7 @@ call flexapi#class('ListCollectionView', 'Proxy', [], [
   \ flexapi#method(0, 'seek(', 'bookmark:CursorBookmark, offset:int = 0, prefetch:int = 0)', 'void'),
   \ flexapi#method(0, 'ListCollectionViewBookmark(', 'value:Object, view:ListCollectionView, viewRevision:int, index:int)', ''),
   \ flexapi#method(0, 'getViewIndex(', ')', 'int'),
+  \ flexapi#event('collectionChange', 'CollectionEvent'),
   \ ])
 
 call flexapi#namespace('mx.collections')
@@ -1001,6 +1007,14 @@ call flexapi#class('SWFLoader', 'UIComponent', ['ISWFLoader'], [
   \ flexapi#style(1, 'errorColor', 'uint Color'),
   \ flexapi#style(0, 'horizontalCenter', 'String'),
   \ flexapi#style(0, 'verticalCenter', 'String'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('httpStatus', 'HTTPStatusEvent'),
+  \ flexapi#event('init', 'Event'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('open', 'Event'),
+  \ flexapi#event('progress', 'ProgressEvent'),
+  \ flexapi#event('securityError', 'SecurityErrorEvent'),
+  \ flexapi#event('unload', 'Event'),
   \ ])
 
 call flexapi#namespace('mx.controls')
@@ -1301,6 +1315,7 @@ call flexapi#class('DesignLayer', 'EventDispatcher', ['IMXMLObject'], [
   \ flexapi#method(0, 'getLayerAt(', 'index:int)', 'DesignLayer'),
   \ flexapi#method(0, 'initialized(', 'document:Object, id:String)', 'void'),
   \ flexapi#method(0, 'removeLayer(', 'value:DesignLayer)', 'void'),
+  \ flexapi#event('layerPropertyChange', 'PropertyChangeEvent'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1549,6 +1564,7 @@ call flexapi#interface('IDeferredContentOwner', 'IUIComponent', [], [
   \ flexapi#set(0, 'creationPolicy', 'String'),
   \ flexapi#method(0, 'createDeferredContent(', ')', 'void'),
   \ flexapi#get(0, 'deferredContentCreated', 'Boolean'),
+  \ flexapi#event('contentCreationComplete', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -1872,6 +1888,8 @@ call flexapi#interface('ISelectableList', 'IList', [], [
   \ flexapi#set(0, 'useHandCursor', 'Boolean'),
   \ flexapi#get(0, 'soundTransform', 'SoundTransform'),
   \ flexapi#set(0, 'soundTransform', 'SoundTransform'),
+  \ flexapi#event('change', 'Event'),
+  \ flexapi#event('valueCommit', 'Event'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -2193,6 +2211,7 @@ call flexapi#class('MovieClipLoaderAsset', 'MovieClipAsset', [], [
   \ flexapi#get(0, 'width', 'Number'),
   \ flexapi#set(0, 'width', 'Number'),
   \ flexapi#get(0, 'movieClipData', 'ByteArray'),
+  \ flexapi#event('complete', 'Event'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -2659,6 +2678,40 @@ call flexapi#class('UIComponent', 'FlexSprite', [], [
   \ flexapi#style(0, 'verticalCenter', 'String'),
   \ flexapi#style(1, 'chromeColor', 'uint Color'),
   \ flexapi#style(1, 'themeColor', 'uint Color'),
+  \ flexapi#event('add', 'FlexEvent'),
+  \ flexapi#event('creationComplete', 'FlexEvent'),
+  \ flexapi#event('currentStateChange', 'StateChangeEvent'),
+  \ flexapi#event('currentStateChanging', 'StateChangeEvent'),
+  \ flexapi#event('dragComplete', 'DragEvent'),
+  \ flexapi#event('dragDrop', 'DragEvent'),
+  \ flexapi#event('dragEnter', 'DragEvent'),
+  \ flexapi#event('dragExit', 'DragEvent'),
+  \ flexapi#event('dragOver', 'DragEvent'),
+  \ flexapi#event('dragStart', 'DragEvent'),
+  \ flexapi#event('effectEnd', 'EffectEvent'),
+  \ flexapi#event('effectStart', 'EffectEvent'),
+  \ flexapi#event('effectStop', 'EffectEvent'),
+  \ flexapi#event('enterState', 'FlexEvent'),
+  \ flexapi#event('exitState', 'FlexEvent'),
+  \ flexapi#event('hide', 'FlexEvent'),
+  \ flexapi#event('initialize', 'FlexEvent'),
+  \ flexapi#event('invalid', 'FlexEvent'),
+  \ flexapi#event('mouseDownOutside', 'FlexMouseEvent'),
+  \ flexapi#event('mouseWheelOutside', 'FlexMouseEvent'),
+  \ flexapi#event('move', 'MoveEvent'),
+  \ flexapi#event('preinitialize', 'FlexEvent'),
+  \ flexapi#event('remove', 'FlexEvent'),
+  \ flexapi#event('resize', 'ResizeEvent'),
+  \ flexapi#event('show', 'FlexEvent'),
+  \ flexapi#event('toolTipCreate', 'ToolTipEvent'),
+  \ flexapi#event('toolTipEnd', 'ToolTipEvent'),
+  \ flexapi#event('toolTipHide', 'ToolTipEvent'),
+  \ flexapi#event('toolTipShow', 'ToolTipEvent'),
+  \ flexapi#event('toolTipShown', 'ToolTipEvent'),
+  \ flexapi#event('toolTipStart', 'ToolTipEvent'),
+  \ flexapi#event('updateComplete', 'FlexEvent'),
+  \ flexapi#event('valid', 'ValidationResultEvent'),
+  \ flexapi#event('valueCommit', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.core')
@@ -2844,6 +2897,7 @@ call flexapi#class('AnimateProperty', 'TweenEffect', [], [
   \ flexapi#field(0, 'property', 'String'),
   \ flexapi#field(0, 'roundValue', 'Boolean'),
   \ flexapi#field(0, 'fromValue', 'Number'),
+  \ flexapi#event('tweenUpdate', 'TweenEvent'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -2865,6 +2919,7 @@ call flexapi#class('CompositeEffect', 'Effect', [], [
   \ flexapi#method(0, 'createInstances(', 'targets:Array = null)', 'Array'),
   \ flexapi#method(0, 'captureStartValues(', ')', 'void'),
   \ flexapi#method(0, 'addChild(', 'childEffect:IEffect)', 'void'),
+  \ flexapi#event('effectEnd', 'EffectEvent'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -2916,6 +2971,7 @@ call flexapi#class('Effect', 'EventDispatcher', ['IEffect'], [
   \ flexapi#method(0, 'captureStartValues(', ')', 'void'),
   \ flexapi#method(0, 'captureMoreStartValues(', 'targets:Array)', 'void'),
   \ flexapi#method(0, 'captureEndValues(', ')', 'void'),
+  \ flexapi#event('effectStart', 'EffectEvent'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -2966,6 +3022,7 @@ call flexapi#class('EffectManager', 'EventDispatcher', [], [
   \ flexapi#method(0, 'EffectNode(', 'factory:Effect, instance:EffectInstance)', ''),
   \ flexapi#field(0, 'factory', 'Effect'),
   \ flexapi#field(0, 'instance', 'EffectInstance'),
+  \ flexapi#event('effectStop', 'EffectEvent'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -3076,6 +3133,8 @@ call flexapi#interface('IEffectTargetHost', '', [], [
 call flexapi#namespace('mx.effects')
 call flexapi#class('Iris', 'MaskEffect', [], [
   \ flexapi#method(0, 'Iris(', 'target:Object = null)', ''),
+  \ flexapi#event('tweenEnd', 'TweenEvent'),
+  \ flexapi#event('tweenUpdate', 'TweenEvent'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -3096,6 +3155,7 @@ call flexapi#class('MaskEffect', 'Effect', [], [
   \ flexapi#field(0, 'yTo', 'Number'),
   \ flexapi#set(0, 'hideFocusRing', 'Boolean'),
   \ flexapi#get(0, 'hideFocusRing', 'Boolean'),
+  \ flexapi#event('tweenStart', 'TweenEvent'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -3165,6 +3225,10 @@ call flexapi#class('SoundEffect', 'Effect', [], [
   \ flexapi#field(0, 'volumeFrom', 'Number'),
   \ flexapi#field(0, 'volumeTo', 'Number'),
   \ flexapi#method(0, 'load(', ')', 'void'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('id3', 'Event'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('progress', 'ProgressEvent'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -3186,6 +3250,7 @@ call flexapi#namespace('mx.effects')
 call flexapi#class('TweenEffect', 'Effect', [], [
   \ flexapi#method(0, 'TweenEffect(', 'target:Object = null)', ''),
   \ flexapi#field(0, 'easingFunction', 'Function'),
+  \ flexapi#event('tweenEnd', 'TweenEvent'),
   \ ])
 
 call flexapi#namespace('mx.effects')
@@ -3198,6 +3263,7 @@ call flexapi#class('Zoom', 'TweenEffect', [], [
   \ flexapi#field(0, 'zoomHeightTo', 'Number'),
   \ flexapi#field(0, 'zoomWidthFrom', 'Number'),
   \ flexapi#field(0, 'zoomWidthTo', 'Number'),
+  \ flexapi#event('tweenStart', 'TweenEvent'),
   \ ])
 
 call flexapi#namespace('mx.effects.easing')
@@ -3745,6 +3811,7 @@ call flexapi#class('ModuleEvent', 'ProgressEvent', [], [
   \ flexapi#field(0, 'errorText', 'String'),
   \ flexapi#get(0, 'module', 'IModuleInfo'),
   \ flexapi#method(0, 'clone(', ')', 'Event'),
+  \ flexapi#event('setup', 'ModuleEvent'),
   \ ])
 
 call flexapi#namespace('mx.events')
@@ -4654,6 +4721,7 @@ call flexapi#class('TraceTarget', 'LineFormattedTarget', [], [
 call flexapi#namespace('mx.managers')
 call flexapi#class('BrowserManager', '', [], [
   \ flexapi#method(1, 'getInstance(', ')', 'IBrowserManager'),
+  \ flexapi#event('browserURLChange', 'BrowserChangeEvent'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4668,6 +4736,7 @@ call flexapi#class('BrowserManagerImpl', 'EventDispatcher', ['IBrowserManager'],
   \ flexapi#method(0, 'initForHistoryManager(', ')', 'void'),
   \ flexapi#method(0, 'setFragment(', 'value:String)', 'void'),
   \ flexapi#method(0, 'setTitle(', 'value:String)', 'void'),
+  \ flexapi#event('change', 'Event'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -4827,6 +4896,7 @@ call flexapi#interface('IBrowserManager', 'IEventDispatcher', [], [
   \ flexapi#method(0, 'setTitle(', 'value:String)', 'void'),
   \ flexapi#method(0, 'init(', 'value:String = null, title:String = null)', 'void'),
   \ flexapi#method(0, 'initForHistoryManager(', ')', 'void'),
+  \ flexapi#event('urlChange', 'BrowserChangeEvent'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -5504,6 +5574,8 @@ call flexapi#class('SystemManager', 'MovieClip', [], [
   \ flexapi#method(0, 'getImplementation(', 'interfaceName:String)', 'Object'),
   \ flexapi#method(0, 'getVisibleApplicationRect(', 'bounds:Rectangle = null, skipToSandboxRoot:Boolean = false)', 'Rectangle'),
   \ flexapi#method(0, 'deployMouseShields(', 'deploy:Boolean)', 'void'),
+  \ flexapi#event('applicationComplete', 'FlexEvent'),
+  \ flexapi#event('resize', 'Event'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -5542,6 +5614,7 @@ call flexapi#class('SystemManagerProxy', 'SystemManager', [], [
   \ flexapi#set(0, 'numModalWindows', 'int'),
   \ flexapi#method(0, 'addFocusManager(', 'f:IFocusManagerContainer)', 'void'),
   \ flexapi#method(0, 'removeFocusManager(', 'f:IFocusManagerContainer)', 'void'),
+  \ flexapi#event('idle', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.managers')
@@ -5587,6 +5660,7 @@ call flexapi#interface('IModuleInfo', 'IEventDispatcher', [], [
   \ flexapi#method(0, 'release(', ')', 'void'),
   \ flexapi#method(0, 'unload(', ')', 'void'),
   \ flexapi#method(0, 'publish(', 'factory:IFlexModuleFactory)', 'void'),
+  \ flexapi#event('unload', 'ModuleEvent'),
   \ ])
 
 call flexapi#namespace('mx.modules')
@@ -5640,6 +5714,7 @@ call flexapi#class('ModuleManager', '', [], [
   \ flexapi#method(0, 'load(', 'applicationDomain:ApplicationDomain = null, securityDomain:SecurityDomain = null, bytes:ByteArray = null, moduleFactory:IFlexModuleFactory = null)', 'void'),
   \ flexapi#method(0, 'release(', ')', 'void'),
   \ flexapi#method(0, 'unload(', ')', 'void'),
+  \ flexapi#event('error', 'ModuleEvent'),
   \ ])
 
 call flexapi#namespace('mx.modules')
@@ -5843,6 +5918,7 @@ call flexapi#class('ResourceManagerImpl', 'EventDispatcher', ['IResourceManager'
   \ flexapi#field(0, 'moduleInfo', 'IModuleInfo'),
   \ flexapi#field(0, 'resourceModule', 'IResourceModule'),
   \ flexapi#method(0, 'ResourceEventDispatcher(', 'moduleInfo:IModuleInfo)', ''),
+  \ flexapi#event('progress', 'ModuleEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc')
@@ -6029,6 +6105,7 @@ call flexapi#class('SetEventHandler', 'OverrideBase', [], [
   \ flexapi#method(0, 'addEventListener(', ' type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false)', 'void'),
   \ flexapi#method(0, 'apply(', 'parent:UIComponent)', 'void'),
   \ flexapi#method(0, 'remove(', 'parent:UIComponent)', 'void'),
+  \ flexapi#event('handler', 'Object'),
   \ ])
 
 call flexapi#namespace('mx.states')
@@ -6058,6 +6135,8 @@ call flexapi#class('State', 'EventDispatcher', [], [
   \ flexapi#method(0, 'State(', 'properties:Object=null)', ''),
   \ flexapi#field(0, 'basedOn', 'String'),
   \ flexapi#field(0, 'name', 'String'),
+  \ flexapi#event('enterState', 'FlexEvent'),
+  \ flexapi#event('exitState', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.states')
@@ -6316,6 +6395,7 @@ call flexapi#class('StyleManagerImpl', 'EventDispatcher', ['IStyleManager2'], [
   \ flexapi#field(0, 'readyHandler', 'Function'),
   \ flexapi#field(0, 'styleModule', 'IStyleModule'),
   \ flexapi#field(0, 'module', 'IModuleInfo'),
+  \ flexapi#event('ready', 'ModuleEvent'),
   \ ])
 
 call flexapi#class('StyleProtoChain', '', [], [
@@ -6680,6 +6760,7 @@ call flexapi#class('CreditCardValidator', 'Validator', [], [
   \ flexapi#set(0, 'wrongLengthError', 'String'),
   \ flexapi#get(0, 'wrongTypeError', 'String'),
   \ flexapi#set(0, 'wrongTypeError', 'String'),
+  \ flexapi#event('invalid', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.validators')

@@ -20,6 +20,7 @@ call flexapi#class('AbstractConsumer', 'MessageAgent', [], [
   \ flexapi#method(0, 'receive(', 'timestamp:Number = 0)', 'void'),
   \ flexapi#method(0, 'subscribe(', 'clientId:String = null)', 'void'),
   \ flexapi#method(0, 'unsubscribe(', 'preserveDurable:Boolean = false)', 'void'),
+  \ flexapi#event('message', 'MessageEvent'),
   \ ])
 
 call flexapi#namespace('mx.messaging')
@@ -108,6 +109,7 @@ call flexapi#class('Channel', 'EventDispatcher', ['IMXMLObject'], [
   \ flexapi#get(0, 'mpiEnabled', 'Boolean'),
   \ flexapi#const(1, 'SMALL_MESSAGES_FEATURE', 'String'),
   \ flexapi#method(0, 'AuthenticationMessageResponder(', 'agent:MessageAgent, message:IMessage, channel:Channel, log:ILogger)', ''),
+  \ flexapi#event('channelConnect', 'ChannelEvent'),
   \ ])
 
 call flexapi#namespace('mx.messaging')
@@ -154,6 +156,8 @@ call flexapi#class('ChannelSet', 'EventDispatcher', [], [
   \ flexapi#method(0, 'registerToken(', 'token:AsyncToken)', 'void'),
   \ flexapi#method(0, 'acknowledge(', 'ackMsg:AcknowledgeMessage, msg:IMessage)', 'void'),
   \ flexapi#method(0, 'fault(', 'errMsg:ErrorMessage, msg:IMessage)', 'void'),
+  \ flexapi#event('channelDisconnect', 'ChannelEvent'),
+  \ flexapi#event('fault', 'FaultEvent'),
   \ ])
 
 call flexapi#namespace('mx.messaging')
@@ -163,6 +167,7 @@ call flexapi#class('Consumer', 'AbstractConsumer', [], [
   \ flexapi#set(0, 'selector', 'String'),
   \ flexapi#get(0, 'subtopic', 'String'),
   \ flexapi#set(0, 'subtopic', 'String'),
+  \ flexapi#event('message', 'MessageEvent'),
   \ ])
 
 call flexapi#namespace('mx.messaging')
@@ -180,6 +185,7 @@ call flexapi#class('FlexClient', 'EventDispatcher', [], [
   \ flexapi#method(0, 'FlexClient(', ')', ''),
   \ flexapi#get(0, 'id', 'String'),
   \ flexapi#set(0, 'id', 'String'),
+  \ flexapi#event('propertyChange', 'PropertyChangeEvent'),
   \ ])
 
 call flexapi#namespace('mx.messaging')
@@ -207,6 +213,8 @@ call flexapi#class('MessageAgent', 'EventDispatcher', ['IMXMLObject'], [
   \ flexapi#method(0, 'setCredentials(', 'username:String, password:String, charset:String=null)', 'void'),
   \ flexapi#method(0, 'setRemoteCredentials(', 'username:String, password:String, charset:String=null)', 'void'),
   \ flexapi#method(0, 'hasPendingRequestForMessage(', 'msg:IMessage)', 'Boolean'),
+  \ flexapi#event('propertyChange', 'PropertyChangeEvent'),
+  \ flexapi#event('acknowledge', 'MessageAckEvent'),
   \ ])
 
 call flexapi#namespace('mx.messaging')
@@ -219,6 +227,8 @@ call flexapi#class('MessageResponder', 'Responder', [], [
   \ flexapi#method(0, 'startRequestTimeout(', 'requestTimeout:int)', 'void'),
   \ flexapi#method(0, 'result(', 'message:IMessage)', 'void '),
   \ flexapi#method(0, 'status(', 'message:IMessage)', 'void '),
+  \ flexapi#event('channelFault', 'ChannelFaultEvent'),
+  \ flexapi#event('channelConnect', 'ChannelEvent'),
   \ ])
 
 call flexapi#namespace('mx.messaging')
@@ -228,6 +238,7 @@ call flexapi#class('MultiTopicConsumer', 'AbstractConsumer', [], [
   \ flexapi#set(0, 'subscriptions', 'ArrayCollection'),
   \ flexapi#method(0, 'addSubscription(', 'subtopic:String = null, selector:String = null, maxFrequency:uint = 0)', 'void'),
   \ flexapi#method(0, 'removeSubscription(', 'subtopic:String = null, selector:String = null)', 'void'),
+  \ flexapi#event('message', 'MessageEvent'),
   \ ])
 
 call flexapi#namespace('mx.messaging')
@@ -376,6 +387,7 @@ call flexapi#class('StreamingConnectionHandler', 'EventDispatcher', [], [
   \ flexapi#method(0, 'closeStreamingConnection(', ')', 'void'),
   \ flexapi#field(0, 'process', 'Function'),
   \ flexapi#field(0, 'ignore', 'Function'),
+  \ flexapi#event('status', 'StatusEvent'),
   \ ])
 
 call flexapi#namespace('mx.messaging.channels')
@@ -459,6 +471,7 @@ call flexapi#class('ServerConfig', '', [], [
   \ flexapi#method(1, 'getChannel(', 'id:String, clustered:Boolean = false)', 'Channel'),
   \ flexapi#method(1, 'getChannelSet(', 'destinationId:String)', 'ChannelSet'),
   \ flexapi#method(1, 'getProperties(', 'destinationId:String)', 'XMLList'),
+  \ flexapi#event('result', 'ResultEvent'),
   \ ])
 
 call flexapi#namespace('mx.messaging.errors')
@@ -928,6 +941,7 @@ call flexapi#class('AbstractOperation', 'AbstractInvoker', [], [
   \ flexapi#get(0, 'name', 'String'),
   \ flexapi#set(0, 'name', 'String'),
   \ flexapi#get(0, 'service', 'AbstractService'),
+  \ flexapi#event('fault', 'MessageFaultEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc')
@@ -961,6 +975,8 @@ call flexapi#class('AbstractService', 'Proxy', ['IEventDispatcher'], [
   \ flexapi#method(0, 'logout(', ')', 'void'),
   \ flexapi#method(0, 'setRemoteCredentials(', 'remoteUsername:String, remotePassword:String, charset:String=null)', 'void'),
   \ flexapi#method(0, 'valueOf(', ')', 'Object'),
+  \ flexapi#event('channelDisconnect', 'ChannelEvent'),
+  \ flexapi#event('result', 'ResultEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc')
@@ -1012,6 +1028,8 @@ call flexapi#class('CallResponder', 'EventDispatcher', ['IResponder '], [
   \ flexapi#method(0, 'result(', 'data:Object)', 'void'),
   \ flexapi#method(0, 'fault(', 'data:Object)', 'void'),
   \ flexapi#field(0, 'lastResult', '*'),
+  \ flexapi#event('fault', 'FaultEvent'),
+  \ flexapi#event('result', 'ResultEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc')
@@ -1173,6 +1191,8 @@ call flexapi#class('HTTPMultiService', 'AbstractService', [], [
   \ flexapi#set(0, 'useProxy', 'Boolean'),
   \ flexapi#set(0, 'operationList', 'Array'),
   \ flexapi#get(0, 'operationList', 'Array'),
+  \ flexapi#event('fault', 'FaultEvent'),
+  \ flexapi#event('result', 'ResultEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc.http')
@@ -1238,6 +1258,8 @@ call flexapi#class('HTTPService', 'AbstractInvoker', [], [
   \ flexapi#method(0, 'setRemoteCredentials(', 'remoteUsername:String, remotePassword:String, charset:String=null)', 'void'),
   \ flexapi#method(0, 'cancel(', 'id:String = null)', 'AsyncToken'),
   \ flexapi#method(0, 'HTTPOperation(', 'httpService:HTTPService, name:String=null)', ''),
+  \ flexapi#event('fault', 'FaultEvent'),
+  \ flexapi#event('result', 'ResultEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc.http')
@@ -1259,6 +1281,7 @@ call flexapi#class('Operation', 'AbstractOperation', [], [
   \ flexapi#method(0, 'send(', '... args:Array)', 'AsyncToken'),
   \ flexapi#get(0, 'resultFormat', 'String'),
   \ flexapi#set(0, 'resultFormat', 'String'),
+  \ flexapi#event('header', 'HeaderEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc.http')
@@ -1275,12 +1298,14 @@ call flexapi#namespace('mx.rpc.http.mxml')
 call flexapi#class('HTTPMultiService', 'mx.rpc.http.HTTPMultiService', ['IMXMLSupport, IMXMLObject'], [
   \ flexapi#method(0, 'HTTPMultiService(', 'rootURL:String = null, destination:String = null)', ''),
   \ flexapi#method(0, 'initialized(', 'document:Object, id:String)', 'void'),
+  \ flexapi#event('invoke', 'InvokeEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc.http.mxml')
 call flexapi#class('HTTPService', 'mx.rpc.http.HTTPService', ['IMXMLSupport, IMXMLObject'], [
   \ flexapi#method(0, 'HTTPService(', 'rootURL:String = null, destination:String = null)', ''),
   \ flexapi#method(0, 'initialized(', 'document:Object, id:String)', 'void'),
+  \ flexapi#event('invoke', 'InvokeEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc.mxml')
@@ -1458,6 +1483,7 @@ call flexapi#class('Operation', 'AbstractOperation', [], [
   \ flexapi#field(0, 'headers', 'Array'),
   \ flexapi#field(0, 'token', 'AsyncToken'),
   \ flexapi#method(0, 'OperationPendingCall(', 'args:*, headers:Array, token:AsyncToken)', ''),
+  \ flexapi#event('propertyChange', 'PropertyChangeEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc.soap')
@@ -1588,6 +1614,7 @@ call flexapi#class('WebService', 'AbstractWebService', [], [
   \ flexapi#method(0, 'toString(', ')', 'String'),
   \ flexapi#const(1, 'DEFAULT_DESTINATION_HTTP', 'String'),
   \ flexapi#const(1, 'DEFAULT_DESTINATION_HTTPS', 'String'),
+  \ flexapi#event('load', 'LoadEvent'),
   \ ])
 
 call flexapi#namespace('mx.rpc.soap.mxml')

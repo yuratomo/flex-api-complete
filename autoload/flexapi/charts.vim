@@ -253,6 +253,11 @@ call flexapi#class('Legend', 'UIComponent', ['IContainer'], [
   \ flexapi#style(0, 'paddingTop', 'Number Length'),
   \ flexapi#style(1, 'textAlign', 'String'),
   \ flexapi#style(0, 'verticalScrollBarStyleName', 'String'),
+  \ flexapi#event('itemClick', 'LegendMouseEvent'),
+  \ flexapi#event('itemMouseDown', 'LegendMouseEvent'),
+  \ flexapi#event('itemMouseOut', 'LegendMouseEvent'),
+  \ flexapi#event('itemMouseOver', 'LegendMouseEvent'),
+  \ flexapi#event('itemMouseUp', 'LegendMouseEvent'),
   \ ])
 
 call flexapi#class('LegendRawChildrenList', '', [], [
@@ -562,6 +567,10 @@ call flexapi#class('CartesianChart', 'ChartBase', [], [
   \ flexapi#style(0, 'top', 'String'),
   \ flexapi#style(0, 'verticalAxisStyleNames', 'Array'),
   \ flexapi#style(0, 'verticalCenter', 'String'),
+  \ flexapi#event('change', 'ChartItemEvent'),
+  \ flexapi#event('itemClick', 'ChartItemEvent'),
+  \ flexapi#event('itemMouseMove', 'ChartItemEvent'),
+  \ flexapi#event('itemRollOver', 'ChartItemEvent'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')
@@ -739,6 +748,9 @@ call flexapi#class('ChartBase', 'UIComponent', ['IFocusManagerComponent'], [
   \ flexapi#style(1, 'textDecoration', 'String'),
   \ flexapi#style(1, 'textIndent', 'Number Length'),
   \ flexapi#style(0, 'top', 'String'),
+  \ flexapi#event('chartClick', 'ChartEvent'),
+  \ flexapi#event('itemDoubleClick', 'ChartItemEvent'),
+  \ flexapi#event('itemMouseUp', 'ChartItemEvent'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')
@@ -823,6 +835,8 @@ call flexapi#class('DataTip', 'UIComponent', ['IDataRenderer'], [
   \ flexapi#style(1, 'textDecoration', 'String'),
   \ flexapi#style(1, 'textIndent', 'Number Length'),
   \ flexapi#style(0, 'top', 'String'),
+  \ flexapi#event('hide', 'FlexEvent'),
+  \ flexapi#event('show', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')
@@ -833,6 +847,7 @@ call flexapi#class('DataTransform', 'EventDispatcher', [], [
   \ flexapi#method(0, 'dataChanged(', ')', 'void'),
   \ flexapi#method(0, 'getAxis(', 'dimension:String)', 'IAxis'),
   \ flexapi#method(0, 'setAxis(', 'dimension:String, v:IAxis)', 'void'),
+  \ flexapi#event('transformChange', 'FlexEvent'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')
@@ -1051,6 +1066,9 @@ call flexapi#class('PolarChart', 'ChartBase', [], [
   \ flexapi#method(0, 'getFirstItem(', 'direction:String)', 'ChartItem'),
   \ flexapi#method(0, 'getNextItem(', 'direction:String)', 'ChartItem'),
   \ flexapi#method(0, 'getPreviousItem(', 'direction:String)', 'ChartItem'),
+  \ flexapi#event('chartDoubleClick', 'ChartEvent'),
+  \ flexapi#event('itemMouseDown', 'ChartItemEvent'),
+  \ flexapi#event('itemRollOut', 'ChartItemEvent'),
   \ ])
 
 call flexapi#namespace('mx.charts.chartClasses')
