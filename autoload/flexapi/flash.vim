@@ -94,6 +94,23 @@ call flexapi#class('SQLConnection', 'EventDispatcher', [], [
   \ flexapi#method(0,'reencrypt(', 'newEncryptionKey:ByteArray, responder:Responder = null)', 'void'),
   \ flexapi#method(0,'removeEventListener(', 'type:String, listener:Function, useCapture:Boolean = false)', 'void '),
   \ flexapi#method(0,'rollback(', 'responder:Responder = null)', 'void'),
+  \ flexapi#event('analyze', 'SQLEvent'),
+  \ flexapi#event('attach', 'SQLEvent'),
+  \ flexapi#event('begin', 'SQLEvent'),
+  \ flexapi#event('cancel', 'SQLEvent'),
+  \ flexapi#event('close', 'SQLEvent'),
+  \ flexapi#event('commit', 'SQLEvent'),
+  \ flexapi#event('compact', 'SQLEvent'),
+  \ flexapi#event('deanalyze', 'SQLEvent'),
+  \ flexapi#event('delete', 'SQLUpdateEvent'),
+  \ flexapi#event('detach', 'SQLEvent'),
+  \ flexapi#event('error', 'SQLErrorEvent'),
+  \ flexapi#event('insert', 'SQLUpdateEvent'),
+  \ flexapi#event('open', 'SQLEvent'),
+  \ flexapi#event('reencrypt', 'SQLEvent'),
+  \ flexapi#event('rollback', 'SQLEvent'),
+  \ flexapi#event('schema', 'SQLEvent'),
+  \ flexapi#event('update', 'SQLUpdateEvent'),
   \ ])
 
 call flexapi#namespace('flash.data')
@@ -148,6 +165,8 @@ call flexapi#class('SQLStatement', 'EventDispatcher', [], [
   \ flexapi#method(0,'execute(', 'prefetch:int = -1, responder:Responder = null)', 'void'),
   \ flexapi#method(0,'getResult(', ')', 'SQLResult'),
   \ flexapi#method(0,'next(', 'prefetch:int = -1, responder:Responder = null)', 'void'),
+  \ flexapi#event('error', 'SQLErrorEvent'),
+  \ flexapi#event('result', 'SQLEvent'),
   \ ])
 
 call flexapi#namespace('flash.data')
@@ -265,6 +284,14 @@ call flexapi#class('NativeApplication', 'EventDispatcher', [], [
   \ flexapi#method(0,'removeEventListener(', 'type:String, listener:Function, useCapture:Boolean = false)', 'void '),
   \ flexapi#method(0,'selectAll(', ')', 'Boolean'),
   \ flexapi#method(0,'setAsDefaultApplication(', 'extension:String)', 'void'),
+  \ flexapi#event('activate', 'Event'),
+  \ flexapi#event('browserInvoke', 'BrowserInvokeEvent'),
+  \ flexapi#event('deactivate', 'Event'),
+  \ flexapi#event('exiting', 'Event'),
+  \ flexapi#event('invoke', 'InvokeEvent'),
+  \ flexapi#event('networkChange', 'Event'),
+  \ flexapi#event('userIdle', 'Event'),
+  \ flexapi#event('userPresent', 'Event'),
   \ ])
 
 call flexapi#namespace('flash.desktop')
@@ -306,6 +333,12 @@ call flexapi#class('SystemTrayIcon', 'InteractiveIcon', [], [
   \ flexapi#field(0, 'tooltip', 'String'),
   \ flexapi#field(0, 'width', 'int  '),
   \ flexapi#field(1, 'MAX_TIP_LENGTH', 'Number'),
+  \ flexapi#event('click', 'ScreenMouseEvent'),
+  \ flexapi#event('mouseDown', 'ScreenMouseEvent'),
+  \ flexapi#event('mouseUp', 'ScreenMouseEvent'),
+  \ flexapi#event('rightClick', 'ScreenMouseEvent'),
+  \ flexapi#event('rightMouseDown', 'ScreenMouseEvent'),
+  \ flexapi#event('rightMouseUp', 'ScreenMouseEvent'),
   \ ])
 
 call flexapi#namespace('flash.desktop')
@@ -461,6 +494,14 @@ call flexapi#class('DisplayObject', 'EventDispatcher', ['IBitmapDrawable'], [
   \ flexapi#method(0,'hitTestPoint(', 'x:Number, y:Number, shapeFlag:Boolean = false)', 'Boolean'),
   \ flexapi#method(0,'local3DToGlobal(', 'point3d:Vector3D)', 'Point'),
   \ flexapi#method(0,'localToGlobal(', 'point:Point)', 'Point'),
+  \ flexapi#event('added', 'Event'),
+  \ flexapi#event('addedToStage', 'Event'),
+  \ flexapi#event('enterFrame', 'Event'),
+  \ flexapi#event('exitFrame', 'Event'),
+  \ flexapi#event('frameConstructed', 'Event'),
+  \ flexapi#event('removed', 'Event'),
+  \ flexapi#event('removedFromStage', 'Event'),
+  \ flexapi#event('render', 'Event'),
   \ ])
 
 call flexapi#namespace('flash.display')
@@ -629,6 +670,45 @@ call flexapi#class('InteractiveObject', 'DisplayObject', [], [
   \ flexapi#field(0, 'tabEnabled', 'Boolean '),
   \ flexapi#field(0, 'tabIndex', 'int '),
   \ flexapi#method(0,'InteractiveObject(', ')', ''),
+  \ flexapi#event('clear', 'Event'),
+  \ flexapi#event('click', 'MouseEvent'),
+  \ flexapi#event('contextMenu', 'MouseEvent'),
+  \ flexapi#event('copy', 'Event'),
+  \ flexapi#event('cut', 'Event'),
+  \ flexapi#event('doubleClick', 'MouseEvent'),
+  \ flexapi#event('focusIn', 'FocusEvent'),
+  \ flexapi#event('focusOut', 'FocusEvent'),
+  \ flexapi#event('keyDown', 'KeyboardEvent'),
+  \ flexapi#event('keyFocusChange', 'FocusEvent'),
+  \ flexapi#event('keyUp', 'KeyboardEvent'),
+  \ flexapi#event('middleClick', 'MouseEvent'),
+  \ flexapi#event('middleMouseDown', 'MouseEvent'),
+  \ flexapi#event('middleMouseUp', 'MouseEvent'),
+  \ flexapi#event('mouseDown', 'MouseEvent'),
+  \ flexapi#event('mouseFocusChange', 'FocusEvent'),
+  \ flexapi#event('mouseMove', 'MouseEvent'),
+  \ flexapi#event('mouseOut', 'MouseEvent'),
+  \ flexapi#event('mouseOver', 'MouseEvent'),
+  \ flexapi#event('mouseUp', 'MouseEvent'),
+  \ flexapi#event('mouseWheel', 'MouseEvent'),
+  \ flexapi#event('nativeDragComplete', 'NativeDragEvent'),
+  \ flexapi#event('nativeDragDrop', 'NativeDragEvent'),
+  \ flexapi#event('nativeDragEnter', 'NativeDragEvent'),
+  \ flexapi#event('nativeDragExit', 'NativeDragEvent'),
+  \ flexapi#event('nativeDragOver', 'NativeDragEvent'),
+  \ flexapi#event('nativeDragStart', 'NativeDragEvent'),
+  \ flexapi#event('nativeDragUpdate', 'NativeDragEvent'),
+  \ flexapi#event('paste', 'Event'),
+  \ flexapi#event('rightClick', 'MouseEvent'),
+  \ flexapi#event('rightMouseDown', 'MouseEvent'),
+  \ flexapi#event('rightMouseUp', 'MouseEvent'),
+  \ flexapi#event('rollOut', 'MouseEvent'),
+  \ flexapi#event('rollOver', 'MouseEvent'),
+  \ flexapi#event('selectAll', 'Event'),
+  \ flexapi#event('tabChildrenChange', 'Event'),
+  \ flexapi#event('tabEnabledChange', 'Event'),
+  \ flexapi#event('tabIndexChange', 'Event'),
+  \ flexapi#event('textInput', 'TextEvent'),
   \ ])
 
 call flexapi#namespace('flash.display')
@@ -688,6 +768,13 @@ call flexapi#class('LoaderInfo', 'EventDispatcher', [], [
   \ flexapi#field(0, 'url', 'String '),
   \ flexapi#field(0, 'width', 'int '),
   \ flexapi#method(1,'getLoaderInfoByDefinition(', 'object:Object)', 'LoaderInfo'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('httpStatus', 'HTTPStatusEvent'),
+  \ flexapi#event('init', 'Event'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('open', 'Event'),
+  \ flexapi#event('progress', 'ProgressEvent'),
+  \ flexapi#event('unload', 'Event'),
   \ ])
 
 call flexapi#namespace('flash.display')
@@ -735,6 +822,8 @@ call flexapi#class('NativeMenu', 'EventDispatcher', [], [
   \ flexapi#method(0,'removeItem(', 'item:NativeMenuItem)', 'NativeMenuItem'),
   \ flexapi#method(0,'removeItemAt(', 'index:int)', 'NativeMenuItem'),
   \ flexapi#method(0,'setItemIndex(', 'item:NativeMenuItem, index:int)', 'void'),
+  \ flexapi#event('displaying', 'Event'),
+  \ flexapi#event('select', 'Event'),
   \ ])
 
 call flexapi#namespace('flash.display')
@@ -753,6 +842,8 @@ call flexapi#class('NativeMenuItem', 'EventDispatcher', [], [
   \ flexapi#method(0,'NativeMenuItem(', 'label:String = "", isSeparator:Boolean = false)', ''),
   \ flexapi#method(0,'clone(', ')', 'NativeMenuItem'),
   \ flexapi#method(0,'toString(', ')', 'String '),
+  \ flexapi#event('displaying', 'Event'),
+  \ flexapi#event('select', 'Event'),
   \ ])
 
 call flexapi#namespace('flash.display')
@@ -797,6 +888,16 @@ call flexapi#class('NativeWindow', 'EventDispatcher', [], [
   \ flexapi#method(0,'restore(', ')', 'void'),
   \ flexapi#method(0,'startMove(', ')', 'Boolean'),
   \ flexapi#method(0,'startResize(', 'edgeOrCorner:String)', 'Boolean'),
+  \ flexapi#event('activate', 'Event'),
+  \ flexapi#event('close', 'Event'),
+  \ flexapi#event('closing', 'Event'),
+  \ flexapi#event('deactivate', 'Event'),
+  \ flexapi#event('displayStateChange', 'NativeWindowDisplayStateEvent'),
+  \ flexapi#event('displayStateChanging', 'NativeWindowDisplayStateEvent'),
+  \ flexapi#event('move', 'NativeWindowBoundsEvent'),
+  \ flexapi#event('moving', 'NativeWindowBoundsEvent'),
+  \ flexapi#event('resize', 'NativeWindowBoundsEvent'),
+  \ flexapi#event('resizing', 'NativeWindowBoundsEvent'),
   \ ])
 
 call flexapi#namespace('flash.display')
@@ -914,6 +1015,7 @@ call flexapi#class('ShaderJob', 'EventDispatcher', [], [
   \ flexapi#method(0,'ShaderJob(', 'shader:Shader = null, target:Object = null, width:int = 0, height:int = 0)', ''),
   \ flexapi#method(0,'cancel(', ')', 'void'),
   \ flexapi#method(0,'start(', 'waitForCompletion:Boolean = false)', 'void'),
+  \ flexapi#event('complete', 'ShaderEvent'),
   \ ])
 
 call flexapi#namespace('flash.display')
@@ -1025,6 +1127,9 @@ call flexapi#class('Stage', 'DisplayObjectContainer', [], [
   \ flexapi#method(0,'setChildIndex(', 'child:DisplayObject, index:int)', 'void '),
   \ flexapi#method(0,'swapChildrenAt(', 'index1:int, index2:int)', 'void '),
   \ flexapi#method(0,'willTrigger(', 'type:String)', 'Boolean '),
+  \ flexapi#event('fullScreen', 'FullScreenEvent'),
+  \ flexapi#event('mouseLeave', 'Event'),
+  \ flexapi#event('resize', 'Event'),
   \ ])
 
 call flexapi#namespace('flash.display')
@@ -1328,6 +1433,8 @@ call flexapi#class('EventDispatcher', 'Object', ['IEventDispatcher'], [
   \ flexapi#method(0,'hasEventListener(', 'type:String)', 'Boolean'),
   \ flexapi#method(0,'removeEventListener(', 'type:String, listener:Function, useCapture:Boolean = false)', 'void'),
   \ flexapi#method(0,'willTrigger(', 'type:String)', 'Boolean'),
+  \ flexapi#event('activate', 'Event'),
+  \ flexapi#event('deactivate', 'Event'),
   \ ])
 
 call flexapi#namespace('flash.events')
@@ -1731,6 +1838,13 @@ call flexapi#class('File', 'FileReference', [], [
   \ flexapi#method(0,'moveToTrash(', ')', 'void'),
   \ flexapi#method(0,'moveToTrashAsync(', ')', 'void'),
   \ flexapi#method(0,'resolvePath(', 'path:String)', 'File'),
+  \ flexapi#event('cancel', 'Event'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('directoryListing', 'FileListEvent'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('securityError', 'SecurityErrorEvent'),
+  \ flexapi#event('select', 'Event'),
+  \ flexapi#event('selectMultiple', 'FileListEvent'),
   \ ])
 
 call flexapi#namespace('flash.filesystem')
@@ -1779,6 +1893,11 @@ call flexapi#class('FileStream', 'EventDispatcher', ['IDataInput', 'IDataOutput'
   \ flexapi#method(0,'writeUnsignedInt(', 'value:uint)', 'void'),
   \ flexapi#method(0,'writeUTF(', 'value:String)', 'void'),
   \ flexapi#method(0,'writeUTFBytes(', 'value:String)', 'void'),
+  \ flexapi#event('close', 'Event'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('outputProgress', 'OutputProgressEvent'),
+  \ flexapi#event('progress', 'ProgressEvent'),
   \ ])
 
 call flexapi#namespace('flash.filters')
@@ -2187,6 +2306,13 @@ call flexapi#class('HTMLLoader', 'Sprite', [], [
   \ flexapi#method(0,'load(', 'urlRequestToLoad:URLRequest)', 'void'),
   \ flexapi#method(0,'loadString(', 'htmlContent:String)', 'void'),
   \ flexapi#method(0,'reload(', ')', 'void'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('htmlBoundsChange', 'Event'),
+  \ flexapi#event('htmlDOMInitialize', 'Event'),
+  \ flexapi#event('htmlRender', 'Event'),
+  \ flexapi#event('locationChange', 'Event'),
+  \ flexapi#event('scroll', 'Event'),
+  \ flexapi#event('uncaughtScriptException', 'HTMLUncaughtScriptExceptionEvent'),
   \ ])
 
 call flexapi#namespace('flash.html')
@@ -2236,6 +2362,8 @@ call flexapi#class('Camera', 'EventDispatcher', [], [
   \ flexapi#method(0,'setMode(', 'width:int, height:int, fps:Number, favorArea:Boolean = true)', 'void'),
   \ flexapi#method(0,'setMotionLevel(', 'motionLevel:int, timeout:int = 2000)', 'void'),
   \ flexapi#method(0,'setQuality(', 'bandwidth:int, quality:int)', 'void'),
+  \ flexapi#event('activity', 'ActivityEvent'),
+  \ flexapi#event('status', 'StatusEvent'),
   \ ])
 
 call flexapi#namespace('flash.media')
@@ -2269,6 +2397,8 @@ call flexapi#class('Microphone', 'EventDispatcher', [], [
   \ flexapi#method(0,'setLoopBack(', 'state:Boolean = true)', 'void'),
   \ flexapi#method(0,'setSilenceLevel(', 'silenceLevel:Number, timeout:int = -1)', 'void'),
   \ flexapi#method(0,'setUseEchoSuppression(', 'useEchoSuppression:Boolean)', 'void'),
+  \ flexapi#event('activity', 'ActivityEvent'),
+  \ flexapi#event('status', 'StatusEvent'),
   \ ])
 
 call flexapi#namespace('flash.media')
@@ -2284,6 +2414,12 @@ call flexapi#class('Sound', 'EventDispatcher', [], [
   \ flexapi#method(0,'extract(', 'target:ByteArray, length:Number, startPosition:Number = -1)', 'Number'),
   \ flexapi#method(0,'load(', 'stream:URLRequest, context:SoundLoaderContext = null)', 'void'),
   \ flexapi#method(0,'play(', 'startTime:Number = 0, loops:int = 0, sndTransform:flash.media:SoundTransform = null)', 'SoundChannel'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('id3', 'Event'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('open', 'Event'),
+  \ flexapi#event('progress', 'ProgressEvent'),
+  \ flexapi#event('sampleData', 'SampleDataEvent'),
   \ ])
 
 call flexapi#namespace('flash.media')
@@ -2293,6 +2429,7 @@ call flexapi#class('SoundChannel', 'EventDispatcher', [], [
   \ flexapi#field(0, 'rightPeak', 'Number  '),
   \ flexapi#field(0, 'soundTransform', 'flash.media:SoundTransform '),
   \ flexapi#method(0,'stop(', ')', 'void '),
+  \ flexapi#event('soundComplete', 'Event'),
   \ ])
 
 call flexapi#namespace('flash.media')
@@ -2367,6 +2504,16 @@ call flexapi#class('FileReference', 'EventDispatcher', [], [
   \ flexapi#method(0,'save(', 'data:*, defaultFileName:String = null)', 'void'),
   \ flexapi#method(0,'upload(', 'request:URLRequest, uploadDataFieldName:String = "Filedata", testUpload:Boolean = false)', 'void'),
   \ flexapi#method(0,'uploadUnencoded(', 'request:URLRequest)', 'void'),
+  \ flexapi#event('cancel', 'Event'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('httpResponseStatus', 'HTTPStatusEvent'),
+  \ flexapi#event('httpStatus', 'HTTPStatusEvent'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('open', 'Event'),
+  \ flexapi#event('progress', 'ProgressEvent'),
+  \ flexapi#event('securityError', 'SecurityErrorEvent'),
+  \ flexapi#event('select', 'Event'),
+  \ flexapi#event('uploadCompleteData', 'DataEvent'),
   \ ])
 
 call flexapi#namespace('flash.net')
@@ -2374,6 +2521,8 @@ call flexapi#class('FileReferenceList', 'EventDispatcher', [], [
   \ flexapi#field(0, 'fileList', 'Array '),
   \ flexapi#method(0,'FileReferenceList(', ')', ''),
   \ flexapi#method(0,'browse(', 'typeFilter:Array = null)', 'Boolean'),
+  \ flexapi#event('cancel', 'Event'),
+  \ flexapi#event('select', 'Event'),
   \ ])
 
 call flexapi#class('IDynamicPropertyOutput', '', [], [
@@ -2392,6 +2541,9 @@ call flexapi#class('LocalConnection', 'EventDispatcher', [], [
   \ flexapi#method(0,'close(', ')', 'void'),
   \ flexapi#method(0,'connect(', 'connectionName:String)', 'void'),
   \ flexapi#method(0,'send(', 'connectionName:String, methodName:String, ... arguments)', 'void'),
+  \ flexapi#event('asyncError', 'AsyncErrorEvent'),
+  \ flexapi#event('securityError', 'SecurityErrorEvent'),
+  \ flexapi#event('status', 'StatusEvent'),
   \ ])
 
 call flexapi#namespace('flash.net')
@@ -2416,6 +2568,10 @@ call flexapi#class('NetConnection', 'EventDispatcher', [], [
   \ flexapi#method(0,'call(', 'command:String, responder:Responder, ... arguments)', 'void'),
   \ flexapi#method(0,'close(', ')', 'void'),
   \ flexapi#method(0,'connect(', 'command:String, ... arguments)', 'void'),
+  \ flexapi#event('asyncError', 'AsyncErrorEvent'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('netStatus', 'NetStatusEvent'),
+  \ flexapi#event('securityError', 'SecurityErrorEvent'),
   \ ])
 
 call flexapi#namespace('flash.net')
@@ -2458,6 +2614,20 @@ call flexapi#class('NetStream', 'EventDispatcher', [], [
   \ flexapi#method(0,'togglePause(', ')', 'void'),
   \ flexapi#field(1, 'CONNECT_TO_FMS', 'String'),
   \ flexapi#field(1, 'DIRECT_CONNECTIONS', 'String'),
+  \ flexapi#event('asyncError', 'AsyncErrorEvent'),
+  \ flexapi#event('drmAuthenticate', 'DRMAuthenticateEvent'),
+  \ flexapi#event('drmError', 'DRMErrorEvent'),
+  \ flexapi#event('drmStatus', 'DRMStatusEvent'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('netStatus', 'NetStatusEvent'),
+  \ flexapi#event('onCuePoint', 'onCuePoint'),
+  \ flexapi#event('onDRMContentData', 'onDRMContentData'),
+  \ flexapi#event('onImageData', 'onImageData'),
+  \ flexapi#event('onMetaData', 'onMetaData'),
+  \ flexapi#event('onPlayStatus', 'netStatus'),
+  \ flexapi#event('onTextData', 'onTextData'),
+  \ flexapi#event('onXMPData', 'onXMPData'),
+  \ flexapi#event('status', 'StatusEvent'),
   \ ])
 
 call flexapi#namespace('flash.net')
@@ -2533,6 +2703,9 @@ call flexapi#class('SharedObject', 'EventDispatcher', [], [
   \ flexapi#method(0,'send(', '... arguments)', 'void'),
   \ flexapi#method(0,'setDirty(', 'propertyName:String)', 'void'),
   \ flexapi#method(0,'setProperty(', 'propertyName:String, value:Object = null)', 'void'),
+  \ flexapi#event('asyncError', 'AsyncErrorEvent'),
+  \ flexapi#event('netStatus', 'NetStatusEvent'),
+  \ flexapi#event('sync', 'SyncEvent'),
   \ ])
 
 call flexapi#namespace('flash.net')
@@ -2578,6 +2751,11 @@ call flexapi#class('Socket', 'EventDispatcher', ['IDataInput', 'IDataOutput'], [
   \ flexapi#method(0,'writeUnsignedInt(', 'value:uint)', 'void'),
   \ flexapi#method(0,'writeUTF(', 'value:String)', 'void'),
   \ flexapi#method(0,'writeUTFBytes(', 'value:String)', 'void'),
+  \ flexapi#event('close', 'Event'),
+  \ flexapi#event('connect', 'Event'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('securityError', 'SecurityErrorEvent'),
+  \ flexapi#event('socketData', 'ProgressEvent'),
   \ ])
 
 call flexapi#namespace('flash.net')
@@ -2590,6 +2768,13 @@ call flexapi#class('URLLoader', 'EventDispatcher', [], [
   \ flexapi#method(0,'addEventListener(', 'type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false)', 'void '),
   \ flexapi#method(0,'close(', ')', 'void'),
   \ flexapi#method(0,'load(', 'request:URLRequest)', 'void'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('httpResponseStatus', 'HTTPStatusEvent'),
+  \ flexapi#event('httpStatus', 'HTTPStatusEvent'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('open', 'Event'),
+  \ flexapi#event('progress', 'ProgressEvent'),
+  \ flexapi#event('securityError', 'SecurityErrorEvent'),
   \ ])
 
 call flexapi#namespace('flash.net')
@@ -2666,6 +2851,13 @@ call flexapi#class('URLStream', 'EventDispatcher', ['IDataInput'], [
   \ flexapi#method(0,'readUnsignedShort(', ')', 'uint'),
   \ flexapi#method(0,'readUTF(', ')', 'String'),
   \ flexapi#method(0,'readUTFBytes(', 'length:uint)', 'String'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('httpResponseStatus', 'HTTPStatusEvent'),
+  \ flexapi#event('httpStatus', 'HTTPStatusEvent'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('open', 'Event'),
+  \ flexapi#event('progress', 'ProgressEvent'),
+  \ flexapi#event('securityError', 'SecurityErrorEvent'),
   \ ])
 
 call flexapi#namespace('flash.net')
@@ -2683,6 +2875,11 @@ call flexapi#class('XMLSocket', 'EventDispatcher', [], [
   \ flexapi#method(0,'close(', ')', 'void'),
   \ flexapi#method(0,'connect(', 'host:String, port:int)', 'void'),
   \ flexapi#method(0,'send(', 'object:*)', 'void'),
+  \ flexapi#event('close', 'Event'),
+  \ flexapi#event('connect', 'Event'),
+  \ flexapi#event('data', 'DataEvent'),
+  \ flexapi#event('ioError', 'IOErrorEvent'),
+  \ flexapi#event('securityError', 'SecurityErrorEvent'),
   \ ])
 
 call flexapi#namespace('flash.net.drm')
@@ -2706,6 +2903,10 @@ call flexapi#class('DRMManager', 'EventDispatcher', [], [
   \ flexapi#method(0,'loadVoucher(', 'contentData:DRMContentData, setting:String)', 'void'),
   \ flexapi#method(0,'resetDRMVouchers(', ')', 'void'),
   \ flexapi#method(0,'setAuthenticationToken(', 'serverUrl:String, domain:String, token:ByteArray)', 'void'),
+  \ flexapi#event('authenticationComplete', 'DRMAuthenticationCompleteEvent'),
+  \ flexapi#event('authenticationError', 'DRMAuthenticationErrorEvent'),
+  \ flexapi#event('loadVoucherComplete', 'DRMStatusEvent'),
+  \ flexapi#event('loadVoucherError', 'DRMErrorEvent'),
   \ ])
 
 call flexapi#namespace('flash.net.drm')
@@ -2844,6 +3045,8 @@ call flexapi#class('XMLSignatureValidator', 'EventDispatcher', [], [
   \ flexapi#method(0,'XMLSignatureValidator(', ')', ''),
   \ flexapi#method(0,'addCertificate(', 'cert:ByteArray, trusted:Boolean)', '*'),
   \ flexapi#method(0,'verify(', 'signature:XML)', 'void'),
+  \ flexapi#event('complete', 'Event'),
+  \ flexapi#event('error', 'ErrorEvent'),
   \ ])
 
 call flexapi#namespace('flash.system')
@@ -2902,6 +3105,7 @@ call flexapi#class('IME', 'EventDispatcher', [], [
   \ flexapi#method(0,'doConversion(', ')', 'void '),
   \ flexapi#method(1,'compositionSelectionChanged(', 'start:int, end:int)', 'void'),
   \ flexapi#method(1,'setCompositionString(', 'composition:String)', 'void'),
+  \ flexapi#event('imeComposition', 'IMEEvent'),
   \ ])
 
 call flexapi#namespace('flash.system')
@@ -3116,6 +3320,10 @@ call flexapi#class('TextField', 'nteractiveObject', [], [
   \ flexapi#method(0,'replaceText(', 'beginIndex:int, endIndex:int, newText:String)', 'void'),
   \ flexapi#method(0,'setSelection(', 'beginIndex:int, endIndex:int)', 'void'),
   \ flexapi#method(0,'setTextFormat(', 'format:flash.text:TextFormat, beginIndex:int = -1, endIndex:int = -1)', 'void'),
+  \ flexapi#event('change', 'Event'),
+  \ flexapi#event('link', 'TextEvent'),
+  \ flexapi#event('scroll', 'Event'),
+  \ flexapi#event('textInput', 'TextEvent'),
   \ ])
 
 call flexapi#namespace('flash.text')
@@ -3574,6 +3782,7 @@ call flexapi#class('ContextMenu', 'NativeMenu', [], [
   \ flexapi#method(0,'hideBuiltInItems(', ')', 'void'),
   \ flexapi#method(0,'removeAllItems(', ')', 'void '),
   \ flexapi#method(0,'removeItemAt(', 'index:int)', 'NativeMenuItem '),
+  \ flexapi#event('menuSelect', 'ContextMenuEvent'),
   \ ])
 
 call flexapi#namespace('flash.ui')
@@ -3606,6 +3815,7 @@ call flexapi#class('ContextMenuItem', 'NativeMenuItem', [], [
   \ flexapi#field(0, 'visible', 'Boolean'),
   \ flexapi#method(0,'ContextMenuItem(', 'caption:String, separatorBefore:Boolean = false, enabled:Boolean = true, visible:Boolean = true)', ''),
   \ flexapi#method(0,'clone(', ')', 'NativeMenuItem '),
+  \ flexapi#event('menuItemSelect', 'ContextMenuEvent'),
   \ ])
 
 call flexapi#namespace('flash.ui')
@@ -4003,6 +4213,8 @@ call flexapi#class('Timer', 'EventDispatcher', [], [
   \ flexapi#method(1,'reset(', ')', 'void'),
   \ flexapi#method(0,'start(', ')', 'void'),
   \ flexapi#method(0,'stop(', ')', 'void'),
+  \ flexapi#event('timer', 'TimerEvent'),
+  \ flexapi#event('timerComplete', 'TimerEvent'),
   \ ])
 
 call flexapi#namespace('flash.xml')
