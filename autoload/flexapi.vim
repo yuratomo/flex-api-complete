@@ -475,6 +475,12 @@ function! s:attr_completion(tag, base, res, static)
   if item.extend != '' && item.extend != '-'
     call s:attr_completion(item.extend, a:base, a:res, a:static)
   endif
+  " find implements interface member
+  if has_key(item, 'implements') && !empty(item.implements)
+    for implement in item.implements
+      call s:attr_completion(implement, a:base, a:res, a:static)
+    endfor
+  endif
 endfunction
 
 function! s:abbr(str)
