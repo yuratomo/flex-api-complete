@@ -2,7 +2,7 @@
 " Last Modified: 2013.02.02
 " Version: 1.0.0
 " Author: yuratomo
-let [ s:TYPE_FUNCTION, s:TYPE_NAMESPACE, s:TYPE_CLASS, s:TYPE_ENUM , s:TYPE_METHOD, s:TYPE_FIELD, s:MODE_NEW_CLASS ] = range(7)
+let [ s:TYPE_FUNCTION, s:TYPE_NAMESPACE, s:TYPE_CLASS, s:TYPE_ENUM , s:TYPE_METHOD, s:TYPE_FIELD, s:MODE_NEW_CLASS, s:TYPE_KEYWORD ] = range(8)
 let [ s:MODE_NAMESPACE, s:MODE_CLASS, s:MODE_MEMBER, s:MODE_ENUM, s:MODE_NEW_CLASS, s:MODE_EQUAL, s:MODE_STATIC ] = range(7)
 let [ s:ROOT_IS_CLASS, s:ROOT_IS_VAR ] = range(2)
 
@@ -165,6 +165,7 @@ function! flexapi#complete(findstart, base)
       call s:ns_completion(a:base, res)
 
     elseif s:complete_mode == s:MODE_CLASS
+      call s:keyword_completion(a:base, res)
       call flexapi#function_completion(a:base, res)
       call flexapi#class_completion(a:base, res)
 
@@ -221,6 +222,14 @@ function! flexapi#function_completion(base, res)
   endfor
 endfunction
 
+function! s:keyword_completion(base, res)
+  for fun in s:keyword
+    if fun.name =~ '^' . a:base
+      call add(a:res, s:keyword_to_compitem(fun))
+    endif
+  endfor
+endfunction
+
 function! s:ns_completion(base, res)
   for ns in s:namespace
     if ns =~ '^' . a:base
@@ -271,7 +280,7 @@ function! s:class_member_completion(base, res, type)
     let type = substitute(type, '.*:', '', '')
   endif
 
-  " std .net class member ?
+  " actionscript class member ?
   let class = s:conv_primitive(s:normalize_type(type))
   for part in parts
     if idx == 0
@@ -287,7 +296,6 @@ function! s:class_member_completion(base, res, type)
           endif
           break
         endif
-        echoerr string(item)
       else
         let item = flexapi#getEnum(class)
       endif
@@ -429,13 +437,13 @@ function! s:this_class(start_line)
   let s = a:start_line
   while s >= 0
     let line = getline(s)
-    if line =~ '.*\s\+class\s\+' && line !~ "^\s*\/\/"
+    if line =~ '.*\<class\s\+' && line !~ "^\s*\/\/"
       let finded_class = 1
-      let _class = substitute(substitute(line, '.*class\s\+', '', ''), '\s\+.*$', '', '')
+      let _class = substitute(substitute(line, '.*\<class\s\+', '', ''), '\s\+.*$', '', '')
     endif
     if finded_class == 1
       if line =~ '.*\s\+extends\s\+' && line !~ "^\s*\/\/"
-        let _super = substitute(substitute(line, '.*extends\s\+', '', ''), '\s\+.*$', '', '')
+        let _super = substitute(substitute(line, '.*\<extends\s\+', '', ''), '\s\+.*$', '', '')
       endif
       if line =~ '{'
         break
@@ -535,6 +543,14 @@ function! s:class_to_compitem(member)
     \}
 endfunction
 
+function! s:keyword_to_compitem(func)
+  return {
+    \ 'word' : a:func.name, 
+    \ 'menu' : a:func.detail,
+    \ 'kind' : 't',
+    \}
+endfunction
+
 function! s:func_to_compitem(func)
   let preinfo = ''
   if has_key(a:func, 'file') && a:func.file != ''
@@ -614,6 +630,16 @@ function! flexapi#namespace(ns)
     " last namespace (for flexapi#class)
     let s:parent = flexapi#getClass(part)
   endfor
+endfunction
+
+let s:keyword = []
+function! flexapi#keyword(name, detail)
+  call add(s:keyword, 
+    \ {
+    \ 'type'      : s:TYPE_KEYWORD,
+    \ 'name'      : a:name,
+    \ 'detail'    : a:detail
+    \ })
 endfunction
 
 function! s:def_class(name, extend, members)
