@@ -10,6 +10,7 @@ let g:flex_complete_item_len = 30
 let s:complete_mode = s:MODE_CLASS
 let s:type = ''
 let s:parts = []
+let s:last_list = []
 
 let g:flex_access_modifier = [
   \ 'public',
@@ -209,6 +210,7 @@ function! flexapi#complete(findstart, base)
       endif
       call s:class_member_completion(a:base, res, 0)
     endif
+    let s:last_list = res
     return res
 
   endif
@@ -932,45 +934,14 @@ function! s:ref(word, lnum, col)
   endif
 
   let [ pstart, complete_mode, s:type, s:parts ] = s:analize(a:lnum, cc)
-  if !empty(s:parts)
-    if a:word == ''
-      let s:parts[-1] = line[ pstart : cc]
-    else
-      let s:parts[-1] = substitute(a:word, '.*\.', '', '')
+  let menus = []
+  let l = line[ pstart : cc]
+  for member in s:last_list
+   if member.word =~ '^' . l
+      call add(menus, member.menu)
     endif
-    let res = []
-    if len(s:parts) == 1
-      if complete_mode == s:MODE_CLASS
-        call flexapi#function_completion(s:parts[0], res)
-        let menus = []
-        for member in res
-          call add(menus, member.menu)
-        endfor
-      else
-        if !flexapi#isClassExist(s:parts[0])
-          return [ "" ]
-        endif
-        let item = flexapi#getClass(s:parts[0])
-        let menus = []
-        for member in item.members
-         if member.name =~ '^' . s:parts[0]
-            call add(menus, 
-              \ '[' . s:parts[0] . '] ' . member.name . member.detail)
-          endif
-        endfor
-      endif
-      return menus
-    else
-      call add(s:parts, '')
-      call s:class_member_completion(s:parts[-2], res, 0)
-      let menus = []
-      for member in res
-        call add(menus, member.menu)
-      endfor
-      return menus
-    endif
-  endif
-  return [ "" ]
+  endfor
+  return menus
 endfunction
 
 " delay load
@@ -1028,3 +999,4 @@ endif
 function! flexapi#classes()
   return [ s:class, s:enum, []]
 endfunction
+
