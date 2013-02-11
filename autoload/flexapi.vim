@@ -348,7 +348,12 @@ function! s:class_member_completion(base, res, type)
     elseif a:type == 1
       call s:enum_member_completion(item.name, a:base, a:res)
       if !has_key(s:primitive_dict, item.name)
-        call add(a:res, flexapi#member_to_compitem('new ' . item.name . '(', {}))
+        let newitem = flexapi#member_to_compitem('new ' . item.name . '(', {})
+        let newitem.menu = 'create new instance'
+        call add(a:res, newitem)
+        let newitem = flexapi#member_to_compitem(item.name . '(', {})
+        let newitem.menu = 'for cast'
+        call add(a:res, newitem)
       endif
       if empty(a:res)
         call flexapi#class_completion(a:base, a:res)
