@@ -95,7 +95,7 @@ function! s:analize(line, cur)
 
   " separate variable by dot and resolve type.
   let type = { 'class' : '' }
-  let parts = split(s:normalize_prop(variable), '\.')
+  let parts = split(s:normalize_prop(variable), '\(\.\|:\)')
   if !empty(parts)
     if line[cur-1] == '.'
       call add(parts, '')
@@ -127,10 +127,14 @@ function! s:analize(line, cur)
       let vstart = idx+1
 
       let variable = line[ vstart : vend ]
-      let parts = split(s:normalize_prop(variable), '\.')
+      let parts = split(s:normalize_prop(variable), '\(\.\|:\)')
       let type = s:find_type(a:line, parts[0])
-      let pstart = col('.')+1
+      " this class member
+      if type.class == variable
+        call insert(parts, 'this', 0)
+      endif
       call add(parts, '')
+      let pstart = col('.')+1
 
     elseif idx >= 3 && line[ idx-3 : ] =~ '\<new\>'
       " find target variable
@@ -144,7 +148,7 @@ function! s:analize(line, cur)
       while new_vstart > 0 && line[new_vstart - 1] !~ '[ \t"]'
         let new_vstart -= 1
       endwhile
-      let new_vparts = split(s:normalize_prop(line[ new_vstart : idx ]), '\.')
+      let new_vparts = split(s:normalize_prop(line[ new_vstart : idx ]), '\(\.\|:\)')
       let type = s:find_type(a:line, new_vparts[0])
 
       let compmode = s:MODE_NEW_CLASS
@@ -167,6 +171,7 @@ function! flexapi#complete(findstart, base)
 
     elseif s:complete_mode == s:MODE_CLASS
       call s:keyword_completion(a:base, res)
+      call s:this_member_completion(a:base, res)
       call flexapi#function_completion(a:base, res)
       call flexapi#class_completion(a:base, res)
 
@@ -202,7 +207,7 @@ function! flexapi#complete(findstart, base)
           endif
         endfor
 
-        if match_ns == 1 || s:parts[0] == 'flex'
+        if match_ns == 1 || s:parts[0] == 'flash'
           let s:type = substitute(type, '.*\.', '', '')
         elseif flexapi#isEnumExist(s:parts[0])
           let s:type = s:parts[0]
@@ -238,6 +243,16 @@ function! s:ns_completion(base, res)
       call add(a:res, s:ns_to_compitem(ns))
     endif
   endfor
+endfunction
+
+function! s:this_member_completion(base, res)
+    let type = s:type
+    let parts = s:parts
+    let s:type = 'this'
+    let s:parts = [ 'this', '' ]
+    call s:class_member_completion(a:base, a:res, 0)
+    let s:type = type
+    let s:parts = parts
 endfunction
 
 function! flexapi#class_completion(base, res)
@@ -474,10 +489,14 @@ endfunction
 
 function! s:attr_completion(tag, base, res, static)
   if !flexapi#isClassExist(a:tag)
-    return
+    let item = flexapi#getTag(a:tag)
+    if empty(item)
+      return
+    endif
+  else
+    let item = flexapi#getClass(a:tag)
   endif
-
-  let item = flexapi#getClass(a:tag)
+  
   for member in item.members
     if a:static == 1 && member.static == 0
       continue
@@ -486,6 +505,7 @@ function! s:attr_completion(tag, base, res, static)
       call add(a:res, flexapi#member_to_compitem(item.name, member))
     endif
   endfor
+
   " find super class member
   if item.extend != '' && item.extend != '-'
     call s:attr_completion(item.extend, a:base, a:res, a:static)
