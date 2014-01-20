@@ -930,6 +930,14 @@ function! s:prevNextRef(adjust)
   return ""
 endfunction
 
+function! flexapi#reshowRef()
+  if exists("b:ref")
+    if b:ref.line == line('.')
+      call flexapi#showRef()
+    endif
+  endif
+endfunction
+
 function! flexapi#checkLineForRef()
   if exists("b:ref")
     if b:ref.line != line('.')
@@ -942,6 +950,7 @@ function! flexapi#clearRef()
   let &l:statusline = g:flexapi#statusline
   augroup flexapi
     au!
+    au InsertEnter  <buffer> call flexapi#reshowRef()
   augroup END
 endfunction
 
